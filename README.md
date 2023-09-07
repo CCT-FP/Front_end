@@ -3,4 +3,4 @@
 # Front_end
 
 [![Solved.ac
-프로필](http://mazassumnida.wtf/api/generate_badge?boj={[handle](https://github.com/PBEM22)})](https://solved.ac/{[handle](https://github.com/PBEM22)https://github.com/PBEM22})
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj={[[handle](https://github.com/PBEM22)](https://github.com/PBEM22)})](https://solved.ac/{https://github.com/PBEM22})
