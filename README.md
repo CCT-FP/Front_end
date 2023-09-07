@@ -3,4 +3,4 @@
 # Front_end
 
 [![Solved.ac
-프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=임채륜)](https://solved.ac/{https://github.com/PBEM22})
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=임채륜)](https://github.com/PBEM22)
