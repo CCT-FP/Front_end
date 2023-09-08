@@ -4,12 +4,17 @@
     justify-content: space-between;
     align-items: center;
 }
+.headerbar-header{
+    display: flex;
+    justify-content: space-between;
+    width: 70vw;
+}
 .headerbtn{
     background-color: white;
     border: none;
 }
 .headerbar-navigation{
     display: flex;
-    width: 100vw;
+    width: 70vw;
     justify-content: space-between;
 }
