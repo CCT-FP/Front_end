@@ -1,0 +1,15 @@
+.headerbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerbtn{
+    background-color: white;
+    border: none;
+}
+.headerbar-navigation{
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+}
