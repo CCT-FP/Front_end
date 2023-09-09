@@ -1,0 +1,20 @@
+.joinbox{
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+}
+.joinbox-titlebox{
+    width: 60vw;
+    border-bottom: 3px solid #03580B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.joinbox-countbox{
+    width: 60vw;
+    display: flex;
+    justify-content: end;
+}
+.countbox__countpage{
+
+}
