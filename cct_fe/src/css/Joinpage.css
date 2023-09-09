@@ -2,6 +2,7 @@
     margin-top: 10vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .joinbox-titlebox{
     width: 60vw;
@@ -15,6 +16,46 @@
     display: flex;
     justify-content: end;
 }
-.countbox__countpage{
-
+.joinbox-selectbox{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 60vw;
+   height: 50vh;
 }
+.joinbox-companybox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 25vw;
+    height: 35vh;
+    border: 5px solid #03580B;
+    border-radius: 50px;
+    &:hover{
+        transform: scale(105%);
+        color: blue;
+    }
+    &:active{
+        transform: scale(95%);
+    }
+}
+.joinbox-freelancerbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 25vw;
+    height: 35vh;
+    border: 5px solid #03580B; 
+    border-radius: 50px;
+    background-color: #03580B;
+    &:hover{
+        transform: scale(105%);
+        color: white;
+    }
+    &:active{
+        transform: scale(95%);
+    }
+}
+
