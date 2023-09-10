@@ -1,24 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import '../css/Joinpage.css'
-import {BsFillBuildingFill} from 'react-icons/bs'
-import {MdOutlineEmojiPeople} from 'react-icons/md'
 import { useNavigate } from "react-router-dom";
-import Agreepage from "./Agreepage";
 
 export default function Joinpage () {
-    const [selectbox, setSelectbox] = useState(null);
     const navigate = useNavigate()
 
     const MovetoAgree = e => {
-        setSelectbox(e.target.title)
-        console.log(e.target.title)
+        const selected = e.target.title
+        navigate('/joinpage/agreepage', { state: { selected : selected} })
     }
 
     return(
-        <>
-        {
-            selectbox ? <Agreepage/> :
-            <div className="joinbox">
+        <div className="joinbox">
             <div className="joinbox-titlebox">
                 <h1 className="joinbox-titlebox__title">회원가입</h1>
             </div>
@@ -27,19 +20,14 @@ export default function Joinpage () {
             </div>
             <div className="joinbox-selectbox">
                 <div className="joinbox-companybox" title="company" onClick={MovetoAgree}>
-                    <BsFillBuildingFill size={130}/>
-                    {/*기업 이모지 들어갈 곳*/}
-                    <h2 className="joinbox-companybox__companytext">기업</h2>
+                    <div className="companyimg" title="company"></div>
+                    <h2 className="joinbox-companybox__companytext" title="company">기업</h2>
                 </div>
                 <div className="joinbox-freelancerbox" title="freelancer" onClick={MovetoAgree}>
-                    <MdOutlineEmojiPeople size={130}/>
-                    {/*프리랜서이모지 */}
-                    <h2 className="joinbox-freelancerbox__freelancertext">프리랜서</h2>
+                    <div className="freelancerimg" title="freelancer"></div>
+                    <h2 className="joinbox-freelancerbox__freelancertext" title="freelancer">프리랜서</h2>
                 </div>
             </div>   
         </div>
-        } 
-        </>    
-       
     )
 }

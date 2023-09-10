@@ -32,13 +32,20 @@
     height: 35vh;
     border: 5px solid #03580B;
     border-radius: 50px;
+    cursor: pointer;
     &:hover{
         transform: scale(105%);
-        color: blue;
     }
     &:active{
         transform: scale(95%);
     }
+}
+.companyimg{
+    width: 15rem;
+    height: 15rem;
+    background-image: url('../img/company.png');
+    background-repeat: no-repeat;
+    background-position: 0.8rem 0.5rem;
 }
 .joinbox-freelancerbox{
     display: flex;
@@ -50,12 +57,18 @@
     border: 5px solid #03580B; 
     border-radius: 50px;
     background-color: #03580B;
+    cursor: pointer;
     &:hover{
         transform: scale(105%);
-        color: white;
     }
     &:active{
         transform: scale(95%);
     }
 }
-
+.freelancerimg{
+    width: 15rem;
+    height: 15rem;
+    background-image: url('../img/freelancer.png');
+    background-repeat: no-repeat;
+    background-position: 0.6rem 0.5rem;
+}
