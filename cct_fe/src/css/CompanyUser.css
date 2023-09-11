@@ -4,3 +4,10 @@
     flex-direction: column;
     align-items: center;
 }
+.CompanyUserinfobox-titlebox{
+    width: 60vw;
+    border-bottom: 3px solid #03580B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

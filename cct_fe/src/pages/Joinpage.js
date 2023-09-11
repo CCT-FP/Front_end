@@ -19,13 +19,13 @@ export default function Joinpage () {
                 <h3 className="joinbox-countbox__countpage">1 / 3</h3>
             </div>
             <div className="joinbox-selectbox">
-                <div className="joinbox-companybox" title="company" onClick={MovetoAgree}>
+                <div className="joinbox-companybox" title='company' onClick={MovetoAgree}>
                     <div className="companyimg" title="company"></div>
                     <h2 className="joinbox-companybox__companytext" title="company">기업</h2>
                 </div>
-                <div className="joinbox-freelancerbox" title="freelancer" onClick={MovetoAgree}>
-                    <div className="freelancerimg" title="freelancer"></div>
-                    <h2 className="joinbox-freelancerbox__freelancertext" title="freelancer">프리랜서</h2>
+                <div className="joinbox-freelancerbox" title="" onClick={MovetoAgree}>
+                    <div className="freelancerimg" title=""></div>
+                    <h2 className="joinbox-freelancerbox__freelancertext" title="">프리랜서</h2>
                 </div>
             </div>   
         </div>

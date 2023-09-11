@@ -7,7 +7,6 @@ export default function Freelancerpage (){
     return (
         <div>
             <div className="header">
-        
             </div>
 
              <div className="freelancer-content-body">  {/* 프리랜서 페이지 컨텐츠 구역 */}
