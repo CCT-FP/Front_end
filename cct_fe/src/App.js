@@ -8,6 +8,7 @@ import Freelancerpage from './pages/Freelancerpage';
 import Mypage from './pages/Mypage';
 import Agreepage from './pages/Agreepage';
 import Userinfo from './pages/Userinfo';
+import WriteResume from './pages/WriteResume';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/freelancerpage' element={<Freelancerpage/>}/>
           <Route path='/mypage' element={<Mypage/>}/>
           <Route path='/joinpage/userinfo' element={<Userinfo/>}/>
+          <Route path='/resume/writeresume' element={<WriteResume/>}/>
         </Routes>
     </BrowserRouter>
   );

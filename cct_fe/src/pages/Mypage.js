@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Mypage(){
+    const navigate = useNavigate()
     const ResumeList = (lang, yes, place, title) => {
 
         return(
@@ -10,7 +12,9 @@ export default function Mypage(){
             </div>
         )
     }
-
+    const writeResume = e => {
+         navigate('/resume/writeresume')
+    }
     return (
         <div className="content">
             <div className="mypage-top">
@@ -25,7 +29,7 @@ export default function Mypage(){
                     <h2>이력서 수정</h2>
                 </div>
                 <div className="mypage-write-resume">
-                    <button className="mypage-write-resume-btn">이력서 작성</button>
+                    <button className="mypage-write-resume-btn" onClick={writeResume}>이력서 작성</button>
                 </div>
                 <div className="mypage-int"></div>
             </div>
