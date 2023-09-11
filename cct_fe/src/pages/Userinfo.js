@@ -5,21 +5,13 @@ import FreelancerUser from "../components/FreelancerUser"
 
 export default function Userinfo(){
     const location = useLocation()
-    const [isselected, setIsSelected] = useState(null)
-
+    const selected = location.state.selected
     useEffect(()=>{
-        const selected = location.state.selected
-        if(selected === 'company'){
-            setIsSelected(true)
-        } else{
-            setIsSelected(false)
-        }
-    })
-    
-
+        console.log(selected)
+    },[])
     return(
         <>
-            {isselected ? <CompanyUser/> : <FreelancerUser/>}
+            {selected ? <CompanyUser/> : <FreelancerUser/>}
         </>
     )
 }
