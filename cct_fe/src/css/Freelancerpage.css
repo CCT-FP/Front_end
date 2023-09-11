@@ -1,17 +1,25 @@
 .freelancer-content-body {
     display: flex;
     margin-top: 5rem;
+    
 }
 
 .freelancer-top-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 70vw;
+    height: 20vh;
+}
+
+.freelancer-top-content-top {
+    display: inline-block;
     justify-content: space-around;
     
 }
 
 .content-margin {
     margin: 5rem 0; /* 왼쪽과 오른쪽의 마진을 0으로 설정 */
+    margin-top: 5rem;
 }
 
 .margin {
