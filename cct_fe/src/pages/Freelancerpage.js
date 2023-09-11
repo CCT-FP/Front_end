@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import '../css/Freelancerpage.css';
 import Modal from 'react-modal';
 import axios from 'axios';
+
 export default function Freelancerpage (){
     const [popup, setPopup] = useState(false);  // 팝업창 오픈 여부
     const [Filter, setFilter] = useState(false);    // 필터 팝업 오픈 여부
-    
+    const [list, setList] = useState([]);   // list 스테이트
+
     useEffect(() => {
         //리스트 불러오기
         const resumeList = async () => {
@@ -25,7 +27,7 @@ export default function Freelancerpage (){
           console.log(extractedData); // 추출된 데이터 확인
   
              } catch(error) {
-                console.error("Error fetching data:", error);
+                console.error("에러", error);
              } 
             };
             resumeList();
@@ -33,6 +35,10 @@ export default function Freelancerpage (){
 
     const showResumePopup = () => {   // 팝업창 오픈
         setPopup(true);
+    };
+
+    const showFilterPopup = () => {   // 필터창 오픈
+        setFilter(true);
     };
 
     return (
@@ -52,15 +58,30 @@ export default function Freelancerpage (){
                         </span>
                         </div> {/* 상단 컨텐츠: 설명, 내이력보기 구역 */}
                     <div className="freelancer-top-content-bottom"> {/* 상단 컨텐츠: 필터링 버튼 구역 */}
-                       <button className="freelancer-top-content-bottom-filter">필터 버튼</button>
+                       <button className="freelancer-top-content-bottom-filter" onClick={showFilterPopup}>필터 버튼</button>
                         </div> 
                 </div>
 
                 <div className="freelancer-bottom-content"> {/* 프리랜서 페이지 하단 컨텐츠 구역 */}
                     <div className="freelancer-bottom-content-resume"> {/* 프리랜서 페이지 하단 컨텐츠 이력서 구역 */}
-                        <div className="freelancer-bottom-content-resume-title"></div>  {/* 프리랜서 페이지 하단 컨텐츠 이력서 제목  */}
-                        <div className="freelancer-bottom-content-resume-spec"></div> {/* 프리랜서 페이지 하단 컨텐츠 이력서 스펙 */}
-                        <div className="freelancer-bottom-content-resume-detail"></div> {/* 프리랜서 페이지 하단 컨텐츠 이력서 내용 */}
+                    {list.map((item) => (
+            	    <div key={item.userId} className= "freelancer-bottom-content-resume" >
+                        <div className="freelancer-bottom-content-resume-title">안녕하세요. {item.userId}입니다.</div> 
+                        <ul> 
+                            {item.projectList.map((project,index)=>(
+                                <li key={index}>{project}</li>))}
+                        </ul>
+                         
+                        <p className="freelancer-bottom-content-resume-spec">{item.stack}</p> 
+                        <p className="freelancer-bottom-content-resume-detail">{item.period}</p> 
+            	
+            	
+            	
+        	    </ div >
+        	    ))}
+                        {/* <div className="freelancer-bottom-content-resume-title"></div>  프리랜서 페이지 하단 컨텐츠 이력서 제목 
+                        <div className="freelancer-bottom-content-resume-spec"></div> 프리랜서 페이지 하단 컨텐츠 이력서 스펙
+                        <div className="freelancer-bottom-content-resume-detail"></div> 프리랜서 페이지 하단 컨텐츠 이력서 내용 */}
                     </div>
                 </div>
             </div>
