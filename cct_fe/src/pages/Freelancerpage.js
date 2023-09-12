@@ -15,9 +15,10 @@ export default function Freelancerpage (){
         //리스트 불러오기
         const resumeList = async () => {
             try { 
-                const response = await axios.get("/resumes")
+                const response = await axios.get(`//localhost:8080/resumes`)
                 const data = response.data;	
-                
+                console.log(data)
+                setList(data)
                 // 데이터에서 필요한 값 추출
         const extractedData = data.map((item) => ({
             userId: item.userId,    // 리스트 작성자 이름
