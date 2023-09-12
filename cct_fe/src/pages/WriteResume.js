@@ -19,20 +19,27 @@ export default function WriteResume(){
     const Inputproject = e => {
         const pro = e.target.value
         setProject(pro)
-        const sta = pro.split('/')[0]
-        const per = pro.split('/')[1]
-        setStack(sta)
-        setPeriod(per)
+    }
+    const Addstaper = (sta, per) => {
+        setStack([...stack, sta])
+        setPeriod([...period, per])
     }
     const Addproject = e => {
         setProject('')
         setAllproject([...Allproject, project])
+        const sta = project.split('/')[0]
+        const per = project.split('/')[1]
         console.log(Allproject)
+        Addstaper(sta,per)
     }
     const DeleteProject = (e, index) => {
         e.preventDefault();
         const updatedProjects = Allproject.filter((item, i) => i !== index);
+        const updatedStack = stack.filter((item, i)=> i !== index);
+        const updatedPeriod = period.filter((item, i)=> i !== index)
         setAllproject(updatedProjects);
+        setStack(updatedStack)
+        setPeriod(updatedPeriod)
     }
     const Inputcontents = e => {
         setProjectDetail(e.target.value)
@@ -46,7 +53,7 @@ export default function WriteResume(){
     }, [project])
 
     useEffect(()=>{
-        if(project !== '' && intro !== '' && projectDetail !== ''){
+        if(Allproject !== '' && intro !== '' && projectDetail !== ''){
             setIssave(false)
         } else{
             setIssave(true)
@@ -54,16 +61,17 @@ export default function WriteResume(){
     },[intro, project, projectDetail])
 
     const SaveResume = e => {
+        Resume['userId'] = 'hana'
         Resume['title'] = intro
         Resume['projectList'] = Allproject
         Resume['detail'] = projectDetail
-        Resume['stack'] = stack
-        Resume['period'] = period
+        Resume['stackList'] = stack
+        Resume['periodList'] = period
         e.preventDefault()
         axios({
             method : 'post',
-            url : '/resume',
-            body : Resume
+            url : '//localhost:8080/resume',
+            data : Resume
         }).then(res => console.log(res))
           .catch(err => console.log(err))
     }
