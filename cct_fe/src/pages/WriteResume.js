@@ -1,22 +1,41 @@
 import React,{ useEffect, useState } from "react";
 import '../css/WriteResume.css'
+import axios from 'axios'
 
 export default function WriteResume(){
     const [Allproject, setAllproject] = useState([])
     const [intro, setIntro] = useState('')
     const [project, setProject] = useState('')
     const [disabled, setDisabled] = useState(true)
+    const [issave, setIssave] = useState(true)
+    const [projectDetail, setProjectDetail] = useState('')
+    const [stack, setStack] = useState([])
+    const [period, setPeriod] = useState([])
+    const Resume = {}
 
     const Inputintro = e =>{
         setIntro(e.target.value)
     }
     const Inputproject = e => {
-        setProject(e.target.value)
+        const pro = e.target.value
+        setProject(pro)
+        const sta = pro.split('/')[0]
+        const per = pro.split('/')[1]
+        setStack(sta)
+        setPeriod(per)
     }
     const Addproject = e => {
         setProject('')
         setAllproject([...Allproject, project])
         console.log(Allproject)
+    }
+    const DeleteProject = (e, index) => {
+        e.preventDefault();
+        const updatedProjects = Allproject.filter((item, i) => i !== index);
+        setAllproject(updatedProjects);
+    }
+    const Inputcontents = e => {
+        setProjectDetail(e.target.value)
     }
     useEffect(()=>{
         if(project !== ''){
@@ -25,6 +44,30 @@ export default function WriteResume(){
             setDisabled(true)
         }
     }, [project])
+
+    useEffect(()=>{
+        if(project !== '' && intro !== '' && projectDetail !== ''){
+            setIssave(false)
+        } else{
+            setIssave(true)
+        }
+    },[intro, project, projectDetail])
+
+    const SaveResume = e => {
+        Resume['title'] = intro
+        Resume['projectList'] = Allproject
+        Resume['detail'] = projectDetail
+        Resume['stack'] = stack
+        Resume['period'] = period
+        e.preventDefault()
+        axios({
+            method : 'post',
+            url : '/resume',
+            body : Resume
+        }).then(res => console.log(res))
+          .catch(err => console.log(err))
+    }
+
     return(
         <div className="WriteResume">
             <div className="WriteResume-titlebox">
@@ -32,27 +75,30 @@ export default function WriteResume(){
             </div>
             <div className="WriteResume-introbox">
                 <h3 className="WriteResume-introbox__introlabel">한줄 소개 : </h3>
-                <input id="intro" type="text" className="WriteResume-introbox__inputintro" placeholder="안녕하세요. 저는 (이름)입니다." onChange={Inputintro} />
+                <input type="text" className="WriteResume-introbox__inputintro" placeholder="안녕하세요. 저는 (이름)입니다." onChange={Inputintro} />
             </div>
             <h3 className="WriteResume-introbox__projectlabel">프로젝트 입력</h3>
             {
-                Allproject.map(item => {
+                Allproject.map((item, index) => {
                     return(
-                        <div key = {item}>
-                            {item}
-                        </div>
+                        <>
+                            <button key={index} className="deletebtn" onClick={e=>DeleteProject(e, index)}>x</button>
+                            <div key = {index}>
+                                {item}
+                            </div>
+                        </>
                     )
                 })
             }
             <div className="WriteResume-projectbox">
                 <button type="button" className="addprojectbtn" disabled={disabled} onClick={Addproject}>+</button>
-                <input id="project" type="text" className="WriteResume-projectbox__inputproject" placeholder="[언어/회사/간단한 내역]으로 적어주세요" onChange={Inputproject} value={project}/>
+                <input type="text" className="WriteResume-projectbox__inputproject" placeholder="[언어/프로젝트기간(개월수)/간단한 내역]으로 적어주세요" onChange={Inputproject} value={project}/>
             </div>
             <div className="WriteResume-projectdetailbox">
                 <h3 className="WriteResume-projectdetilbox__projectdetaillabel">상세내역</h3>
-                <textarea id='projectdetail' rows={200} cols={100}></textarea>
+                <textarea className="WriteResume-projectdetilbox__projectdetaillcontents" onChange={Inputcontents} rows={50} cols={100}></textarea>
             </div>
-            <button className=""></button>
+            <button disabled={issave} className="WriteResume-saveresume" onClick={SaveResume}>이력서 저장</button>
         </div>
     )
 }
