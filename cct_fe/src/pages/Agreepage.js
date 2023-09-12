@@ -13,7 +13,7 @@ export default function Agreepage(){
     const [background, setBackgound] = useState('#B4B4B4')
 
     const location = useLocation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const onAllcheck = e => {
         if(isAllChecked === nochecked){
