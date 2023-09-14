@@ -1,3 +1,46 @@
-.i{
-    margin-top: 50vh;
+.FreelancerUser
+
+.FreelancerUserinfobox-titlebox{
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    border-bottom: 3px solid #03580B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FreelancerUserinfobox-joinform{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+    height: 60vh;
+    border: 1px solid black;
+}
+.joinform-joinbody{
+    display: flex;
+    width: 40vw;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;   
+}
+.joinform-joinbody__joinbox{
+    display: flex;
+    width: 30vw;
+    justify-content: space-between;
+}
+.joinform-joinbody__joinbox--box{
+    width: 10vw;
+    border: 1px solid black;
+}
+.inputuserinfo{
+    border: none;
+    &:focus{
+        outline: none;
+    }
 }
