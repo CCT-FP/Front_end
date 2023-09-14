@@ -41,11 +41,12 @@
     }
 }
 .companyimg{
-    width: 15rem;
-    height: 15rem;
+    width: 12vw;
+    height: 20vh;
     background-image: url('../img/company.png');
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: 0.8rem 0.5rem;
+    background-position: 0.6vw 1.7vh;
 }
 .joinbox-freelancerbox{
     display: flex;
@@ -66,9 +67,10 @@
     }
 }
 .freelancerimg{
-    width: 15rem;
-    height: 15rem;
+    width: 12vw;
+    height: 20vh;
     background-image: url('../img/freelancer.png');
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: 0.6rem 0.5rem;
+    background-position: 0.6vw 1.7vh;
 }
