@@ -1,0 +1,45 @@
+.freelancer-content-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    
+}
+
+.freelancer-top-content {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 20vh;
+}
+
+.freelancer-top-content-top {
+    display: inline-block;
+    justify-content: space-around;
+    
+}
+
+.content-margin {
+    margin: 5rem 0; /* 왼쪽과 오른쪽의 마진을 0으로 설정 */
+    margin-top: 5rem;
+}
+
+.margin {
+    margin-left: 25rem;
+ 
+}
+
+.seeresume {
+    width: 13vw;
+    height: 7vh;
+    background-color: #077912;
+    border: none;
+    border-radius: 0.4rem;
+    color: white;
+    margin: 0 1rem;
+}
+.freelancer-bottom-content-resume {
+    width: 70vw;
+    height: 30vh;
+    border-top: 1px solid #077912; /* 상단 테두리 스타일 */
+  }
+  
