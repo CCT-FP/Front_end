@@ -34,23 +34,22 @@ export default function FilterPopup({setFilter, filter}) {
           padding: "0",
         },
       };
-    //   className="filter-popup" 
-    // overlayClassName="filter-popup-overlay"
+
     return(
         <Modal isOpen={filter} onRequestClose={closeFilterPopup} 
      
         
         style={customModalStyles}>
-        {/*<div className="filter-popup">  {/* 필터링 팝업*/}
-        <button className="closeFilterPopup" onClick={()=> {setFilter(false)}}>X</button> {/* 닫기버튼 */} 
+        <div className="filter-popup"> {/* 필터링 팝업 */}
+        <button className="close-btn" onClick={()=> {setFilter(false)}}>X</button> {/* 닫기버튼 */} 
             <div className='filter-popup-title'>필터 추가하기</div>     {/* 필터 제목*/}
             <div className='filter-popup-career'>                    {/* 경력 파트 */}
                 <div className='filter-popup-career-text'>경력</div>    {/* 경력 파트 제목*/}
                 <div className='filter-popup-career-select'>            {/*경력 선택 버튼*/}
                 <select className='filter-popup-career-option'>
-                    <option className='filter-popup-career-1'>1년 이하</option>
-                    <option className='filter-popup-career-3'>3년 이하</option>
-                    <option className='filter-popup-career-5'>5년 이하</option>
+                    <option className='filter-popup-career-1' value={1}>1년 이하</option>
+                    <option className='filter-popup-career-3' value={3}>3년 이하</option>
+                    <option className='filter-popup-career-5' value={5}>5년 이하</option>
                 </select>
                 
                 </div>
@@ -73,7 +72,7 @@ export default function FilterPopup({setFilter, filter}) {
                 <div className='filter-popup-place-title'>지역</div>    {/* 지역 선택 제목 */}
 
             </div>
-       {/* </div> */}
+        </div>
         </Modal>
     )
 }

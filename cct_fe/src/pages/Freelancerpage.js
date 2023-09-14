@@ -15,10 +15,12 @@ export default function Freelancerpage (){
         //리스트 불러오기
         const resumeList = async () => {
             try { 
-                const response = await axios.get(`//localhost:8080/resumes/{userid}`)
+
+                const response = await axios.get(`//localhost:8080/resumes`)
                 const data = response.data;	
-                
-                console.log(data);
+                console.log(data)
+                setList(data)
+
                 // 데이터에서 필요한 값 추출
         const extractedData = data.map((item) => ({
             userId: item.userId,    // 리스트 작성자 이름
@@ -53,7 +55,7 @@ export default function Freelancerpage (){
                 <div className="freelancer-top-content"> {/* 프리랜서 페이지 컨텐츠 상단(필터, 내이력보기 등) */}
                     <div className="freelancer-top-content-top">
                         <span className="freelancer-top-content-explanation content-margin">
-                            <span className="margin-right">프로젝트를 등록하면</span> <br></br>기업의 컨텍이 들어올 수 있어요
+                            <span className="margin-right">이력서를 등록하면</span> <br></br>기업의 컨텍이 들어올 수 있어요
                         </span>
                         <span className="freelancer-top-content-seeresume content-margin margin">
                             <button className="seeresume" onClick={showResumePopup}>내 이력서 보기</button>

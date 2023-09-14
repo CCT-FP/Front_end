@@ -1,31 +1,22 @@
 import Modal from 'react-modal';
 import React from 'react';
 import { useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function ResumePopup ({setPopup, popup}) {
     const [myList, setMyList] = useState([]);
-    const [user, setUser] = useState('');
-
-    const usid = (user) => {
-        setUser(user);  // 서버로 받은 유저 아이디 저장
-    }
 
     useEffect(() => {
-        const userIdCome = async () => {
-            try {
-               const res = await axios.get(`//localhost:8080/`) 
-            }
-        }
 
         //리스트 불러오기
         const myResumeList = async () => {
             try { 
-                const response = await axios.get(`//localhost:8080/resume/${userid}`)
+                const response = await axios.get(`//localhost:8080/resume/{userid}`)
                 const data = response.data;	
+                console.log(data); // 데이터에서 필요한 값 추출
+                setMyList(data);
                 
-                console.log(data);
-                // 데이터에서 필요한 값 추출
         const extractedData = data.map((item) => ({
             userId: item.userId,    // 리스트 작성자 이름
             projectList: item.projectList,  // 리스트 작성자 프로젝트 리스트
@@ -98,12 +89,9 @@ export default function ResumePopup ({setPopup, popup}) {
 
                 </div>
             ))}
-
-             {/* <div className="resume-list-box">
-                <div className="resume-title"></div>
-                <div className="resume-content"></div>
-                <div className="resume-company"></div>
-            </div> */}
+            <Link to = "/WriteResume">      {/* 이력서 작성 페이지로 이동 */}
+                <button className='get-write-resume'>수정하러 가기</button>
+            </Link> 
         </div>
         </Modal>
     )
