@@ -37,7 +37,7 @@ export default function ResumePopup ({setPopup, popup}) {
         setPopup(false);
     };
     
-    const customModalStyles = {
+    const customModalStyles = { // 팝업창 디자인
         overlay: {
           backgroundColor: " rgba(0, 0, 0, 0.4)",
           width: "100%",
@@ -68,13 +68,13 @@ export default function ResumePopup ({setPopup, popup}) {
         <Modal isOpen={popup} onRequestClose={closePopup} 
      
         
-        style={customModalStyles}>
-        <div className="popup">
-            <button className="close-btn" onClick={closePopup}>
+        style={customModalStyles}>  {/* 모달창 스타일 */}
+        <div className="popup">     
+            <button className="close-btn" onClick={closePopup}> {/* 창닫기 */}
                 창 닫기
             </button>
             
-            {myList.map((item) => (
+            {myList.map((item) => (     // 이력서 가져오기
                 <div key={item.userId} className='resume-list-box'>
                     <div className='resume-title'>안녕하세요. {item.userId}입니다.</div>
 

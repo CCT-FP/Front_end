@@ -9,7 +9,10 @@ import ResumePopup from "../components/ResumePopup";
 export default function Freelancerpage (){
     const [popup, setPopup] = useState(false);  // 팝업창 오픈 여부
     const [filter, setFilter] = useState(false);    // 필터 팝업 오픈 여부
-    const [list, setList] = useState([]);   // list 스테이트
+    const [list, setList] = useState([]);   // 전체 list
+    const [filterList, setFilterList] = useState([]); // 키워드를 통해 필터링 된 list (경력, 언어, 지역)
+    const [selectSpec, setSelectSpec] = useState("");   // 선택된 스펙
+    const [selectPeriod, setSelectPeriod] = useState("");   // 선택된 경력
 
     useEffect(() => {
         //리스트 불러오기
@@ -46,6 +49,28 @@ export default function Freelancerpage (){
         setFilter(true);
     };
 
+    const applyFilters = (filter) => {    // 필터 적용
+        let filterList;
+
+        if(selectSpec) {    // 스펙 필터링
+            filterList = list.filter((item) => {
+                return selectSpec.includes(item.stack); // 선택된 스택을 포함하고 있는지 체크
+        });
+
+        } else {    // 아니면 그냥 리스트 담기
+            filterList = [...list];
+        }
+
+        if(selectPeriod) {  // 선택된 경력이 있으면
+            const maxMonths = parseInt(selectPeriod, 10) *12 ;  // 문자열을 숫자로 바꿔서 곱하기 12 (1년, 3년, 5년 같이 년으로 따졌기때문)
+            filterList = filterList.filter((item) => {          // filterList를 filter 해서
+                const periodMonths = parseInt(item.period, 10); // 담겨져있는 이력서 경력들을 periodMonths로 저장
+                return periodMonths <= maxMonths;   // 선택한 경력 이하들을 return
+            });
+        }
+        setFilterList(filterList);                  // setFilterList에 filterList를 넣음
+    }
+
     return (
         <div>
             <div className="header">
@@ -59,7 +84,7 @@ export default function Freelancerpage (){
                         </span>
                         <span className="freelancer-top-content-seeresume content-margin margin">
                             <button className="seeresume" onClick={showResumePopup}>내 이력서 보기</button>
-                            <ResumePopup
+                            <ResumePopup    // 내 이력서 보기 팝업
                                 setPopup={setPopup}
                                 popup={popup}
                             />
@@ -68,9 +93,10 @@ export default function Freelancerpage (){
                     <div className="freelancer-top-content-bottom"> {/* 상단 컨텐츠: 필터링 버튼 구역 */}
                        <button className="freelancer-top-content-bottom-filter" onClick={showFilterPopup}>필터 버튼</button>
            
-                    <FilterPopup            // 필터 팝업창
-                    setFilter={setFilter}
-                    filter={filter} 
+                    <FilterPopup            // 필터 팝업
+                    setFilter={setFilter}   // setfilter 받아오기
+                    filter={filter}         // filter 받아오기
+                    applyFilters={applyFilters} // 필터 적용 함수 
                     />
                        
                         </div> 
@@ -78,7 +104,7 @@ export default function Freelancerpage (){
 
                 <div className="freelancer-bottom-content"> {/* 프리랜서 페이지 하단 컨텐츠 구역 */}
                     <div className="freelancer-bottom-content-resume"> {/* 프리랜서 페이지 하단 컨텐츠 이력서 구역 */}
-                    {list.map((item) => (
+                    {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
             	    <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
                         <div className="freelancer-bottom-content-resume-title">안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
                          
@@ -90,7 +116,22 @@ export default function Freelancerpage (){
                                 <li key={index}>{project}</li>))}
                         </ul>
         	    </ div >
-        	    ))}
+        	    ))
+                ) : (   // 아니면 전체 이력 리스트 출력
+                    list.map((item) => (
+                        <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
+                        <div className="freelancer-bottom-content-resume-title">안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
+                         
+                        <p className="freelancer-bottom-content-resume-spec">{item.stack}</p>   {/* 작성자의 기술 */}
+                        <p className="freelancer-bottom-content-resume-detail">{item.period}</p>    {/* 작성자의 경력 */}
+                        
+                        <ul> {/* 프로젝트 리스트 */}
+                            {item.projectList.map((project,index)=>(    
+                                <li key={index}>{project}</li>))}
+                        </ul>
+        	    </ div >
+                    ))
+                )}
                         {/* <div className="freelancer-bottom-content-resume-title"></div>  프리랜서 페이지 하단 컨텐츠 이력서 제목 
                         <div className="freelancer-bottom-content-resume-spec"></div> 프리랜서 페이지 하단 컨텐츠 이력서 스펙
                         <div className="freelancer-bottom-content-resume-detail"></div> 프리랜서 페이지 하단 컨텐츠 이력서 내용 */}
