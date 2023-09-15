@@ -1,0 +1,70 @@
+.agreepage{
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.Agreebox{
+    display: flex;
+    flex-direction: column;
+}
+.Allcheckedbox{
+    display: flex;
+    justify-content: start;
+
+}
+.Allcheckedbox-title{
+    display: flex;
+    justify-content: start;
+}
+.Checkedbox{
+    margin-bottom: 10vh;
+}
+.Checkedbox-agreebox{
+    border: 3px solid #03580b;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #03580b;
+}
+.Checkedbox-checkbox{
+    border-top: 3px solid #03580b;
+    padding: 0.3rem 2rem 0.3rem 2rem;
+    display: flex;
+    background-color: #a2c2a5;
+}
+.checkbox-img{
+    display: flex;
+    align-items: center;
+    margin-right: 1vw;
+}
+.Checkedbox-agreetext{
+    width: 40vw;
+    height: 30vh;
+    overflow: auto;
+    padding: 2rem 2rem 2rem 2rem;
+    &::-webkit-scrollbar{
+        background-color: white;
+        width: 12px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #03580b;
+        height: 5vh;
+        border-radius: 50px;
+        
+    }
+}
+.MovetoInputUserInfo{
+    background-color: #077912;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    &:hover{
+        transform: scale(105%);
+    }
+    &:active{
+        transform: scale(95%);
+    }
+}
+

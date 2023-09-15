@@ -1,0 +1,39 @@
+.headerbar{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#03580B;
+    color : white;
+    font-size: 1.5rem;
+    padding: 0 0.5rem 0 0.5rem;
+    position: fixed;
+}
+.headerbar-header{
+    display: flex;
+    justify-content: space-between;
+    width: 70vw;
+    border-bottom: 1px solid white;
+}
+.headerbtn{
+    background-color: #03580B;
+    border: none;
+    cursor: pointer;
+}
+.navigationlink{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.headerbar-navigation{
+    display: flex;
+    width: 70vw;
+    justify-content:end;
+}
+.headerbar-navigation__box{
+    display: flex;
+    width: 39vw;
+    justify-content: space-between;
+}
