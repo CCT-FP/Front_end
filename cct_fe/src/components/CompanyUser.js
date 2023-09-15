@@ -82,38 +82,54 @@ export default function CompanyUser(){
                     <div className="joinform-joinbody">
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">회사명</label>
-                            <input type='text' className="joinform-joinbody__joinbox--userinfoCompany" placeholder="회사 명을 입력하세요." onChange={InputCompany}/>
+                            <div className="joinform-joinbody__joinbox--box">
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoCompany" placeholder="회사 명을 입력하세요." onChange={InputCompany}/>
+                            </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">회원 아이디</label>
-                            <input type='text' className="joinform-joinbody__joinbox--userinfoId" placeholder="아이디를 입력하세요." onChange={InputId}/>
+                            <div className="joinform-joinbody__joinbox--box">
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoId" placeholder="아이디를 입력하세요." onChange={InputId}/>
+                            </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">비밀번호</label>
-                            <input type='password' className="joinform-joinbody__joinbox--userinfoPw" placeholder="비밀번호를 입력하세요." onChange={InputPw}/>
+                            <div className="joinform-joinbody__joinbox--box">
+                                <input type='password' className="inputuserinfo joinform-joinbody__joinbox--userinfoPw" placeholder="비밀번호를 입력하세요." onChange={InputPw}/>
+                            </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">비밀번호 확인</label>
-                            <input type='text' className="joinform-joinbody__joinbox--userinfoPwchk" placeholder="비밀번호를 다시 입력해주세요." onChange={InputPwchk}/>
+                            <div className="joinform-joinbody__joinbox--box">
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoPwchk" placeholder="비밀번호를 다시 입력해주세요." onChange={InputPwchk}/>
+                            </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">이메일</label>
-                            <input type='email' className="joinform-joinbody__joinbox--userinfoEmail" placeholder="이메일을 입력하세요." onChange={InputEmail}/>
+                            <div className="joinform-joinbody__joinbox--box">
+                                <input type='email' className="inputuserinfo joinform-joinbody__joinbox--userinfoEmail" placeholder="이메일을 입력하세요." onChange={InputEmail}/>
+                            </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">전화번호</label>
-                            <input type='text' className="joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum}/>
+                            <div className="joinform-joinbody__joinbox--box">
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum}/>
+                            </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">담당자 명</label>
-                            <input type='text' className="joinform-joinbody__joinbox--userinfoDamdang" placeholder="이름 / 직책" onChange={InputDamdang}/>
+                            <div className="joinform-joinbody__joinbox--box">
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoDamdang" placeholder="이름 / 직책" onChange={InputDamdang}/>
+                            </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">주소</label>
-                            <input type='text' className="joinform-joinbody__joinbox--userinfoAddress" placeholder="상세 주소까지 입력해 주세요.(상세주소까지 입력)" onChange={InputAddress}/>
+                            <div className="joinform-joinbody__joinbox--box">
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoAddress" placeholder="상세 주소까지 입력해 주세요.(상세주소까지 입력)" onChange={InputAddress}/>
+                            </div>
                         </div>
                     </div>
-                    <input type="submit" value={'회원가입'} onClick={JoinComplete}/>
+                    <input className="singupcompletebtn" type="submit" value={'회원가입'} onClick={JoinComplete}/>
                 </form>
             </div>
         </div>

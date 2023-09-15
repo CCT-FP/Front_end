@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
+import '../css/Loginpage.css'
+
 export default function Loginpage() {
 
     const [userId, setUserId] = useState('')
@@ -40,7 +42,7 @@ export default function Loginpage() {
                 <h1 className="Loginpage-loginbox__title">login</h1>
             </div>
             <div className="Loginpage-loginform">
-                <div className="Loginpage-loginform__logotitle">Frenee</div>
+                <div className="Loginpage-loginform__logotitle"></div>
                 <div className="Loginpage-loginform__box">
                     <h3 className="loginpage-loginform__idlabel">아이디</h3>
                     <input type="text" className="Loginpage-loginfrom__inputid" onChange={InputId}/>

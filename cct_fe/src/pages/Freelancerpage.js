@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
 import ResumePopup from "../components/ResumePopup";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Freelancerpage (){
     const [popup, setPopup] = useState(false);  // 팝업창 오픈 여부
@@ -13,6 +14,7 @@ export default function Freelancerpage (){
     const [filterList, setFilterList] = useState([]); // 키워드를 통해 필터링 된 list (경력, 언어, 지역)
     const [selectSpec, setSelectSpec] = useState("");   // 선택된 스펙
     const [selectPeriod, setSelectPeriod] = useState("");   // 선택된 경력
+    const navigate = useNavigate()
 
     useEffect(() => {
         //리스트 불러오기
@@ -70,7 +72,10 @@ export default function Freelancerpage (){
         }
         setFilterList(filterList);                  // setFilterList에 filterList를 넣음
     }
-
+    const MovetoDetail = e => {
+        console.log(e.target.title)
+        navigate('/resume/resumedetail', {state : {userid : e.target.title}})
+    } 
     return (
         <div>
             <div className="header">
@@ -120,7 +125,7 @@ export default function Freelancerpage (){
                 ) : (   // 아니면 전체 이력 리스트 출력
                     list.map((item) => (
                         <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
-                        <div className="freelancer-bottom-content-resume-title">안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
+                        <div className="freelancer-bottom-content-resume-title" title={item.userId} onClick={MovetoDetail}>안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
                          
                         <p className="freelancer-bottom-content-resume-spec">{item.stack}</p>   {/* 작성자의 기술 */}
                         <p className="freelancer-bottom-content-resume-detail">{item.period}</p>    {/* 작성자의 경력 */}

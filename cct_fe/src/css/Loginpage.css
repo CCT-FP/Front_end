@@ -1,3 +1,9 @@
+.Loginpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .Loginpage-loginbox{
     margin-top: 10vw;
     display: flex;
@@ -8,4 +14,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.Loginpage-loginform__logotitle{
+    width: 20vw;
+    height: 30vh;
+    background-image: url('../img/Frenee.png');
+    background-position: center;
+    background-repeat: no-repeat;
 }
