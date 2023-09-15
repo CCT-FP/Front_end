@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import '../css/Headerbar.css'
 
 export default function Headerbar(){
+    
     return(
         <>
             <div className="headerbar">
@@ -12,7 +13,7 @@ export default function Headerbar(){
                         로고
                         {/*로고이미지 backgrondimg로 할듯 아니면 그냥 글씨*/}
                     </div>
-                    <div className="headerbar-mypage"><Link  className="link" to={'/mypage'}><BsPersonCircle size={40}/></Link></div>
+                    <div className="headerbar-mypage"><Link className="link" to={'/mypage'}><BsPersonCircle size={40}/></Link></div>
                 </header>
                 <div className="headerbar-navigation">
                     <div className="headerbar-navigation__box">
