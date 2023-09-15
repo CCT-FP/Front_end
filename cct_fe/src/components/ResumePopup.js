@@ -89,7 +89,7 @@ export default function ResumePopup ({setPopup, popup}) {
 
                 </div>
             ))}
-            <Link to = "/WriteResume">      {/* 이력서 작성 페이지로 이동 */}
+            <Link to = "/resume/writeresume">      {/* 이력서 작성 페이지로 이동 */}
                 <button className='get-write-resume'>수정하러 가기</button>
             </Link> 
         </div>
