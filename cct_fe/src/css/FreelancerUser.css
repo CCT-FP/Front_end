@@ -1,3 +1,82 @@
-.i{
-    margin-top: 50vh;
+.FreelancerUserinfobox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.FreelancerUserinfobox-titlebox{
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    border-bottom: 3px solid #03580B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FreelancerUserinfobox-joinform{
+    display: flex;
+    flex-direction: column;
+    margin-right: 0px;
+    justify-content: space-between;
+    align-items: center;
+    width: 55vw;
+    height: 80vh;
+}
+.joinform-joinbody{
+    display: flex;
+    width: 50vw;
+    height: 70vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #d6e4d8;
+    border-radius: 20px;
+}
+.joinform-joinbody__joinbox{
+    display: flex;
+    width: 38vw;
+    justify-content: space-between;
+    font-weight: 600;
+}
+.joinform-joinbody__joinbox--box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    padding-left: 1rem;
+    height: 4vh;
+    border-radius: 13px;
+    background-color: white;
+}
+.inputuserinfo{
+   border: none;
+   width: 30vw;
+    &:focus{
+        outline: none;
+    }
+}
+.starimg{
+    width: 15px;
+    height: 15px;
+    background-image: url('../img/별표.png');
+    background-repeat: no-repeat;
+    border: 1px solid #d6e4d8;
+}
+.singupcompletebtn{
+    background-color: #077912;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    &:hover{
+        transform: scale(105%);
+    }
+    &:active{
+        transform: scale(95%);
+    }
 }
