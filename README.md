@@ -2,9 +2,10 @@
  
 # Front_end
 
-[![Solved.ac
-프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=임채륜)](https://github.com/PBEM22)
 
 [![Solved.ac
-프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=조아빈멍청이)](https://github.com/whdkqls122)
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=임채륜)](https://github.com/PBEM22) ![임채륜](https://github-readme-stats.vercel.app/api?PBEM22=anuraghazra&theme=dark&show_icons=transparent)
+
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=조아빈멍청이)](https://github.com/whdkqls122) ![조아빈]https://github-readme-stats.vercel.app/api?whdkqls122=anuraghazra&theme=dark&show_icons=default)
 -> 이거 백엔드도 해줘
