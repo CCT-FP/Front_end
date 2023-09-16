@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 120vh;
+    justify-content: space-around;
 }
 .WriteResume-titlebox{
     width: 60vw;
@@ -10,4 +12,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.WriteResume-introbox{
+    margin: 5vh;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    width: 50vw;
+    justify-content: space-around;
+}
+.WriteResume-introbox__inputbox{
+    width: 30vw;
+    height: auto;
+    border-bottom: 3px solid #03580B;
+}
+.WriteResume-introbox__inputintro{
+    font-size: 1.3rem;
+    width: 30vw;
+    border: none;
+    &:focus{
+        outline: none;
+    }
+}
+.WriteResume-project{
+    width: 50vw;
+}
+.WriteResume-projectbox{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.WriteReume-projectbox__box{
+    display: flex;
+}
+.WriteResume-introbox__inputbox{
+    height: auto;
+    width: 30vw;
 }

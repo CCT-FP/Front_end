@@ -18,7 +18,6 @@ export default function Agreepage(){
 
     const onAllcheck = e => {
         if(isAllChecked === nochecked){
-            console.log(1)
             setIsAllChecked(checked)
             setIsChecked1(checked)
             setIsChecked2(checked)
