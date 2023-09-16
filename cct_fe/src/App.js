@@ -12,6 +12,7 @@ import Agreepage from './pages/Agreepage';
 import Userinfo from './pages/Userinfo';
 import WriteResume from './pages/WriteResume';
 import ResumeDetail from './pages/ResumeDetail';
+import MypageCompany from './pages/MypageCompany';
 
 function App() {
   const [data, setData] = useState(null);
@@ -90,8 +91,10 @@ function App() {
           <Route path='/joinpage/agreepage' element={<Agreepage/>}/>
           <Route path='/freelancerpage' element={<Freelancerpage/>}/>
           <Route path='/mypage' element={<Mypage/>}/>
+          <Route path='/mypagecompany' element={<MypageCompany/>}/>
           <Route path='/joinpage/userinfo' element={<Userinfo/>}/>
           <Route path='/resume/writeresume' element={<WriteResume/>}/>
+            
           <Route path='/resume/resumedetail' element={<ResumeDetail/>}/>
         </Routes>
     </BrowserRouter>
