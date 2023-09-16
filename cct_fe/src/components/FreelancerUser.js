@@ -9,10 +9,13 @@ export default function FreelancerUser(){
     const [userId, setUserId] = useState('')
     const [userPw, setUserPw] = useState('')
     const [userName, setUserName] = useState('')
-    const [userPwchk, setUserPwchk] = useState('')
     const [userEmail, setUserEamil] = useState('')
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
+
+    const [IdCheck, setIdCheck] = useState()
+    const [userPwchk, setUserPwchk] = useState()
+    const [EmailCheck, setEmailCheck] = useState()
     const UserInfo = {}
     const navigate = useNavigate()
 
@@ -29,7 +32,11 @@ export default function FreelancerUser(){
         setUserPw(e.target.value)
     }
     const InputPwchk = e => {
-        setUserPwchk(e.target.value)
+        if(e.target.value === userPw){
+            setUserPwchk(true)
+        }else{
+            setUserPwchk(false)
+        }
     }
     const InputEmail = e => {
         setUserEamil(e.target.value)
@@ -39,6 +46,36 @@ export default function FreelancerUser(){
     }
     const InputBirth = e => {
         setUserBirth(e.target.value)
+    }
+    const CheckId = e => {
+        axios({
+            method : 'post',
+            url : '//localhost:8080/user/idcheck',
+            data: userId
+        })
+        .then(res => {
+            console.log(res.data)
+            // setIdCheck(res.data.idcheck)
+        })
+        .catch(err => {
+            console.log(err)
+            // setIdCheck()
+        })
+    }
+    const CheckEmail = e => {
+        axios({
+            method : 'post',
+            url : '//localhost:8080/user/idcheck',
+            data: userEmail
+        })
+        .then(res => {
+            console.log(res.data)
+            // setEmailCheck(res.data.idcheck)
+        })
+        .catch(err => {
+            console.log(err)
+            // setEmailCheck()
+        })
     }
     const JoinComplete = e => {
         e.preventDefault()
@@ -87,7 +124,7 @@ export default function FreelancerUser(){
                         <div className="joinform-joinbody__joinbox">
                                 <label className="joinform-joinbody__joinbox--label">회원 아이디</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoId" placeholder="아이디를 입력하세요." onChange={InputId}/>
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoId" placeholder="아이디를 입력하세요." onChange={InputId} onBlur={CheckId}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
@@ -99,13 +136,13 @@ export default function FreelancerUser(){
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">비밀번호 확인</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoPwchk" placeholder="비밀번호를 다시 입력해주세요." onChange={InputPwchk}/>
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoPwchk" placeholder="비밀번호를 다시 입력해주세요." onBlur={InputPwchk}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">이메일</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='email' className="inputuserinfo joinform-joinbody__joinbox--userinfoEmail" placeholder="이메일을 입력하세요." onChange={InputEmail}/>
+                                <input type='email' className="inputuserinfo joinform-joinbody__joinbox--userinfoEmail" placeholder="이메일을 입력하세요." onChange={InputEmail} onBlur={CheckEmail}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
