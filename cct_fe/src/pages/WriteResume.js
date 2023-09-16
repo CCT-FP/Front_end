@@ -89,12 +89,12 @@ export default function WriteResume(){
             {
                 Allproject.map((item, index) => {
                     return(
-                        <>
+                        <div className="allprojectlist">
                             <button key={index} className="deletebtn" onClick={e=>DeleteProject(e, index)}>x</button>
-                            <div key = {index}>
+                            <div className="allprojectlist-listbox" key = {index}>;label
                                 {item}
                             </div>
-                        </>
+                        </div>
                     )
                 })
             }
