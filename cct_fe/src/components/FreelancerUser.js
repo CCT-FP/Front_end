@@ -13,9 +13,12 @@ export default function FreelancerUser(){
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
 
+    //유효성 검사
     const [IdCheck, setIdCheck] = useState()
     const [userPwchk, setUserPwchk] = useState()
     const [EmailCheck, setEmailCheck] = useState()
+
+
     const UserInfo = {}
     const navigate = useNavigate()
 

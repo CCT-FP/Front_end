@@ -22,7 +22,7 @@ export default function Freelancerpage (){
             try { 
 
                 const response = await axios.get(`//localhost:8080/resumes`)
-                const data = response.data;	
+                const data = response.data;   
                 console.log(data)
                 setList(data)
 
@@ -72,10 +72,13 @@ export default function Freelancerpage (){
         }
         setFilterList(filterList);                  // setFilterList에 filterList를 넣음
     }
-    const MovetoDetail = e => {
+
+    const MovetoDetail = e => { // 상세페이지 이동
         console.log(e.target.title)
         navigate('/resume/resumedetail', {state : {userid : e.target.title}})
     } 
+    
+
     return (
         <div>
             <div className="header">
@@ -110,21 +113,7 @@ export default function Freelancerpage (){
                 <div className="freelancer-bottom-content"> {/* 프리랜서 페이지 하단 컨텐츠 구역 */}
                     <div className="freelancer-bottom-content-resume"> {/* 프리랜서 페이지 하단 컨텐츠 이력서 구역 */}
                     {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
-            	    <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
-                        <div className="freelancer-bottom-content-resume-title">안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
-                         
-                        <p className="freelancer-bottom-content-resume-spec">{item.stack}</p>   {/* 작성자의 기술 */}
-                        <p className="freelancer-bottom-content-resume-detail">{item.period}</p>    {/* 작성자의 경력 */}
-                        
-                        <ul> {/* 프로젝트 리스트 */}
-                            {item.projectList.map((project,index)=>(    
-                                <li key={index}>{project}</li>))}
-                        </ul>
-        	    </ div >
-        	    ))
-                ) : (   // 아니면 전체 이력 리스트 출력
-                    list.map((item) => (
-                        <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
+                   <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
                         <div className="freelancer-bottom-content-resume-title" title={item.userId} onClick={MovetoDetail}>안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
                          
                         <p className="freelancer-bottom-content-resume-spec">{item.stack}</p>   {/* 작성자의 기술 */}
@@ -134,7 +123,22 @@ export default function Freelancerpage (){
                             {item.projectList.map((project,index)=>(    
                                 <li key={index}>{project}</li>))}
                         </ul>
-        	    </ div >
+               </ div >
+               ))
+                ) : (   // 아니면 전체 이력 리스트 출력
+                    list.map((item) => (
+                        <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
+                        <div className="freelancer-bottom-content-resume-title" title={item.userId} onClick={MovetoDetail}>안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
+                         
+                        <p className="freelancer-bottom-content-resume-spec">{item.stack}</p>   {/* 작성자의 기술 */}
+                        <p className="freelancer-bottom-content-resume-detail">{item.period}</p>    {/* 작성자의 경력 */}
+                        <button className="move-to-detail">상세보기</button>
+                        
+                        <ul> {/* 프로젝트 리스트 */}
+                            {item.projectList.map((project,index)=>(    
+                                <li key={index}>{project}</li>))}
+                        </ul>
+               </ div >
                     ))
                 )}
                         {/* <div className="freelancer-bottom-content-resume-title"></div>  프리랜서 페이지 하단 컨텐츠 이력서 제목 
