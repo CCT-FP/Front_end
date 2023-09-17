@@ -13,6 +13,7 @@ import Userinfo from './pages/Userinfo';
 import WriteResume from './pages/WriteResume';
 import ResumeDetail from './pages/ResumeDetail';
 import MypageCompany from './pages/MypageCompany';
+import WriteNotice from './pages/WriteNotice';
 
 function App() {
   const [data, setData] = useState(null);
@@ -85,17 +86,17 @@ function App() {
     <BrowserRouter>
         <Headerbar/>
         <Routes>
-          <Route path='/' element={<Mainpage/>}/>
-          <Route path='/loginpage' element={<Loginpage/>}/>
-          <Route path='/joinpage' element={<Joinpage/>}/>
-          <Route path='/joinpage/agreepage' element={<Agreepage/>}/>
-          <Route path='/freelancerpage' element={<Freelancerpage/>}/>
-          <Route path='/mypage' element={<Mypage/>}/>
-          <Route path='/mypagecompany' element={<MypageCompany/>}/>
-          <Route path='/joinpage/userinfo' element={<Userinfo/>}/>
-          <Route path='/resume/writeresume' element={<WriteResume/>}/>
-            
-          <Route path='/resume/resumedetail' element={<ResumeDetail/>}/>
+          <Route path='/' element={<Mainpage/>}/>   {/* 메인페이지 (기업공고페이지) */}
+          <Route path='/loginpage' element={<Loginpage/>}/> {/* 로그인페이지 */}
+          <Route path='/joinpage' element={<Joinpage/>}/>   {/* 회원가입페이지 */}
+          <Route path='/joinpage/agreepage' element={<Agreepage/>}/>  {/* 약관동의페이지 */}
+          <Route path='/freelancerpage' element={<Freelancerpage/>}/> {/* 프리랜서페이지 (이력서) */}
+          <Route path='/mypage' element={<Mypage/>}/> {/* 마이페이지 프리랜서 */}
+          <Route path='/mypagecompany' element={<MypageCompany/>}/> {/* 마이페이지 기업 */}
+          <Route path='/joinpage/userinfo' element={<Userinfo/>}/>  {/* 유저정보페이지 */}
+          <Route path='/resume/writeresume' element={<WriteResume/>}/>  {/* 이력서 작성 페이지 */}
+          <Route path='/notice/writenotice' element={<WriteNotice/>}/>    {/* 공고 작성 페이지 */}
+          <Route path='/resume/resumedetail' element={<ResumeDetail/>}/>  {/* 이력서 자세히 보기 페이지 */}
         </Routes>
     </BrowserRouter>
   );

@@ -2,7 +2,7 @@ import React,{ useEffect, useState } from "react";
 import '../css/WriteResume.css'
 import axios from 'axios'
 
-export default function WriteResume(){
+export default function WriteNotice(){
     const [Allproject, setAllproject] = useState([])
     const [intro, setIntro] = useState('')
     const [project, setProject] = useState('')
@@ -60,7 +60,7 @@ export default function WriteResume(){
         }
     },[intro, project, projectDetail])
 
-    const SaveResume = e => {
+    const SaveNotice = e => {
         Resume['userId'] = 'hana'
         Resume['title'] = intro
         Resume['projectList'] = Allproject
@@ -70,7 +70,7 @@ export default function WriteResume(){
         e.preventDefault()
         axios({
             method : 'post',
-            url : '//localhost:8080/resume',
+            url : '//localhost:8080/jobPost',
             data : Resume
         }).then(res => console.log(res))
           .catch(err => console.log(err))
@@ -116,7 +116,7 @@ export default function WriteResume(){
                     <textarea className="WriteResume-projectdetilbox__projectdetaillcontents" onChange={Inputcontents} rows={30} cols={80}></textarea>
                 </div>
             </div>
-            <button disabled={issave} className="WriteResume-saveresume" onClick={SaveResume}>이력서 저장</button>
+            <button disabled={issave} className="WriteResume-saveresume" onClick={SaveNotice}>공고 저장</button>
         </div>
     )
 }

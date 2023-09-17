@@ -27,7 +27,9 @@ export default function Mainpage (){
 
                 // 데이터에서 필요한 값 추출
         const extractedData = data.map((item) => ({
-                // 명세서 짜여지고 난 후 예정
+                userId: item.userId,
+                title: item.title,
+                status: item.status
           }));
   
           console.log(extractedData); // 추출된 데이터 확인
@@ -95,9 +97,9 @@ export default function Mainpage (){
                        <button className="company-top-content-bottom-filter" onClick={showFilterPopup}>필터 버튼</button>
            
                     <FilterPopup            // 필터 팝업
-                    setFilter={setFilter}   // setfilter 받아오기
-                    filter={filter}         // filter 받아오기
-                    applyFilters={applyFilters} // 필터 적용 함수 
+                        setFilter={setFilter}   // setfilter 받아오기
+                        filter={filter}         // filter 받아오기
+                        applyFilters={applyFilters} // 필터 적용 함수 
                     />
                        
                         </div> 
@@ -107,29 +109,17 @@ export default function Mainpage (){
                     <div className="company-bottom-content-notice"> {/* 회사 공고 페이지 하단 컨텐츠 이력서 구역 */}
                     {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
                    <div key={item.userId} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}
-                        <div className="company-bottom-content-notice-title">안녕하세요. {item.userId}입니다.</div> {/* 공고 작성자 */} 
+                        <div className="company-bottom-content-notice-title">{item.userId}입니다.</div> {/* 공고 작성자 */} 
                          
-                        <p className="company-bottom-content-notice-spec">{item.stack}</p>   {/* 공고 필요 기술 */}
-                        <p className="company-bottom-content-notice-detail">{item.period}</p>    {/* 공고 필요 경력 */}
-                        
-                        <ul> {/* 프로젝트 리스트 */}
-                            {item.projectList.map((project,index)=>(    
-                                <li key={index}>{project}</li>))}
-                        </ul>
+                        <p className="company-bottom-content-notice-spec">{item.title} / {item.status} </p>   {/* 공고 필요 기술, 공고 현재 상태 */}
                </ div >
                ))
                 ) : (   // 아니면 전체 이력 리스트 출력
                     list.map((item) => (
                         <div key={item.userId} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}
-                        <div className="company-bottom-content-notice-title" title={item.userId} onClick={MovetoDetail}>안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
+                        <div className="company-bottom-content-notice-title" title={item.userId} onClick={MovetoDetail}>{item.userId}입니다.</div> {/* 이력서 작성자 */} 
                          
-                        <p className="company-bottom-content-notice-spec">{item.stack}</p>   {/* 작성자의 기술 */}
-                        <p className="company-bottom-content-notice-detail">{item.period}</p>    {/* 작성자의 경력 */}
-                        
-                        <ul> {/* 프로젝트 리스트 */}
-                            {item.projectList.map((project,index)=>(    
-                                <li key={index}>{project}</li>))}
-                        </ul>
+                        <p className="company-bottom-content-notice-spec">{item.stack} / {item.status}</p>   {/* 공고 필요 기술, 공고 현재 상태 */}
                </ div >
                     ))
                 )}

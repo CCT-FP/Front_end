@@ -99,11 +99,11 @@ export default function MypageCompany(){
                         ) : (
                             <div>
                                 <p>올린 공고가 없습니다...</p>
-                                <button className="move-to-writenotice" onClick={writeNotice}>공고올리기</button>
+                                
                             </div>
                         )}
                     </div>
-                    <button className="mypage-write-resume-btn" onClick={writeNotice}>공고 작성</button>  {/* 공고 작성칸 누르면 수정페이지로 넘어감 */}
+                    <button className="mypage-write-resume-btn" onClick={writeNotice}>공고 수정</button>  {/* 공고 작성칸 누르면 수정페이지로 넘어감 */}
                 </div>
                 <div className="mypage-int">지원자 목록</div>
             </div>
