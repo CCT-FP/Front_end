@@ -87,7 +87,7 @@ function App() {
     <BrowserRouter>
         <Headerbar/>
         <Routes>
-<<<<<<< HEAD
+
           <Route path='/' element={<Mainpage/>}/>   {/* 메인페이지 (기업공고페이지) */}
           <Route path='/loginpage' element={<Loginpage/>}/> {/* 로그인페이지 */}
           <Route path='/joinpage' element={<Joinpage/>}/>   {/* 회원가입페이지 */}
@@ -99,20 +99,8 @@ function App() {
           <Route path='/resume/writeresume' element={<WriteResume/>}/>  {/* 이력서 작성 페이지 */}
           <Route path='/notice/writenotice' element={<WriteNotice/>}/>    {/* 공고 작성 페이지 */}
           <Route path='/resume/resumedetail' element={<ResumeDetail/>}/>  {/* 이력서 자세히 보기 페이지 */}
-=======
-          <Route path='/' element={<Mainpage/>}/>
-          <Route path='/loginpage' element={<Loginpage/>}/>
-          <Route path='/joinpage' element={<Joinpage/>}/>
-          <Route path='/joinpage/agreepage' element={<Agreepage/>}/>
-          <Route path='/freelancerpage' element={<Freelancerpage/>}/>
-          <Route path='/mypage' element={<Mypage/>}/>
-          <Route path='/mypagecompany' element={<MypageCompany/>}/>
-          <Route path='/joinpage/userinfo' element={<Userinfo/>}/>
-          <Route path='/resume/writeresume' element={<WriteResume/>}/>
-            
-          <Route path='/resume/resumedetail' element={<ResumeDetail/>}/>
-          <Route path='/writenote' element={<Note/>}/>
->>>>>>> 41e0294d56f3e7e0e663666f55affb4b83201824
+          <Route path='/writenote' element={<Note/>}/>        {/* 쪽지 페이지 */}
+
         </Routes>
     </BrowserRouter>
   );

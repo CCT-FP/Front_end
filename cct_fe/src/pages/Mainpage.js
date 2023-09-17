@@ -29,7 +29,10 @@ export default function Mainpage (){
         const extractedData = data.map((item) => ({
                 userId: item.userId,
                 title: item.title,
-                status: item.status
+                status: item.status,
+                description: item.description,
+                requirements: item.requirements,
+                salary: item.salary
           }));
   
           console.log(extractedData); // 추출된 데이터 확인
@@ -70,10 +73,15 @@ export default function Mainpage (){
         }
         setFilterList(filterList);                  // setFilterList에 filterList를 넣음
     }
-    const MovetoDetail = e => {
+    // const MovetoDetail = e => {
+    //     console.log(e.target.title)
+    //     navigate('/resume/resumedetail', {state : {userid : e.target.title}})   // 추후 변경
+    // } 
+
+    const MovetoNoticeDetail = e => {
         console.log(e.target.title)
-        navigate('/resume/resumedetail', {state : {userid : e.target.title}})   // 추후 변경
-    } 
+        navigate('/')   // 나중에 공고 디테일로 변경
+    }
     return (
         <div>
             <div className="header">
@@ -111,15 +119,17 @@ export default function Mainpage (){
                    <div key={item.userId} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}
                         <div className="company-bottom-content-notice-title">{item.userId}입니다.</div> {/* 공고 작성자 */} 
                          
-                        <p className="company-bottom-content-notice-spec">{item.title} / {item.status} </p>   {/* 공고 필요 기술, 공고 현재 상태 */}
+                        <p className="company-bottom-content-notice-spec">{item.requirements} / {item.title} / {item.description} / {item.status} </p>   {/* 공고 필요 경력, 제목, 상세내용, 현재 상태 */}
+                        <button className="MovetoNoticeDetail" title={item.id} onClick={MovetoNoticeDetail}>지원하러 가기</button>  {/* 공고 지원하러 가기 */}
                </ div >
                ))
                 ) : (   // 아니면 전체 이력 리스트 출력
                     list.map((item) => (
                         <div key={item.userId} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}
-                        <div className="company-bottom-content-notice-title" title={item.userId} onClick={MovetoDetail}>{item.userId}입니다.</div> {/* 이력서 작성자 */} 
+                        <div className="company-bottom-content-notice-title" title={item.id} onClick={MovetoNoticeDetail}>{item.userId}입니다.</div> {/* 이력서 작성자 */} 
                          
-                        <p className="company-bottom-content-notice-spec">{item.stack} / {item.status}</p>   {/* 공고 필요 기술, 공고 현재 상태 */}
+                        <p className="company-bottom-content-notice-spec">{item.requirements} / {item.title} / {item.description} /{item.status}</p>    {/* 공고 필요 경력, 제목, 상세내용, 현재 상태 */}
+                        <button className="MovetoNoticeDetail" title={item.id} onClick={MovetoNoticeDetail}>지원하러 가기</button>     {/* 공고 지원하러 가기 */}
                </ div >
                     ))
                 )}
