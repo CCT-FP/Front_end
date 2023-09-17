@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function ResumeDetail(){
     const [idSameid, setIsSameid] = useState(false)
     const location = useLocation()
+    const navigate = useNavigate()
     const userId = location.state.userid
     const id = window.localStorage.getItem('id')
     useEffect(() => {
@@ -18,9 +19,14 @@ export default function ResumeDetail(){
             setIsSameid(true)
         }
     }, [])
+
+    const MovetoNote = e => {
+        navigate('/writenote', {state: {receiverId : userId}})
+    }
+
     return(
-        <>
-            hi
-        </>
+        <div className="ResumeDetail">
+            <button className="MovetoNotebtn" onClick={MovetoNote}></button>
+        </div>
     )
 }

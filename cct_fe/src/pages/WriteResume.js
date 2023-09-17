@@ -94,7 +94,7 @@ export default function WriteResume(){
                     return(
                         <div className="allprojectlist">
                             <button key={index} className="deletebtn" onClick={e=>DeleteProject(e, index)}>x</button>
-                            <div className="allprojectlist-listbox" key = {index}>;label
+                            <div className="allprojectlist-listbox" key = {index}>
                                 {item}
                             </div>
                         </div>
