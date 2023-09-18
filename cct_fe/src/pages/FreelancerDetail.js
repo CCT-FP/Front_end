@@ -1,9 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useId, useState} from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import Note from "./Note";
+import '../css/FreelancerDetail.css'
 
-export default function ResumeDetail(){
-    const [idSameid, setIsSameid] = useState(false)
+export default function FreelancerDetail(){
+    const [isSameid, setIsSameid] = useState(false)
+    const [openpop, setOpenpop] = useState(false)
     const location = useLocation()
     const navigate = useNavigate()
     const userId = location.state.userid
@@ -20,13 +23,14 @@ export default function ResumeDetail(){
         }
     }, [])
 
-    const MovetoNote = e => {
-        navigate('/writenote', {state: {receiverId : userId}})
-    }
+   
 
     return(
-        <div className="ResumeDetail">
-            <button className="MovetoNotebtn" onClick={MovetoNote}></button>
+        <div className="Freelancerdetail">
+            <button className="MovetoNotebtn" onClick={() => {
+                setOpenpop(true)
+            }}></button>
+            <Note isOpen = {openpop} receiver={userId} setOpenpop={setOpenpop}></Note>
         </div>
     )
 }

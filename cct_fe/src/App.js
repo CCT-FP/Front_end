@@ -11,7 +11,7 @@ import Mypage from './pages/Mypage';
 import Agreepage from './pages/Agreepage';
 import Userinfo from './pages/Userinfo';
 import WriteResume from './pages/WriteResume';
-import ResumeDetail from './pages/ResumeDetail';
+import FreelancerDetail from './pages/FreelancerDetail';
 import Note from './pages/Note';
 import MypageCompany from './pages/MypageCompany';
 import WriteNotice from './pages/WriteNotice';
@@ -87,7 +87,6 @@ function App() {
     <BrowserRouter>
         <Headerbar/>
         <Routes>
-
           <Route path='/' element={<Mainpage/>}/>   {/* 메인페이지 (기업공고페이지) */}
           <Route path='/loginpage' element={<Loginpage/>}/> {/* 로그인페이지 */}
           <Route path='/joinpage' element={<Joinpage/>}/>   {/* 회원가입페이지 */}
@@ -98,7 +97,7 @@ function App() {
           <Route path='/joinpage/userinfo' element={<Userinfo/>}/>  {/* 유저정보페이지 */}
           <Route path='/resume/writeresume' element={<WriteResume/>}/>  {/* 이력서 작성 페이지 */}
           <Route path='/notice/writenotice' element={<WriteNotice/>}/>    {/* 공고 작성 페이지 */}
-          <Route path='/resume/resumedetail' element={<ResumeDetail/>}/>  {/* 이력서 자세히 보기 페이지 */}
+          <Route path='/resume/freelancerdetails' element={<FreelancerDetail/>}/>  {/* 이력서 자세히 보기 페이지 */}
           <Route path='/writenote' element={<Note/>}/>        {/* 쪽지 페이지 */}
 
         </Routes>

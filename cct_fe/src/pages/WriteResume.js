@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from "react";
 import '../css/WriteResume.css'
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 export default function WriteResume(){
     const [Allproject, setAllproject] = useState([])
@@ -11,6 +12,7 @@ export default function WriteResume(){
     const [projectDetail, setProjectDetail] = useState('')
     const [stack, setStack] = useState([])
     const [period, setPeriod] = useState([])
+    const navigate = useNavigate()
     const Resume = {}
 
     const Inputintro = e =>{
@@ -53,7 +55,7 @@ export default function WriteResume(){
     }, [project])
 
     useEffect(()=>{
-        if(Allproject !== '' && intro !== '' && projectDetail !== ''){
+        if(Allproject.length > 0 && intro && projectDetail){
             setIssave(false)
         } else{
             setIssave(true)
@@ -61,7 +63,7 @@ export default function WriteResume(){
     },[intro, project, projectDetail])
 
     const SaveResume = e => {
-        Resume['userId'] = 'hana'
+        Resume['userId'] = 'hana2'
         Resume['title'] = intro
         Resume['projectList'] = Allproject
         Resume['detail'] = projectDetail
@@ -72,7 +74,11 @@ export default function WriteResume(){
             method : 'post',
             url : '//localhost:8080/resume',
             data : Resume
-        }).then(res => console.log(res))
+        }).then(res => {
+            console.log(res)
+            alert('저장되었습니다.')
+            navigate('/mypage')
+        })
           .catch(err => console.log(err))
     }
 
@@ -90,7 +96,7 @@ export default function WriteResume(){
             <div className="WriteResume-project">
             <h3 className="WriteResume-projectlabel">프로젝트 입력</h3>
             {
-                Allproject.map((item, index) => {
+                Allproject?.map((item, index) => {
                     return(
                         <div className="allprojectlist">
                             <button key={index} className="deletebtn" onClick={e=>DeleteProject(e, index)}>x</button>
