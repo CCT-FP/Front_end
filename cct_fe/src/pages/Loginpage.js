@@ -21,11 +21,11 @@ export default function Loginpage() {
         e.preventDefault()
         
         const UserInfo = {}
-        UserInfo['id'] = userId
+        UserInfo['userId'] = userId
         UserInfo['password'] = userPw
         axios({
             method : 'post',
-            url : '//localhost:8080/uesr/login',
+            url : '//localhost:8080/user/login',
             data : UserInfo
         })
         .then(res => {
