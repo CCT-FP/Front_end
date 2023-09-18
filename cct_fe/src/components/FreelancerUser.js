@@ -12,7 +12,6 @@ export default function FreelancerUser(){
     const [userEmail, setUserEamil] = useState('')
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
-    const [user, setUserRole] = useState('')
 
     //유효성 검사
     const [IdCheck, setIdCheck] = useState()
@@ -25,7 +24,6 @@ export default function FreelancerUser(){
 
     useEffect(()=>{
         console.log('컴퍼니')
-        setUserRole("USER")
     },[])
     const InputName = e => {
         setUserName(e.target.value)
@@ -90,7 +88,7 @@ export default function FreelancerUser(){
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
         UserInfo['birth'] = userBirth
-        UserInfo['roles'] = user
+        UserInfo['roles'] = 'USER'
         console.log(UserInfo)
 
         axios({
