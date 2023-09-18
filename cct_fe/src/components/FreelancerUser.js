@@ -12,6 +12,7 @@ export default function FreelancerUser(){
     const [userEmail, setUserEamil] = useState('')
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
+    const [user, setUserRole] = useState('')
 
     //유효성 검사
     const [IdCheck, setIdCheck] = useState()
@@ -24,6 +25,7 @@ export default function FreelancerUser(){
 
     useEffect(()=>{
         console.log('컴퍼니')
+        setUserRole("USER")
     },[])
     const InputName = e => {
         setUserName(e.target.value)
@@ -82,18 +84,18 @@ export default function FreelancerUser(){
     }
     const JoinComplete = e => {
         e.preventDefault()
-        UserInfo['id'] = userId
+        UserInfo['userId'] = userId
         UserInfo['name'] = userName
         UserInfo['password'] = userPw
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
         UserInfo['birth'] = userBirth
-        UserInfo['role'] = '프리랜서 선택'
+        UserInfo['roles'] = user
         console.log(UserInfo)
 
         axios({
             method : 'post',
-            url : '/user/join',
+            url : '//localhost:8080/user/join',
             data : UserInfo
         }).then(res => {
             console.log(res.data)
