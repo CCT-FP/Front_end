@@ -16,10 +16,6 @@ export default function CompanyUser(){
     const UserInfo = {}
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        console.log('컴퍼니')
-    },[])
-
     const InputCompany = e => {
         setUserCompany(e.target.value)
     }

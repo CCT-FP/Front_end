@@ -132,10 +132,16 @@ export default function Freelancerpage (){
                          
                         <p className="freelancer-bottom-content-resume-spec">{item.stack}</p>   {/* 작성자의 기술 */}
                         <p className="freelancer-bottom-content-resume-detail">{item.period}</p>    {/* 작성자의 경력 */}
+<<<<<<< HEAD
                         
                         <button className="move-to-detail">상세보기</button>
 
                         <button className="move-to-detail"title={item.userId} onClick={MovetoDetail}>상세보기</button>
+=======
+
+                        <button className="move-to-detail"title={item.userId} onClick={MovetoDetail}>상세보기</button>
+
+>>>>>>> 57b9ec6fdc1710bb2f821b2871a36038a9bfafa4
                         
                         <ul> {/* 프로젝트 리스트 */}
                             {item.projectList.map((project,index)=>(    

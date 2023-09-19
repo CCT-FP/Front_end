@@ -12,19 +12,21 @@ export default function FreelancerUser(){
     const [userEmail, setUserEamil] = useState('')
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
+    const [roles, setRoles] = useState('')
+    const userCheck = {}
 
     //유효성 검사
     const [IdCheck, setIdCheck] = useState()
     const [userPwchk, setUserPwchk] = useState()
     const [EmailCheck, setEmailCheck] = useState()
 
+    useEffect(()=>{
+        setRoles("USER")
+    },[])
 
     const UserInfo = {}
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        console.log('컴퍼니')
-    },[])
     const InputName = e => {
         setUserName(e.target.value)
     }
@@ -51,10 +53,11 @@ export default function FreelancerUser(){
         setUserBirth(e.target.value)
     }
     const CheckId = e => {
+        userCheck["userCheck"] = userId
         axios({
             method : 'post',
             url : '//localhost:8080/user/idcheck',
-            data: userId
+            data: Id
         })
         .then(res => {
             console.log(res.data)
@@ -66,9 +69,10 @@ export default function FreelancerUser(){
         })
     }
     const CheckEmail = e => {
+        userCheck["userCheck"] = userEmail
         axios({
             method : 'post',
-            url : '//localhost:8080/user/idcheck',
+            url : '//localhost:8080/user/emailCheck',
             data: userEmail
         })
         .then(res => {
@@ -80,6 +84,18 @@ export default function FreelancerUser(){
             // setEmailCheck()
         })
     }
+    const CheckPhone = e => {
+        userCheck["userCheck"] = userPhone
+        axios({
+            method : 'post',
+            url : '//localhost:8080/user/phoneCheck',
+            data : userPhone
+        })
+        .then(res => {
+            console.log(res.data)
+        })
+        .catch(err => console.log(err))
+    }
     const JoinComplete = e => {
         e.preventDefault()
         UserInfo['userId'] = userId
@@ -87,8 +103,8 @@ export default function FreelancerUser(){
         UserInfo['password'] = userPw
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
-        UserInfo['birth'] = userBirth
-        UserInfo['roles'] = 'USER'
+        UserInfo['brith'] = userBirth
+        UserInfo['roles'] = roles
         console.log(UserInfo)
 
         axios({
@@ -151,7 +167,7 @@ export default function FreelancerUser(){
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">휴대폰</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum}/>
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum} onBlur={CheckPhone}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
