@@ -4,26 +4,26 @@ import axios from 'axios'
 import FilterPopup from "../components/FilterPopup";
 
 export default function WriteNotice(){
-    const [Allproject, setAllproject] = useState([])
-    const [intro, setIntro] = useState('')
-    const [project, setProject] = useState('')
-    const [disabled, setDisabled] = useState(true)
-    const [issave, setIssave] = useState(true)
-    const [projectDetail, setProjectDetail] = useState('')
-    const [stack, setStack] = useState([])
-    const [period, setPeriod] = useState([])
-    const Resume = {}
-    const [filter, setFilter] = useState(false);
+    const [Allproject, setAllproject] = useState([])    // 모든 프로젝트 상태 저장
+    const [intro, setIntro] = useState('')              // 한줄소개 상태저장
+    const [project, setProject] = useState('')          // 프로젝트 경험 상태 저장
+    const [disabled, setDisabled] = useState(true)      // 프로젝트 작성했을 때만 활성화 하기 위한 상태
+    const [issave, setIssave] = useState(true)          // 이력서 저장 버튼 상태저장
+    const [projectDetail, setProjectDetail] = useState('')  // 프로젝트 상세 내용 상태 저장
+    const [stack, setStack] = useState([])              // stack 배열 상태 저장
+    const [period, setPeriod] = useState([])            // period 배열 상태 저장
+    const Resume = {}                                   // 백엔드에 전달하는 데이터들을 저장하는
+    
+    const [filter, setFilter] = useState(false);        // filter팝업 상태 저장
     const [addList, setAddList] = useState([]);         // 추가된 스펙, 경력, 지역
-    const [selectSpec, setSelectSpec] = useState("");   // 선택된 스펙
-    const [selectPeriod, setSelectPeriod] = useState("");   // 선택된 경력
-    const [selectLocation, setSelectLocation] = useState("");   // 선택된 지역
+    const [selectData, setSelectData] = useState([])    // filter팝업에서 저장하는 리스트
 
-    const applyFilters = (selectedFilters) => {
-        const selectedSpecs = selectedFilters.spec;
-        const selectedPeriod = selectedFilters.period;
-        const selectLocation = selectedFilters.location
+    const applyFilters = (selectData) => {  // filter팝업에서 받아온 데이터 저장하기
+        setSelectData(selectData);
     } 
+    const showFilterPopup = () => {   // 필터창 오픈
+        setFilter(true);
+    };
     const Inputintro = e =>{
         setIntro(e.target.value)
     }
@@ -95,22 +95,22 @@ export default function WriteNotice(){
             <div className="WriteNotice-introbox">
                 <h3 className="WriteNotice-introbox__introlabel">한줄 소개 : </h3>
                 <div className="WriteNotice-introbox__inputbox">
-                    <input type="text" className="WriteNotice-introbox__inputintro" placeholder="[사용언어/기간/지역/간단한 소개]로 적어주세요." onChange={Inputintro} maxLength={24}/>
+                    <input type="text" className="WriteNotice-introbox__inputintro" placeholder="[사용언어/기간/지역/간단한 소개]로 적어주세요." onChange={Inputintro}/>
                 </div>
             </div>
             <div className="WriteNotice-project">
-            <h3 className="WriteNotice-projectlabel">키워드 입력</h3>
+            <button className="WriteNotice-projectlabel" onClick={showFilterPopup}>키워드 입력</button> {/* filter팝업 오픈 */}
                 <FilterPopup
                     setFilter={setFilter}
                     filter={filter}
                     applyFilters={applyFilters}
                     />
             {
-                Allproject.map((item, index) => {
+                selectData.map((item, index) => {
                     return(
-                        <div className="allprojectlist">
+                        <div className="keyword">
                             <button key={index} className="deletebtn" onClick={e=>DeleteProject(e, index)}>x</button>
-                            <div className="allprojectlist-listbox" key = {index}>;label
+                            <div className="keyword-box" key = {index}>;label
                                 {item}
                             </div>
                         </div>
