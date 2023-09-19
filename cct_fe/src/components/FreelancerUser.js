@@ -56,7 +56,7 @@ export default function FreelancerUser(){
         userCheck["userCheck"] = userId
         axios({
             method : 'post',
-            url : '//localhost:8080/user/idcheck',
+            url : '//localhost:8080/user/idCheck',
             data: userId
         })
         .then(res => {
@@ -72,7 +72,7 @@ export default function FreelancerUser(){
         userCheck["userCheck"] = userEmail
         axios({
             method : 'post',
-            url : '//localhost:8080/user/idCheck',
+            url : '//localhost:8080/user/emailCheck',
             data: userEmail
         })
         .then(res => {
