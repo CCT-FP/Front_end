@@ -62,7 +62,7 @@ export default function Note ({isOpen, setOpenpop, receiver}) {
                     <h3 className="Notedetails">내용</h3>
                     <h3 className="countInfo">글자수 제한 : {`${countContents} / 200`}</h3>
                     </div>
-                    <textarea className="Notedetails" cols={30} rows={40} onChange={InputContents} maxLength={200}></textarea>
+                    <textarea className="Notedetails" cols={60} rows={20} onChange={InputContents} maxLength={200}></textarea>
                     <button className="sendNote" disabled={!isNotnull} onClick={sendNote}>보내기</button>
                 </div>
             </div>
