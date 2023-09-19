@@ -72,7 +72,7 @@ export default function FreelancerUser(){
         userCheck["userCheck"] = userEmail
         axios({
             method : 'post',
-            url : '//localhost:8080/user/idcheck',
+            url : '//localhost:8080/user/idCheck',
             data: userEmail
         })
         .then(res => {
