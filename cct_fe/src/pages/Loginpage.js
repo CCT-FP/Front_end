@@ -29,7 +29,7 @@ export default function Loginpage() {
             data : UserInfo
         })
         .then(res => {
-            console.log(res)
+            window.localStorage.setItem('token', res.data)
             navigate('/')
         })
         .catch(err => {
