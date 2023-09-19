@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {BsPersonCircle} from 'react-icons/bs'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../css/Headerbar.css'
 import axios from "axios";
 
 export default function Headerbar(){
     const [islogined, setIslogined] = useState(false);   //로그인이 되어있는 여부에 따른 로그인/회원가입 버튼 활성화
     const token = window.localStorage.getItem('token')
+    const navigate = useNavigate()
     useEffect(() => {
         if (token !== null && token !== undefined) {
           setIslogined(true);
@@ -14,19 +15,28 @@ export default function Headerbar(){
           setIslogined(false);
         }
       }, []);
+    
+    const MovetoMypage = e => {
+        if(islogined){
+            navigate('/mypage')
+        } else{
+            alert('로그인 후 이용해주세요.')
+            navigate('/loginpage')
+        }
+    } 
 
     const Logout = e => {
         e.preventDefault();
-        window.localStorage.clear()
         setIslogined(false)
-        // axios({
-        //     method : "put",
-        //     url : "//localhost:8080/user/logout"
-        // })
-        // .then(res => {
-        //     setIslogined(false)
-        // })
-        // .catch(err => console.log(err))
+        window.localStorage.clear()
+        axios({
+        method : "put",
+        url : "//localhost:8080/user/logout"
+        })
+        .then(res => {
+        setIslogined(false)
+        })
+        .catch(err => console.log(err))
     }
     
     return(
@@ -37,7 +47,7 @@ export default function Headerbar(){
                         로고
                         {/*로고이미지 backgrondimg로 할듯 아니면 그냥 글씨*/}
                     </div>
-                    <div className="headerbar-mypage"><Link className="link" to={'/mypage'}><BsPersonCircle size={40}/></Link></div>
+                    <div className="headerbar-mypage" onClick={MovetoMypage}><BsPersonCircle size={40} /></div>
                 </header>
                 <div className="headerbar-navigation">
                     <div className="headerbar-navigation__box">

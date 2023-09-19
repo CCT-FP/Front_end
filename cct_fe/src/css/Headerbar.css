@@ -37,3 +37,6 @@
     width: 39vw;
     justify-content: space-between;
 }
+.headerbar-mypage{
+    cursor: pointer;
+}
