@@ -115,13 +115,13 @@ export default function Mainpage (){
                 
                 <div className="company-bottom-content"> {/* 회사 공고 페이지 하단 컨텐츠 구역 */}
                     <div className="company-bottom-content-notice"> {/* 회사 공고 페이지 하단 컨텐츠 이력서 구역 */}
-                    {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
-                   <div key={item.userId} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}
-                        <div className="company-bottom-content-notice-title">{item.userId}입니다.</div> {/* 공고 작성자 */} 
-                         
-                        <p className="company-bottom-content-notice-spec">{item.requirements} / {item.title} / {item.description} / {item.status} </p>   {/* 공고 필요 경력, 제목, 상세내용, 현재 상태 */}
-                        <button className="MovetoNoticeDetail" title={item.id} onClick={MovetoNoticeDetail}>지원하러 가기</button>  {/* 공고 지원하러 가기 */}
-               </ div >
+                        {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
+                        <div key={item.Id} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}
+                            <div className="company-bottom-content-notice-title">{item.userId}입니다.</div> {/* 공고 작성자 */} 
+                            
+                            <p className="company-bottom-content-notice-spec">{item.requirements} / {item.title} / {item.description} / {item.status} </p>   {/* 공고 필요 경력, 제목, 상세내용, 현재 상태 */}
+                            <button className="MovetoNoticeDetail" title={item.id} onClick={MovetoNoticeDetail}>지원하러 가기</button>  {/* 공고 지원하러 가기 */}
+                        </ div >
                ))
                 ) : (   // 아니면 전체 이력 리스트 출력
                     list.map((item) => (

@@ -98,8 +98,7 @@ export default function MypageCompany(){
                             ))
                         ) : (
                             <div>
-                                <p>올린 공고가 없습니다...</p>
-                                
+                                <p>올린 공고가 없습니다...</p>  
                             </div>
                         )}
                     </div>
