@@ -17,14 +17,16 @@ export default function Headerbar(){
 
     const Logout = e => {
         e.preventDefault();
-        axios({
-            method : "put",
-            url : "//localhost:8080/user/logout"
-        })
-        .then(res => {
-            setIslogined(false)
-        })
-        .catch(err => console.log(err))
+        window.localStorage.clear()
+        setIslogined(false)
+        // axios({
+        //     method : "put",
+        //     url : "//localhost:8080/user/logout"
+        // })
+        // .then(res => {
+        //     setIslogined(false)
+        // })
+        // .catch(err => console.log(err))
     }
     
     return(
