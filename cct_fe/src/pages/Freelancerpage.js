@@ -75,7 +75,7 @@ export default function Freelancerpage (){
 
     const MovetoDetail = e => { // 상세페이지 이동
         console.log(e.target.title)
-        navigate('/resume/resumedetail', {state : {userid : e.target.title}})
+        navigate('/resume/freelancerdetails', {state : {userid : e.target.title}})
     } 
     
 
@@ -128,12 +128,16 @@ export default function Freelancerpage (){
                 ) : (   // 아니면 전체 이력 리스트 출력
                     list.map((item) => (
                         <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
-                        <div className="freelancer-bottom-content-resume-title" title={item.userId} onClick={MovetoDetail}>안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
+                        <div className="freelancer-bottom-content-resume-title" >안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
                          
                         <p className="freelancer-bottom-content-resume-spec">{item.stack}</p>   {/* 작성자의 기술 */}
                         <p className="freelancer-bottom-content-resume-detail">{item.period}</p>    {/* 작성자의 경력 */}
+<<<<<<< HEAD
                         
                         <button className="move-to-detail">상세보기</button>
+=======
+                        <button className="move-to-detail"title={item.userId} onClick={MovetoDetail}>상세보기</button>
+>>>>>>> 758771e4e817308f7851a42f533dbfdf53caad8f
                         
                         <ul> {/* 프로젝트 리스트 */}
                             {item.projectList.map((project,index)=>(    

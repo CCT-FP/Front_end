@@ -82,18 +82,18 @@ export default function FreelancerUser(){
     }
     const JoinComplete = e => {
         e.preventDefault()
-        UserInfo['id'] = userId
+        UserInfo['userId'] = userId
         UserInfo['name'] = userName
         UserInfo['password'] = userPw
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
         UserInfo['birth'] = userBirth
-        UserInfo['role'] = '프리랜서 선택'
+        UserInfo['roles'] = 'USER'
         console.log(UserInfo)
 
         axios({
             method : 'post',
-            url : '//localhost:8080/users/join',
+            url : '//localhost:8080/user/join',
             data : UserInfo
         }).then(res => {
             console.log(res.data)

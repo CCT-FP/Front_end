@@ -53,7 +53,7 @@ export default function CompanyUser(){
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
         UserInfo['address'] = userAddress
-        UserInfo['role'] = '기업 선택'
+        UserInfo['roles'] = 'ADMIN'
         console.log(UserInfo)
 
         axios({
