@@ -13,6 +13,7 @@ export default function FreelancerUser(){
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
     const [roles, setRoles] = useState('')
+    const userCheck = {}
 
     //유효성 검사
     const [IdCheck, setIdCheck] = useState()
@@ -52,10 +53,11 @@ export default function FreelancerUser(){
         setUserBirth(e.target.value)
     }
     const CheckId = e => {
+        userCheck["userCheck"] = userId
         axios({
             method : 'post',
             url : '//localhost:8080/user/idcheck',
-            data: userId
+            data: Id
         })
         .then(res => {
             console.log(res.data)
@@ -67,6 +69,7 @@ export default function FreelancerUser(){
         })
     }
     const CheckEmail = e => {
+        userCheck["userCheck"] = userEmail
         axios({
             method : 'post',
             url : '//localhost:8080/user/emailCheck',
@@ -82,6 +85,7 @@ export default function FreelancerUser(){
         })
     }
     const CheckPhone = e => {
+        userCheck["userCheck"] = userPhone
         axios({
             method : 'post',
             url : '//localhost:8080/user/phoneCheck',
