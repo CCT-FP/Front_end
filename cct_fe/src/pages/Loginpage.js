@@ -3,12 +3,14 @@ import axios from "axios";
 import {useNavigate} from 'react-router-dom'
 import '../css/Loginpage.css'
 import logoimage from '../img/Frenee.png'
+import { Cookies } from "react-cookie";
 
 export default function Loginpage() {
 
     const [userId, setUserId] = useState('')
     const [userPw, setUserPw] = useState('')
     const navigate = useNavigate();
+    const cookie = new Cookies()
 
     const InputId = e => {
         setUserId(e.target.value)
@@ -29,8 +31,10 @@ export default function Loginpage() {
             data : UserInfo
         })
         .then(res => {
-            window.localStorage.setItem('token', res.data.data)
-            console.log(res.data)
+            window.localStorage.setItem('token', res.data.token)
+            window.localStorage.setItem('id', res.data.id)
+            window.localStorage.setItem('userid', res.data.userId)
+            window.localStorage.setItem('name', res.data.name)
             navigate('/')
         })
         .catch(err => {

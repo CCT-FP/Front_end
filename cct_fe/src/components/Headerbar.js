@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {BsPersonCircle} from 'react-icons/bs'
+import {AiOutlineMail} from 'react-icons/ai'
 import { Link, useNavigate } from "react-router-dom";
 import '../css/Headerbar.css'
 import axios from "axios";
@@ -38,7 +39,9 @@ export default function Headerbar(){
         })
         .catch(err => console.log(err))
     }
-    
+    const MoveToScout = e =>{
+        navigate('/scout')
+    }
     return(
         <>
             <div className="headerbar">
@@ -47,7 +50,7 @@ export default function Headerbar(){
                         로고
                         {/*로고이미지 backgrondimg로 할듯 아니면 그냥 글씨*/}
                     </div>
-                    <div className="headerbar-mypage" onClick={MovetoMypage}><BsPersonCircle size={40} /></div>
+                    <div className="headerbar-mypage" onClick={MovetoMypage} title="마이페이지"><BsPersonCircle size={40} /></div>
                 </header>
                 <div className="headerbar-navigation">
                     <div className="headerbar-navigation__box">
@@ -57,7 +60,12 @@ export default function Headerbar(){
                         </div>
                         <div className="headerbar-navigation__signbox">
                             { 
-                            islogined ? <button className="logoutbtn" onClick={Logout}>로그아웃</button> :
+                            islogined ? 
+                            <>
+                                <button className="logoutbtn" onClick={Logout}>로그아웃</button>
+                                <div className="MoveToScoutbtn" onClick={MoveToScout}></div><AiOutlineMail size={30} title="쪽지함" />
+                            </>
+                             :
                                 <>
                                     <button className="headerbtn headerbar-navigation__loginbtn"><Link className="navigationlink" to={'/loginpage'}>로그인</Link></button>
                                     /
