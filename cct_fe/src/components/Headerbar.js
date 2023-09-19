@@ -7,11 +7,13 @@ import axios from "axios";
 export default function Headerbar(){
     const [islogined, setIslogined] = useState(false);   //로그인이 되어있는 여부에 따른 로그인/회원가입 버튼 활성화
     const token = window.localStorage.getItem('token')
-    useEffect(()=> {
-        if(token){
-            setIslogined(true)
+    useEffect(() => {
+        if (token !== null && token !== undefined) {
+          setIslogined(true);
+        } else {
+          setIslogined(false);
         }
-    }, [])
+      }, []);
 
     const Logout = e => {
         e.preventDefault();
@@ -44,9 +46,11 @@ export default function Headerbar(){
                         <div className="headerbar-navigation__signbox">
                             { 
                             islogined ? <button className="logoutbtn" onClick={Logout}>로그아웃</button> :
-                                <button className="headerbtn headerbar-navigation__loginbtn"><Link className="navigationlink" to={'/loginpage'}>로그인</Link></button>
-                                /
-                                <button className="headerbtn headerbar-navigation__joinbtn"><Link className="navigationlink" to={'/joinpage'}>회원가입</Link></button>
+                                <>
+                                    <button className="headerbtn headerbar-navigation__loginbtn"><Link className="navigationlink" to={'/loginpage'}>로그인</Link></button>
+                                    /
+                                    <button className="headerbtn headerbar-navigation__joinbtn"><Link className="navigationlink" to={'/joinpage'}>회원가입</Link></button>
+                                </>
                             }
                         </div>
                     </div>    

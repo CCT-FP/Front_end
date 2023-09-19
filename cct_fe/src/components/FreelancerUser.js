@@ -22,9 +22,6 @@ export default function FreelancerUser(){
     const UserInfo = {}
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        console.log('컴퍼니')
-    },[])
     const InputName = e => {
         setUserName(e.target.value)
     }

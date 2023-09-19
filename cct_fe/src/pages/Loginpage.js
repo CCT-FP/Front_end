@@ -30,7 +30,7 @@ export default function Loginpage() {
         })
         .then(res => {
             console.log(res)
-            navigate('/main')
+            navigate('/')
         })
         .catch(err => {
             console.log(err)
