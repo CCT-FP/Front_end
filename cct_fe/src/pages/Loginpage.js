@@ -30,6 +30,7 @@ export default function Loginpage() {
         })
         .then(res => {
             window.localStorage.setItem('token', res.data)
+            console.log(res.data)
             navigate('/')
         })
         .catch(err => {
