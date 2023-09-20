@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Cookies } from "react-cookie";
-
 export default function MypageCompany(){
     const cookies = new Cookies();
     const [noticeList, setNoticeList] = useState([]);
@@ -93,7 +92,7 @@ export default function MypageCompany(){
                         {noticeList.length > 0 ? (
                             noticeList.map((item) => (
                                 <div key={item.jobPosts.id} className="companypost">
-                                    {item.jobPosts.title} / {item.jobPosts.status}
+                                    {item.jobPosts.title} / {item.jobPosts.status} / 
                                 </div>
                             ))
                         ) : (

@@ -1,6 +1,50 @@
 .WriteNote{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+}
+.WriteNoteboxtitle{
+    display: flex;
+    justify-content: start;
+    width: 20vw;
+    height: 3rem;
+    padding: 0;
+}
+.closebox{
+    width: 100%;
+    text-align: right;
+}
+.closebtn{
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.Notetitletext{
+    margin-right: 3vw;
+}
+.Notetitle{
+    border: none;
+    width: 200px;
+    border-bottom: 2px solid black;
+    &:focus{
+        outline: none;
+    }
+}
+.WriteNoteboxContents{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.Notedetails-titletext{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    justify-content: space-between;
+}
+.Notedetails-titletextbox{
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
 }

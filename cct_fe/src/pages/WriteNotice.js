@@ -1,48 +1,54 @@
 import React,{ useEffect, useState } from "react";
-import '../css/WriteResume.css'
-import axios from 'axios'
+import '../css/WriteNotice.css';
+import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'; // css import
+import moment from 'moment';
+import 'moment/locale/ko';
 
 export default function WriteNotice(){
-    const [Allproject, setAllproject] = useState([])
-    const [intro, setIntro] = useState('')
-    const [project, setProject] = useState('')
-    const [disabled, setDisabled] = useState(true)
-    const [issave, setIssave] = useState(true)
-    const [projectDetail, setProjectDetail] = useState('')
-    const [stack, setStack] = useState([])
-    const [period, setPeriod] = useState([])
-    const Resume = {}
-    const [filter, setFilter] = useState(false);
+    const [Allproject, setAllproject] = useState([])    // 모든 프로젝트 상태 저장
+    const [intro, setIntro] = useState('')              // 한줄소개 상태저장
+    const [project, setProject] = useState('')          // 프로젝트 경험 상태 저장
+    const [disabled, setDisabled] = useState(true)      // 프로젝트 작성했을 때만 활성화 하기 위한 상태
+    const [issave, setIssave] = useState(true)          // 이력서 저장 버튼 상태저장
+    const [projectDetail, setProjectDetail] = useState('')  // 프로젝트 상세 내용 상태 저장
+    const [stack, setStack] = useState([])              // stack 배열 상태 저장
+    const [period, setPeriod] = useState([])            // period 배열 상태 저장
+    const Resume = {}                                   // 백엔드에 전달하는 데이터들을 저장하는
+    
+    const [filter, setFilter] = useState(false);        // filter팝업 상태 저장
     const [addList, setAddList] = useState([]);         // 추가된 스펙, 경력, 지역
-    const [selectSpec, setSelectSpec] = useState("");   // 선택된 스펙
-    const [selectPeriod, setSelectPeriod] = useState("");   // 선택된 경력
-    const [selectLocation, setSelectLocation] = useState("");   // 선택된 지역
+    const [selectData, setSelectData] = useState([])    // filter팝업에서 저장하는 리스트
 
-    const applyFilters = (selectedFilters) => {
-        const selectedSpecs = selectedFilters.spec;
-        const selectedPeriod = selectedFilters.period;
-        const selectLocation = selectedFilters.location
+    const [value, onChange] = useState(new Date());
+
+    const applyFilters = (selectData) => {  // filter팝업에서 받아온 데이터 저장하기
+        setSelectData(selectData);
     } 
-    const Inputintro = e =>{
+    const showFilterPopup = () => {   // 필터창 오픈
+        setFilter(true);
+    };
+    const Inputintro = e =>{    // 한줄 소개 저장
         setIntro(e.target.value)
     }
-    const Inputproject = e => {
-        const pro = e.target.value
-        setProject(pro)
-    }
-    const Addstaper = (sta, per) => {
-        setStack([...stack, sta])
-        setPeriod([...period, per])
-    }
-    const Addproject = e => {
-        setProject('')
-        setAllproject([...Allproject, project])
-        const sta = project.split('/')[0]
-        const per = project.split('/')[1]
-        console.log(Allproject)
-        Addstaper(sta,per)
-    }
+    // const Inputproject = e => {
+    //     const pro = e.target.value
+    //     setProject(pro)
+    // }
+    // const Addstaper = (sta, per) => {
+    //     setStack([...stack, sta])
+    //     setPeriod([...period, per])
+    // }
+    // const Addproject = e => {
+    //     setProject('')
+    //     setAllproject([...Allproject, project])
+    //     const sta = project.split('/')[0]
+    //     const per = project.split('/')[1]
+    //     console.log(Allproject)
+    //     Addstaper(sta,per)
+    // }
     const DeleteProject = (e, index) => {
         e.preventDefault();
         const updatedProjects = Allproject.filter((item, i) => i !== index);
@@ -95,36 +101,42 @@ export default function WriteNotice(){
             <div className="WriteNotice-introbox">
                 <h3 className="WriteNotice-introbox__introlabel">한줄 소개 : </h3>
                 <div className="WriteNotice-introbox__inputbox">
-                    <input type="text" className="WriteNotice-introbox__inputintro" placeholder="[사용언어/기간/지역/간단한 소개]로 적어주세요." onChange={Inputintro} maxLength={24}/>
+                    <input type="text" className="WriteNotice-introbox__inputintro" placeholder="[사용언어/기간/지역/간단한 소개]로 적어주세요." onChange={Inputintro}/>
                 </div>
             </div>
             <div className="WriteNotice-project">
-            <h3 className="WriteNotice-projectlabel">키워드 입력</h3>
+            <button className="WriteNotice-projectlabel" onClick={showFilterPopup}>키워드 입력</button> {/* filter팝업 오픈 */}
+            <div>
+            {/* <Calendar onChange={onChange} value={value} />
+         <div className="text-gray-500 mt-4">
+           {moment(value).format("YYYY년 MM월 DD일")} 
+           </div> */}
+         </div>
                 <FilterPopup
                     setFilter={setFilter}
                     filter={filter}
                     applyFilters={applyFilters}
                     />
-            {
-                Allproject.map((item, index) => {
+            {/* {
+                selectData.map((item, index) => {
                     return(
-                        <div className="allprojectlist">
+                        <div className="keyword">
                             <button key={index} className="deletebtn" onClick={e=>DeleteProject(e, index)}>x</button>
-                            <div className="allprojectlist-listbox" key = {index}>;label
+                            <div className="keyword-box" key = {index}>;label
                                 {item}
                             </div>
                         </div>
                     )
                 })
-            }
-                <div className="WriteNotice-projectbox">
+            } */}
+                {/* <div className="WriteNotice-projectbox">
                     <div className="WriteNoticeprojectbox__box">
                         <button type="button" className="addprojectbtn" disabled={disabled} onClick={Addproject}>+</button>
                         <div className="WriteNotice-introbox__inputbox">
                             <input type="text" className="WriteNotice-projectbox__inputproject" placeholder="[언어/프로젝트기간(개월수)/간단한 내역]으로 적어주세요" onChange={Inputproject} value={project}/>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="WriteNotice-projectdetailbox">
                 <h3 className="WriteNotice-projectdetilbox__projectdetaillabel">상세내역</h3>

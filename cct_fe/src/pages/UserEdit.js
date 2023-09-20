@@ -12,23 +12,19 @@ export default function FreelancerUser(){
     const [userEmail, setUserEamil] = useState('')
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
-    const [roles, setRoles] = useState('')
-    const [btnBackcolor, setBtnBackcolor] = useState('gray')
-    const userCheck = {}
 
     //유효성 검사
     const [IdCheck, setIdCheck] = useState()
     const [userPwchk, setUserPwchk] = useState()
     const [EmailCheck, setEmailCheck] = useState()
-    const [CheckJoin, setCheckJoin] = useState(false)
 
-    useEffect(()=>{
-        setRoles("USER")
-    },[])
 
     const UserInfo = {}
     const navigate = useNavigate()
 
+    useEffect(()=>{
+        console.log('컴퍼니')
+    },[])
     const InputName = e => {
         setUserName(e.target.value)
     }
@@ -45,15 +41,6 @@ export default function FreelancerUser(){
             setUserPwchk(false)
         }
     }
-    useEffect(()=> {
-        if(userId && userEmail && userBirth && userPhone && userPw && userPwchk){
-            setCheckJoin(true)
-            setBtnBackcolor('#077912')
-        } else{
-            setCheckJoin(false)
-            setBtnBackcolor('gray')
-        }
-    }, [userId, userEmail, userBirth, userName, userPhone, userPw, userPwchk])
     const InputEmail = e => {
         setUserEamil(e.target.value)
     }
@@ -63,13 +50,11 @@ export default function FreelancerUser(){
     const InputBirth = e => {
         setUserBirth(e.target.value)
     }
-
     const CheckId = e => {
-        userCheck["userCheck"] = userId
         axios({
             method : 'post',
-            url : '//localhost:8080/user/idCheck',
-            data: userCheck
+            url : '//localhost:8080/user/idcheck',
+            data: userId
         })
         .then(res => {
             console.log(res.data)
@@ -81,10 +66,9 @@ export default function FreelancerUser(){
         })
     }
     const CheckEmail = e => {
-        userCheck["userCheck"] = userEmail
         axios({
             method : 'post',
-            url : '//localhost:8080/user/emailCheck',
+            url : '//localhost:8080/user/idcheck',
             data: userEmail
         })
         .then(res => {
@@ -96,18 +80,6 @@ export default function FreelancerUser(){
             // setEmailCheck()
         })
     }
-    const CheckPhone = e => {
-        userCheck["userCheck"] = userPhone
-        axios({
-            method : 'post',
-            url : '//localhost:8080/user/phoneCheck',
-            data : userCheck
-        })
-        .then(res => {
-            console.log(res.data)
-        })
-        .catch(err => console.log(err))
-    }
     const JoinComplete = e => {
         e.preventDefault()
         UserInfo['userId'] = userId
@@ -116,7 +88,7 @@ export default function FreelancerUser(){
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
         UserInfo['birth'] = userBirth
-        UserInfo['roles'] = roles
+        UserInfo['roles'] = 'USER'
         console.log(UserInfo)
 
         axios({
@@ -125,7 +97,7 @@ export default function FreelancerUser(){
             data : UserInfo
         }).then(res => {
             console.log(res.data)
-            alert('회원가입 완료!')
+            alert('회원정보 수정 완료!')
             navigate('/loginpage')
         })
           .catch(err => {console.log(err.data)})
@@ -179,7 +151,7 @@ export default function FreelancerUser(){
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">휴대폰</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum} onBlur={CheckPhone}/>
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
@@ -189,7 +161,7 @@ export default function FreelancerUser(){
                             </div>
                         </div>
                     </div>   
-                    <input className="singupcompletebtn" type="submit" style={{backgroundColor : btnBackcolor}} value={'회원가입'} disabled={!CheckJoin} onClick={JoinComplete}/>
+                    <input className="singupcompletebtn" type="submit" value={'정보수정'} onClick={JoinComplete}/>
                 </form>
             </div>
         </div>
