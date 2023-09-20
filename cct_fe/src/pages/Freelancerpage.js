@@ -21,7 +21,11 @@ export default function Freelancerpage (){
         const resumeList = async () => {
             try { 
 
-                const response = await axios.get(`//localhost:8080/resumes`)
+                const response = await axios.get(`//localhost:8080/resumes`,{
+                    headers: {
+                    'AAuthorization': window.localStorage.getItem('token')
+                    }
+                  })
                 const data = response.data;   
                 console.log(data)
                 setList(data)
@@ -134,9 +138,9 @@ export default function Freelancerpage (){
                         <p className="freelancer-bottom-content-resume-detail">{item.period}</p>    {/* 작성자의 경력 */}
 
                         
-                        {/* <button className="move-to-detail">상세보기</button>
+                        <button className="move-to-detail">상세보기</button>
 
-                        <button className="move-to-detail"title={item.userId} onClick={MovetoDetail}>상세보기</button> */} {/*왜 3개? */}
+                        <button className="move-to-detail"title={item.userId} onClick={MovetoDetail}>상세보기</button>
 
                         <button className="move-to-detail"title={item.userId} onClick={MovetoDetail}>상세보기</button>
 

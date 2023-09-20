@@ -1,4 +1,4 @@
-import React, {useEffect, useId, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Note from "./Note";
@@ -8,7 +8,6 @@ export default function FreelancerDetail(){
     const [isSameid, setIsSameid] = useState(false)
     const [openpop, setOpenpop] = useState(false)
     const location = useLocation()
-    const navigate = useNavigate()
     const userId = location.state.userid
     const id = window.localStorage.getItem('id')
     useEffect(() => {
@@ -16,7 +15,9 @@ export default function FreelancerDetail(){
             method : 'get',
             url : `//localhost:8080/resume/${userId}`,
         })
-        .then(res => console.log(res))
+        .then(res => {
+            
+        })
         .catch(err => console.log(err))
         if(userId === id){
             setIsSameid(true)
@@ -26,11 +27,25 @@ export default function FreelancerDetail(){
    
 
     return(
-        <div className="Freelancerdetail">
-            <button className="MovetoNotebtn" onClick={() => {
-                setOpenpop(true)
-            }}></button>
-            <Note isOpen = {openpop} receiver={userId} setOpenpop={setOpenpop}></Note>
+        <div className="freelancerDetail">
+            <h2 className="introducefreelancer">{`안녕하세요. ${1}`}</h2>
         </div>
+
+        // <div className="Freelancerdetail">
+        //     {
+        //         isSameid ?  <>
+        //         <div>
+        //             <button className="MovetoNotebtn" onClick={() => {
+        //                 setOpenpop(true)
+        //             }}></button>
+        //         </div>
+        //         </> 
+        //         :
+        //         <>
+        //             <div></div>
+        //        </>
+        //     }
+        //     <Note isOpen = {openpop} receiver={userId} setOpenpop={setOpenpop}></Note>
+        //</div>
     )
 }

@@ -63,7 +63,7 @@ export default function WriteResume(){
     },[intro, project, projectDetail])                                          // 여기있는 값들 변할때마다
 
     const SaveResume = e => {                                                   // 이력서 저장 버튼을 눌렀을때
-        Resume['userId'] = 'hana2'                                              // 이건 걍 두셈 userId
+        Resume['userId'] = window.localStorage.getItem('userid')                                              // 이건 걍 두셈 userId
         Resume['title'] = intro                                                 // key = title, value = intro
         Resume['projectList'] = Allproject                                      // 72라인 까지 그런형태  
         Resume['detail'] = projectDetail                                        // Resume안의 key value 들임
@@ -72,9 +72,9 @@ export default function WriteResume(){
         e.preventDefault()
         axios({
             method : 'post',                                                    // 호출 형식
-            url : '/resume', 
+            url : '//localhost:8080/resume', 
             headers : {
-                "AAuthorization": `Bearer ${window.localStorage.getItem('token')}`,
+                "AAuthorization": `${window.localStorage.getItem('token')}`,
             },                                   // url api명세서에 있음
             data : Resume                                                       // 이력서 내용이 담긴 Resume을 data에 담아 보냄
         }).then(res => {                                                        // 통신에 성공했을 때
