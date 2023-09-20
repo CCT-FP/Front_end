@@ -11,7 +11,6 @@ import Mypage from './pages/Mypage';
 import Agreepage from './pages/Agreepage';
 import Userinfo from './pages/Userinfo';
 import WriteResume from './pages/WriteResume';
-import ResumeDetail from './pages/ResumeDetail';
 import FreelancerDetail from './pages/FreelancerDetail';
 import Note from './pages/Note';
 import MypageCompany from './pages/MypageCompany';
