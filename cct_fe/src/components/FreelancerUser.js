@@ -120,7 +120,7 @@ export default function FreelancerUser(){
 
         axios({
             method : 'post',
-            url : '/user/join',
+            url : '//localhost:8080/user/join',
             data : UserInfo
         }).then(res => {
             console.log(res.data)
