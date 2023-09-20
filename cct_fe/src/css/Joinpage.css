@@ -46,7 +46,7 @@
     background-image: url('../img/company.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 0.6vw 1.7vh;
+    background-position: center;
 }
 .joinbox-freelancerbox{
     display: flex;
@@ -72,5 +72,8 @@
     background-image: url('../img/freelancer.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 0.6vw 1.7vh;
+    background-position: center;
+}
+.joinbox-freelancerbox__freelancertext{
+    color: white;
 }

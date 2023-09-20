@@ -37,3 +37,19 @@
     width: 39vw;
     justify-content: space-between;
 }
+.headerbar-mypage{
+    cursor: pointer;
+}
+.scoutlogoutbox{
+    display: flex;
+    justify-content: space-around;
+}
+.logoutbtn{
+    border: none;
+    background-color: #03580B;
+    color: white;
+    cursor: pointer;
+}
+.MoveToScoutbtn{
+    cursor: pointer;
+}

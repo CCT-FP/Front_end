@@ -1,52 +1,52 @@
-.WriteResume{
+.WriteNotice{   
     margin-top: 10vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 120vh;
     justify-content: space-around;
-}
-.WriteResume-titlebox{
+} 
+.WriteNotice-titlebox{  
     width: 60vw;
     border-bottom: 3px solid #03580B;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.WriteResume-introbox{
+.WriteNotice-introbox{
     margin: 5vh;
     display: flex;
     align-items: center;
     font-size: 1.2rem;
-    width: 50vw;
+    width: 60vw;
     justify-content: space-around;
 }
-.WriteResume-introbox__inputbox{
+.WriteNotice-introbox__inputbox{
     width: 30vw;
     height: auto;
     border-bottom: 3px solid #03580B;
 }
-.WriteResume-introbox__inputintro{
+.WriteNotice-introbox__inputintro{
     font-size: 1.3rem;
-    width: 30vw;
+    width: 40vw;
     border: none;
     &:focus{
         outline: none;
     }
 }
-.WriteResume-project{
+.WriteNotice-project{
     width: 50vw;
 }
-.WriteResume-projectbox{
+.WriteNotice-projectbox{
     width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.WriteReume-projectbox__box{
+.WriteNoticeprojectbox__box{
     display: flex;
 }
-.WriteResume-introbox__inputbox{
+.WriteNotice-introbox__inputbox{
     height: auto;
     width: 30vw;
 }
