@@ -26,6 +26,9 @@ export default function Headerbar(){
             navigate('/loginpage')
         }
     } 
+    const openScout = e => {
+        
+    }
     const Logout = e => {
         e.preventDefault();
         window.localStorage.clear()
@@ -59,7 +62,7 @@ export default function Headerbar(){
                             islogined ? 
                             <div className="scoutlogoutbox">
                                 <button className="logoutbtn" onClick={Logout}>로그아웃</button>
-                                <div className="MoveToScoutbtn" onClick={MoveToScout}></div><AiOutlineMail size={30} title="쪽지함" />
+                                <div className="MoveToScoutbtn" onClick={openScout}></div><AiOutlineMail size={30} title="쪽지함" />
                             </div>
                              :
                                 <>
