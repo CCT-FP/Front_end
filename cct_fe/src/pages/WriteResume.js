@@ -72,7 +72,7 @@ export default function WriteResume(){
         e.preventDefault()
         axios({
             method : 'post',                                                    // 호출 형식
-            url : '//localhost:8080/resume', 
+            url : '/resume', 
             headers : {
                 "AAuthorization": `Bearer ${window.localStorage.getItem('token')}`,
             },                                   // url api명세서에 있음
