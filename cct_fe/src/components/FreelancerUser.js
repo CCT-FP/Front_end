@@ -63,7 +63,6 @@ export default function FreelancerUser(){
     const InputBirth = e => {
         setUserBirth(e.target.value)
     }
-
     const CheckId = e => {
         userCheck["userCheck"] = userId
         axios({
@@ -85,7 +84,7 @@ export default function FreelancerUser(){
         axios({
             method : 'post',
             url : '//localhost:8080/user/emailCheck',
-            data: userEmail
+            data: userCheck
         })
         .then(res => {
             console.log(res.data)
@@ -121,7 +120,7 @@ export default function FreelancerUser(){
 
         axios({
             method : 'post',
-            url : '//localhost:8080/user/join',
+            url : '/user/join',
             data : UserInfo
         }).then(res => {
             console.log(res.data)

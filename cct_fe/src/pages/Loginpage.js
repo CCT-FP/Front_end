@@ -27,7 +27,7 @@ export default function Loginpage() {
         UserInfo['password'] = userPw
         axios({
             method : 'post',
-            url : '//localhost:8080/user/login',
+            url : '/user/login',
             data : UserInfo
         })
         .then(res => {
