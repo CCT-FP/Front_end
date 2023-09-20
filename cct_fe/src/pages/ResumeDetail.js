@@ -27,7 +27,7 @@ export default function ResumeDetail(){
 
     return(
         <div className="ResumeDetail">
-            <button className="MovetoNotebtn" onClick={MovetoNote}></button>
+            <button className="MovetoNotebtn"  onClick={MovetoNote}></button>
         </div>
     )
 }
