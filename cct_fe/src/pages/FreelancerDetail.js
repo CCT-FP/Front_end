@@ -7,18 +7,18 @@ import '../css/FreelancerDetail.css'
 export default function FreelancerDetail(){
     const [isSameid, setIsSameid] = useState(false)
     const [openpop, setOpenpop] = useState(false)
-    const location = useLocation()
+    const location = useLocation()      // 받아주려면 필수
     const navigate = useNavigate()
-    const userId = location.state.userid
-    const id = window.localStorage.getItem('id')
-    useEffect(() => {
+    const userId = location.state.userid    // userid 받기
+    const id = window.localStorage.getItem('id')    // 로그인된 id 받기
+    useEffect(() => {   
         axios({
             method : 'get',
             url : `//localhost:8080/resume/${userId}`,
         })
         .then(res => console.log(res))
         .catch(err => console.log(err))
-        if(userId === id){
+        if(userId === id){      // 로그인된 id와 같다면, 쪽지 생성 안하기
             setIsSameid(true)
         }
     }, [])
