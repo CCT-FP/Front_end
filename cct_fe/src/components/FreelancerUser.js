@@ -67,13 +67,13 @@ export default function FreelancerUser(){
         userCheck["userCheck"] = userId
         axios({
             method : 'post',
-<<<<<<< HEAD
+
             url : '//localhost:8080/user/idcheck',
-            data: userId
-=======
+            data: userId,
+
             url : '//localhost:8080/user/idCheck',
             data: userCheck
->>>>>>> 01a078ef7b3340b7a39bb5dc982b33f545719e62
+
         })
         .then(res => {
             console.log(res.data)
