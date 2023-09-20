@@ -16,6 +16,7 @@ import Note from './pages/Note';
 import MypageCompany from './pages/MypageCompany';
 import WriteNotice from './pages/WriteNotice';
 import { CookiesProvider } from 'react-cookie';
+import NoticeDetail from './pages/NoticeDetail'
 
 function App() {
   const [data, setData] = useState(null);
@@ -101,6 +102,7 @@ function App() {
             <Route path='/notice/writenotice' element={<WriteNotice/>}/>    {/* 공고 작성 페이지 */}
             <Route path='/resume/freelancerdetails' element={<FreelancerDetail/>}/>  {/* 이력서 자세히 보기 페이지 */}
             <Route path='/writenote' element={<Note/>}/>        {/* 쪽지 페이지 */}
+            <Route path='/notice/noticedetail' element={<NoticeDetail/>}/>
           </Routes>
       </CookiesProvider>
     </BrowserRouter>

@@ -38,9 +38,6 @@ export default function Headerbar(){
         })
         .catch(err => console.log(err))
     }
-    const MoveToScout = e =>{
-        navigate('/scout')
-    }
     return(
         <>
             <div className="headerbar">
