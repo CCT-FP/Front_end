@@ -22,7 +22,7 @@ export default function Note ({isOpen, setOpenpop, receiver}) {
     const sendNote = e => {
         e.preventDefault()  
         console.log(receiver)
-        NoteInfo['sender'] = 'hana'
+        NoteInfo['sender'] = window.localStorage.getItem('id')
         NoteInfo['receiver'] = receiver
         NoteInfo['title'] = noteTitle
         NoteInfo['message'] = noteContents
@@ -50,6 +50,9 @@ export default function Note ({isOpen, setOpenpop, receiver}) {
     return(
         <Modal isOpen={isOpen}>
             <div className="WriteNote">
+                <div className="NoteTitle">
+                    <h1>쪽지</h1>
+                </div>
                 <div className="WriteNoteboxtitle">
                     <h3 className="Notetitletext">제목</h3>
                     <input className="Notetitle" type="text" placeholder="제목을 입력해주세요." onChange={InputTitle}/>
@@ -59,7 +62,7 @@ export default function Note ({isOpen, setOpenpop, receiver}) {
                     <h3 className="Notedetails">내용</h3>
                     <h3 className="countInfo">글자수 제한 : {`${countContents} / 200`}</h3>
                     </div>
-                    <textarea className="Notedetails" cols={30} rows={40} onChange={InputContents} maxLength={200}></textarea>
+                    <textarea className="Notedetails" cols={60} rows={20} onChange={InputContents} maxLength={200}></textarea>
                     <button className="sendNote" disabled={!isNotnull} onClick={sendNote}>보내기</button>
                 </div>
             </div>

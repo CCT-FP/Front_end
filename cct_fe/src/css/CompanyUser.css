@@ -72,10 +72,4 @@
     cursor: pointer;
     color: white;
     font-weight: bold;
-    &:hover{
-        transform: scale(105%);
-    }
-    &:active{
-        transform: scale(95%);
-    }
 }

@@ -13,12 +13,14 @@ export default function FreelancerUser(){
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
     const [roles, setRoles] = useState('')
+    const [btnBackcolor, setBtnBackcolor] = useState('gray')
     const userCheck = {}
 
     //유효성 검사
     const [IdCheck, setIdCheck] = useState()
     const [userPwchk, setUserPwchk] = useState()
     const [EmailCheck, setEmailCheck] = useState()
+    const [CheckJoin, setCheckJoin] = useState(false)
 
     useEffect(()=>{
         setRoles("USER")
@@ -43,6 +45,15 @@ export default function FreelancerUser(){
             setUserPwchk(false)
         }
     }
+    useEffect(()=> {
+        if(userId && userEmail && userBirth && userPhone && userPw && userPwchk){
+            setCheckJoin(true)
+            setBtnBackcolor('#077912')
+        } else{
+            setCheckJoin(false)
+            setBtnBackcolor('gray')
+        }
+    }, [userId, userEmail, userBirth, userName, userPhone, userPw, userPwchk])
     const InputEmail = e => {
         setUserEamil(e.target.value)
     }
@@ -56,8 +67,13 @@ export default function FreelancerUser(){
         userCheck["userCheck"] = userId
         axios({
             method : 'post',
+<<<<<<< HEAD
             url : '//localhost:8080/user/idcheck',
             data: userId
+=======
+            url : '//localhost:8080/user/idCheck',
+            data: userCheck
+>>>>>>> 01a078ef7b3340b7a39bb5dc982b33f545719e62
         })
         .then(res => {
             console.log(res.data)
@@ -73,7 +89,7 @@ export default function FreelancerUser(){
         axios({
             method : 'post',
             url : '//localhost:8080/user/emailCheck',
-            data: userEmail
+            data: userCheck
         })
         .then(res => {
             console.log(res.data)
@@ -89,7 +105,7 @@ export default function FreelancerUser(){
         axios({
             method : 'post',
             url : '//localhost:8080/user/phoneCheck',
-            data : userPhone
+            data : userCheck
         })
         .then(res => {
             console.log(res.data)
@@ -103,7 +119,7 @@ export default function FreelancerUser(){
         UserInfo['password'] = userPw
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
-        UserInfo['brith'] = userBirth
+        UserInfo['birth'] = userBirth
         UserInfo['roles'] = roles
         console.log(UserInfo)
 
@@ -177,7 +193,7 @@ export default function FreelancerUser(){
                             </div>
                         </div>
                     </div>   
-                    <input className="singupcompletebtn" type="submit" value={'회원가입'} onClick={JoinComplete}/>
+                    <input className="singupcompletebtn" type="submit" style={{backgroundColor : btnBackcolor}} value={'회원가입'} disabled={!CheckJoin} onClick={JoinComplete}/>
                 </form>
             </div>
         </div>

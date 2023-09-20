@@ -8,13 +8,24 @@ export default function CompanyUser(){
     const [userCompany, setUserCompany] = useState('')
     const [userId, setUserId] = useState('')
     const [userPw, setUserPw] = useState('')
-    const [userPwchk, setUserPwchk] = useState('')
     const [userEmail, setUserEamil] = useState('')
     const [userPhone, setUserPhone] = useState('')
     const [userDamdang, setUserDamdang] = useState('')
     const [userAddress, setUserAddress] = useState('')
+    const [roles, setRoles] = useState('')
+    const [btnBackcolor, setBtnBackcolor] = useState('gray')
     const UserInfo = {}
+    const userCheck = {}
+    //유효성 검사
+    const [userPwchk, setUserPwchk] = useState('')
+    const [IdCheck, setIdCheck] = useState()
+    const [EmailCheck, setEmailCheck] = useState()
+    const [CheckJoin, setCheckJoin] = useState(false)
     const navigate = useNavigate()
+
+    useEffect(()=>{
+        setRoles("ADMIN")
+    },[])
 
     const InputCompany = e => {
         setUserCompany(e.target.value)
@@ -26,7 +37,11 @@ export default function CompanyUser(){
         setUserPw(e.target.value)
     }
     const InputPwchk = e => {
-        setUserPwchk(e.target.value)
+        if(e.target.value === userPw){
+            setUserPwchk(true)
+        }else{
+            setUserPwchk(false)
+        }
     }
     const InputEmail = e => {
         setUserEamil(e.target.value)
@@ -40,21 +55,63 @@ export default function CompanyUser(){
     const InputAddress = e => {
         setUserAddress(e.target.value)
     }
+    useEffect(()=> {
+        if(userId && userEmail && userPhone && userPw && userPwchk && userAddress && userCompany && userDamdang){
+            setCheckJoin(true)
+            setBtnBackcolor('#077912')
+        } else{
+            setCheckJoin(false)
+            setBtnBackcolor('gray')
+        }
+    }, [userId, userEmail, userPhone, userPw, userPwchk, userAddress, userCompany, userDamdang])
+    
+    const CheckId = e => {
+        userCheck["userCheck"] = userId
+        axios({
+            method : 'post',
+            url : '//localhost:8080/user/idCheck',
+            data: userCheck
+        })
+        .then(res => {
+            console.log(res.data)
+            // setIdCheck(res.data.idcheck)
+        })
+        .catch(err => {
+            console.log(err)
+            // setIdCheck()
+        })
+    }
+    const CheckEmail = e => {
+        userCheck["userCheck"] = userEmail
+        axios({
+            method : 'post',
+            url : '//localhost:8080/user/emailCheck',
+            data: userCheck
+        })
+        .then(res => {
+            console.log(res.data)
+            // setEmailCheck(res.data.idcheck)
+        })
+        .catch(err => {
+            console.log(err)
+            // setEmailCheck()
+        })
+    }
     const JoinComplete = e => {
         e.preventDefault()
-        UserInfo['company'] = userCompany
-        UserInfo['name'] = userDamdang
-        UserInfo['id'] = userId
+        UserInfo['name'] = userCompany
+        UserInfo['cname'] = userDamdang
+        UserInfo['userId'] = userId
         UserInfo['password'] = userPw
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
         UserInfo['address'] = userAddress
-        UserInfo['roles'] = 'ADMIN'
+        UserInfo['roles'] = roles
         console.log(UserInfo)
 
         axios({
             method : 'post',
-            url : '//localhost:8080/users/join',
+            url : '//localhost:8080/user/join',
             data : UserInfo
         }).then(res => {
             console.log(res.data)
@@ -62,8 +119,6 @@ export default function CompanyUser(){
             navigate('/loginpage')
         })
           .catch(err => {console.log(err.data)})
-        
-        
     }
     return(
         <div className="CompanyUser">
@@ -85,7 +140,7 @@ export default function CompanyUser(){
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">회원 아이디</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoId" placeholder="아이디를 입력하세요." onChange={InputId}/>
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoId" placeholder="아이디를 입력하세요." onChange={InputId} onBlur={CheckId}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
@@ -103,7 +158,7 @@ export default function CompanyUser(){
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">이메일</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='email' className="inputuserinfo joinform-joinbody__joinbox--userinfoEmail" placeholder="이메일을 입력하세요." onChange={InputEmail}/>
+                                <input type='email' className="inputuserinfo joinform-joinbody__joinbox--userinfoEmail" placeholder="이메일을 입력하세요." onChange={InputEmail} onBlur={CheckEmail}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
@@ -125,7 +180,7 @@ export default function CompanyUser(){
                             </div>
                         </div>
                     </div>
-                    <input className="singupcompletebtn" type="submit" value={'회원가입'} onClick={JoinComplete}/>
+                    <input className="singupcompletebtn" type="submit" value={'회원가입'} style={{backgroundColor : btnBackcolor}} disabled={!CheckJoin} onClick={JoinComplete}/>
                 </form>
             </div>
         </div>
