@@ -2,13 +2,13 @@ import React,{ useEffect, useState } from "react";
 import '../css/WriteNotice.css';
 import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; // css import
-import moment from 'moment';
+// import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css'; // css import
+// import moment from 'moment';
 import 'moment/locale/ko';
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function NoticeDeatil () {
+export default function NoticeDetail () {
     const [idSameid, setIsSameid] = useState(false)
     const [list, setList] = useState([]);
     const location = useLocation();
@@ -34,7 +34,8 @@ export default function NoticeDeatil () {
                 description: item.description,      // 디테일 내용
                 periodList: item.periodList,        // 예상 소요 기간
                 career: item.career,                // 필요 경력
-                address: item.address               // 회사 주소
+                address: item.address,              // 회사 주소
+                manager: item.manager               // 담당자 이름
           }));
   
           console.log(extractedData); // 추출된 데이터 확인
@@ -56,16 +57,21 @@ export default function NoticeDeatil () {
     return( 
         <div>
             공고 디테일 페이지 입니다.
-            <div className="noticedetail-title">제목</div>
-            <div className="noticedetail-manager">담당자
-                <div className="noticedetail-manager-name">담당자 이름</div>
-                <butto className="noticedetail-movetonote" onClick={MovetoNote}>보내기</butto> 
-            </div>
-            <div className="noticedetail-career">필요 경력</div>
-            <div className="noticedetail-lanaugeList">필요 언어</div>
-            <div className="noticedetail-periodList">예상 소요기간</div>
-            <div className="noticedetail-description">설명</div>
-            <div className="noticedetail-address">주소</div>
+            {list.map((item)=>(
+                <div>
+                    <div className="noticedetail-title">{item.title}</div>
+                    <div className="noticedetail-manager">담당자
+                        <div className="noticedetail-manager-name">{item.manager}</div>
+                        <button className="noticedetail-movetonote" onClick={MovetoNote}>보내기</button> 
+                    </div>
+                    <div className="noticedetail-career">{item.career}</div>
+                    <div className="noticedetail-lanaugeList">{item.lanaugeList}</div>
+                    <div className="noticedetail-periodList">{item.periodList}</div>
+                    <div className="noticedetail-description">{item.description}</div>
+                    <div className="noticedetail-address">{item.address}</div>
+                </div>
+            ))}
+            
         </div>
 
     )

@@ -11,12 +11,13 @@ import Mypage from './pages/Mypage';
 import Agreepage from './pages/Agreepage';
 import Userinfo from './pages/Userinfo';
 import WriteResume from './pages/WriteResume';
+import ResumeDetail from './pages/ResumeDetail';
 import FreelancerDetail from './pages/FreelancerDetail';
 import Note from './pages/Note';
 import MypageCompany from './pages/MypageCompany';
 import WriteNotice from './pages/WriteNotice';
+import NoticeDetail from './pages/NoticeDetail';
 import { CookiesProvider } from 'react-cookie';
-import NoticeDetail from './pages/NoticeDetail'
 
 function App() {
   const [data, setData] = useState(null);
