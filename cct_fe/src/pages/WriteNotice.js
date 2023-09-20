@@ -16,7 +16,7 @@ export default function WriteNotice(){
     const [projectDetail, setProjectDetail] = useState('')  // 프로젝트 상세 내용 상태 저장
     const [stack, setStack] = useState([])              // stack 배열 상태 저장
     const [period, setPeriod] = useState([])            // period 배열 상태 저장
-    const Resume = {}                                   // 백엔드에 전달하는 데이터들을 저장하는
+    const Notice = {}                                   // 백엔드에 전달하는 데이터들을 저장하는
     
     const [filter, setFilter] = useState(false);        // filter팝업 상태 저장
     const [addList, setAddList] = useState([]);         // 추가된 스펙, 경력, 지역
@@ -49,15 +49,15 @@ export default function WriteNotice(){
     //     console.log(Allproject)
     //     Addstaper(sta,per)
     // }
-    const DeleteProject = (e, index) => {
-        e.preventDefault();
-        const updatedProjects = Allproject.filter((item, i) => i !== index);
-        const updatedStack = stack.filter((item, i)=> i !== index);
-        const updatedPeriod = period.filter((item, i)=> i !== index)
-        setAllproject(updatedProjects);
-        setStack(updatedStack)
-        setPeriod(updatedPeriod)
-    }
+    // const DeleteProject = (e, index) => {
+    //     e.preventDefault();
+    //     const updatedProjects = Allproject.filter((item, i) => i !== index);
+    //     const updatedStack = stack.filter((item, i)=> i !== index);
+    //     const updatedPeriod = period.filter((item, i)=> i !== index)
+    //     setAllproject(updatedProjects);
+    //     setStack(updatedStack)
+    //     setPeriod(updatedPeriod)
+    // }
     const Inputcontents = e => {
         setProjectDetail(e.target.value)
     }
@@ -70,7 +70,7 @@ export default function WriteNotice(){
     }, [project])
 
     useEffect(()=>{
-        if(Allproject !== '' && intro !== '' && projectDetail !== ''){
+        if(intro !== '' && projectDetail !== ''){
             setIssave(false)
         } else{
             setIssave(true)
@@ -78,17 +78,17 @@ export default function WriteNotice(){
     },[intro, project, projectDetail])
 
     const SaveNotice = e => {
-        Resume['userId'] = 'hana'
-        Resume['title'] = intro
-        Resume['projectList'] = Allproject
-        Resume['detail'] = projectDetail
-        Resume['stackList'] = stack
-        Resume['periodList'] = period
+        // Notice['userId'] = 'hana'
+        Notice['title'] = intro
+        // Notice['projectList'] = Allproject
+        Notice['description'] = projectDetail
+        Notice['languageList'] = stack
+        Notice['periodList'] = period
         e.preventDefault()
         axios({
             method : 'post',
             url : '//localhost:8080/jobPost',
-            data : Resume
+            data : Notice
         }).then(res => console.log(res))
           .catch(err => console.log(err))
     }
