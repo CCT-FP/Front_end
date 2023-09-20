@@ -1,7 +1,11 @@
 import React,{ useEffect, useState } from "react";
-import '../css/WriteResume.css'
-import axios from 'axios'
+import '../css/WriteNotice.css';
+import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'; // css import
+import moment from 'moment';
+import 'moment/locale/ko';
 
 export default function WriteNotice(){
     const [Allproject, setAllproject] = useState([])    // 모든 프로젝트 상태 저장
@@ -18,31 +22,33 @@ export default function WriteNotice(){
     const [addList, setAddList] = useState([]);         // 추가된 스펙, 경력, 지역
     const [selectData, setSelectData] = useState([])    // filter팝업에서 저장하는 리스트
 
+    const [value, onChange] = useState(new Date());
+
     const applyFilters = (selectData) => {  // filter팝업에서 받아온 데이터 저장하기
         setSelectData(selectData);
     } 
     const showFilterPopup = () => {   // 필터창 오픈
         setFilter(true);
     };
-    const Inputintro = e =>{
+    const Inputintro = e =>{    // 한줄 소개 저장
         setIntro(e.target.value)
     }
-    const Inputproject = e => {
-        const pro = e.target.value
-        setProject(pro)
-    }
-    const Addstaper = (sta, per) => {
-        setStack([...stack, sta])
-        setPeriod([...period, per])
-    }
-    const Addproject = e => {
-        setProject('')
-        setAllproject([...Allproject, project])
-        const sta = project.split('/')[0]
-        const per = project.split('/')[1]
-        console.log(Allproject)
-        Addstaper(sta,per)
-    }
+    // const Inputproject = e => {
+    //     const pro = e.target.value
+    //     setProject(pro)
+    // }
+    // const Addstaper = (sta, per) => {
+    //     setStack([...stack, sta])
+    //     setPeriod([...period, per])
+    // }
+    // const Addproject = e => {
+    //     setProject('')
+    //     setAllproject([...Allproject, project])
+    //     const sta = project.split('/')[0]
+    //     const per = project.split('/')[1]
+    //     console.log(Allproject)
+    //     Addstaper(sta,per)
+    // }
     const DeleteProject = (e, index) => {
         e.preventDefault();
         const updatedProjects = Allproject.filter((item, i) => i !== index);
@@ -100,12 +106,18 @@ export default function WriteNotice(){
             </div>
             <div className="WriteNotice-project">
             <button className="WriteNotice-projectlabel" onClick={showFilterPopup}>키워드 입력</button> {/* filter팝업 오픈 */}
+            <div>
+            {/* <Calendar onChange={onChange} value={value} />
+         <div className="text-gray-500 mt-4">
+           {moment(value).format("YYYY년 MM월 DD일")} 
+           </div> */}
+         </div>
                 <FilterPopup
                     setFilter={setFilter}
                     filter={filter}
                     applyFilters={applyFilters}
                     />
-            {
+            {/* {
                 selectData.map((item, index) => {
                     return(
                         <div className="keyword">
@@ -116,15 +128,15 @@ export default function WriteNotice(){
                         </div>
                     )
                 })
-            }
-                <div className="WriteNotice-projectbox">
+            } */}
+                {/* <div className="WriteNotice-projectbox">
                     <div className="WriteNoticeprojectbox__box">
                         <button type="button" className="addprojectbtn" disabled={disabled} onClick={Addproject}>+</button>
                         <div className="WriteNotice-introbox__inputbox">
                             <input type="text" className="WriteNotice-projectbox__inputproject" placeholder="[언어/프로젝트기간(개월수)/간단한 내역]으로 적어주세요" onChange={Inputproject} value={project}/>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="WriteNotice-projectdetailbox">
                 <h3 className="WriteNotice-projectdetilbox__projectdetaillabel">상세내역</h3>

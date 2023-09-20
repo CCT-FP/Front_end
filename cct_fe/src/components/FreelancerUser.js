@@ -57,7 +57,7 @@ export default function FreelancerUser(){
         axios({
             method : 'post',
             url : '//localhost:8080/user/idcheck',
-            data: Id
+            data: userId
         })
         .then(res => {
             console.log(res.data)
