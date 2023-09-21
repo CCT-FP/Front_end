@@ -29,7 +29,7 @@ export default function Headerbar(){
         }
     } 
     const openScout = e => {
-        
+        setIsopen(true)
     }
     const Logout = e => {
         e.preventDefault();
@@ -65,9 +65,9 @@ export default function Headerbar(){
                             <>
                             <div className="scoutlogoutbox">
                                 <button className="logoutbtn" onClick={Logout}>로그아웃</button>
-                                <div className="MoveToScoutbtn" onClick={openScout}></div><AiOutlineMail size={30} title="쪽지함" />
+                                <div className="MoveToScoutbtn" onClick={openScout}><AiOutlineMail size={30} title="쪽지함" /></div>
                             </div>
-                            <Scout isopen={openScout} setIsopen={setIsopen}></Scout>
+                            <Scout isOpen={isopen} setIsopen={setIsopen}></Scout>
                             </>
                              :
                                 <>

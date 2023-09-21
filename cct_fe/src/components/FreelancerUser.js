@@ -12,7 +12,7 @@ export default function FreelancerUser(){
     const [userEmail, setUserEamil] = useState('')
     const [userPhone, setUserPhone] = useState('')
     const [userBirth, setUserBirth] = useState('')
-    const [roles, setRoles] = useState('')
+    const [roles, setRoles] = useState([])
     const [btnBackcolor, setBtnBackcolor] = useState('gray')
     const userCheck = {}
 
