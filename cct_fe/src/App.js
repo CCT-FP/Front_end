@@ -11,7 +11,6 @@ import Mypage from './pages/Mypage';
 import Agreepage from './pages/Agreepage';
 import Userinfo from './pages/Userinfo';
 import WriteResume from './pages/WriteResume';
-import ResumeDetail from './pages/ResumeDetail';
 import FreelancerDetail from './pages/FreelancerDetail';
 import Note from './pages/Note';
 import MypageCompany from './pages/MypageCompany';
@@ -102,8 +101,9 @@ function App() {
             <Route path='/resume/writeresume' element={<WriteResume/>}/>  {/* 이력서 작성 페이지 */}
             <Route path='/notice/writenotice' element={<WriteNotice/>}/>    {/* 공고 작성 페이지 */}
             <Route path='/resume/freelancerdetails' element={<FreelancerDetail/>}/>  {/* 이력서 자세히 보기 페이지 */}
+            <Route path='/notice/noticedetail' element={<NoticeDetail/>}/>    {/* 공고 자세히 보기 페이지 */}
             <Route path='/writenote' element={<Note/>}/>        {/* 쪽지 페이지 */}
-            <Route path='/notice/noticedetail' element={<NoticeDetail/>}/>
+            
           </Routes>
       </CookiesProvider>
     </BrowserRouter>

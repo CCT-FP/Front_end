@@ -6,6 +6,7 @@ import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
 import ResumePopup from "../components/ResumePopup";
 import { useNavigate, Link } from "react-router-dom";
+import filterIcon from "../img/filterIcon.png";
 
 export default function Freelancerpage (){
     const [popup, setPopup] = useState(false);  // 팝업창 오픈 여부
@@ -85,7 +86,7 @@ export default function Freelancerpage (){
 
     return (
         <div>
-            <div className="header">
+            <div className="header top_margin">
             </div>
 
              <div className="freelancer-content-body">  {/* 프리랜서 페이지 컨텐츠 구역 */}
@@ -103,7 +104,9 @@ export default function Freelancerpage (){
                         </span>
                         </div> {/* 상단 컨텐츠: 설명, 내이력보기 구역 */}
                     <div className="freelancer-top-content-bottom"> {/* 상단 컨텐츠: 필터링 버튼 구역 */}
-                       <button className="freelancer-top-content-bottom-filter" onClick={showFilterPopup}>필터 버튼</button>
+                       <button className="freelancer-top-content-bottom-filter" onClick={showFilterPopup}>
+                            <img src={filterIcon} alt="필터"></img>
+                       </button>
            
                     <FilterPopup            // 필터 팝업
                     setFilter={setFilter}   // setfilter 받아오기

@@ -94,7 +94,7 @@ export default function WriteNotice(){
     }
 
     return(
-        <div className="WriteNotice">
+        <div className="WriteNotice top_margin">
             <div className="WriteNotice-titlebox">
                 <h1 className="WriteNotice-titlebox__title">이력서</h1>
             </div>
