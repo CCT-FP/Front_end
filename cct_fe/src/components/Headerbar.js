@@ -4,9 +4,11 @@ import {AiOutlineMail} from 'react-icons/ai'
 import { Link, useNavigate } from "react-router-dom";
 import '../css/Headerbar.css'
 import axios from "axios";
+import Scout from './Scout'
 
 export default function Headerbar(){
     const [islogined, setIslogined] = useState(false);   //로그인이 되어있는 여부에 따른 로그인/회원가입 버튼 활성화
+    const [isopen, setIsopen] = useState(false)
     const token = window.localStorage.getItem('token')
     const navigate = useNavigate()
 
@@ -27,7 +29,7 @@ export default function Headerbar(){
         }
     } 
     const openScout = e => {
-        
+        setIsopen(true)
     }
     const Logout = e => {
         e.preventDefault();
@@ -60,10 +62,13 @@ export default function Headerbar(){
                         <div className="headerbar-navigation__signbox">
                             { 
                             islogined ? 
+                            <>
                             <div className="scoutlogoutbox">
                                 <button className="logoutbtn" onClick={Logout}>로그아웃</button>
-                                <div className="MoveToScoutbtn" onClick={openScout}></div><AiOutlineMail size={30} title="쪽지함" />
+                                <div className="MoveToScoutbtn" onClick={openScout}><AiOutlineMail size={30} title="쪽지함" /></div>
                             </div>
+                            <Scout isOpen={isopen} setIsopen={setIsopen}></Scout>
+                            </>
                              :
                                 <>
                                     <button className="headerbtn headerbar-navigation__loginbtn"><Link className="navigationlink" to={'/loginpage'}>로그인</Link></button>
