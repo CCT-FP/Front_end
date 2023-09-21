@@ -132,6 +132,7 @@ export default function Scout ({isOpen, setIsopen}) {
   const [receivelist, setReceivelist] = useState([])
   const [sendlist, setSenderlist] = useState([])
   const [openscoutDetail, setOpenscoutDetail] = useState(false)
+  const [scoutdetail, setScoutDetail] = useState({})
   const navigate = useNavigate()
   const customModalStyles = {
     overlay: {
@@ -159,6 +160,10 @@ export default function Scout ({isOpen, setIsopen}) {
       padding: "0",
     },
   };
+
+  const MoveToScoutDetail = e => {
+     setScoutDetail(e.target.title)
+  }
 
   const closeModal = () => {
     setIsopen(false)
@@ -232,7 +237,7 @@ export default function Scout ({isOpen, setIsopen}) {
                 ) :
                 sendlist?.map(item =>
                   <>
-                    <h3 className="scoutlisttitle">{item.title}</h3>
+                    <h3 className="scoutlisttitle" title={item} onClick={MoveToScoutDetail}>{item.title}</h3>
                     <div className="scoutsenderid">
                       <div>{item.receiver}</div>
                     </div>
@@ -243,7 +248,7 @@ export default function Scout ({isOpen, setIsopen}) {
         </div>
       </Modal>
       {/* 추가 Modal 컴포넌트 렌더링 */}
-      <ScoutDetailModal isOpen={openscoutDetail} closeModal={closeScoutDetail} />
+      <ScoutDetailModal isOpen={openscoutDetail} closeModal={closeScoutDetail} item={scoutdetail}/>
     </>
   )
 }
