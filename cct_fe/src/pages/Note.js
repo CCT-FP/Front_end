@@ -30,6 +30,9 @@ export default function Note ({isOpen, setOpenpop, receiver}) {
         axios({
             method : 'post',
             url : '//localhost:8080/scout',
+            headers :{
+                "AAuthorization": `${window.localStorage.getItem('token')}`,
+            },
             data : NoteInfo
         }).then(res => {                //응답 받고 상태값들 초기화
             console.log(res.data.success)
