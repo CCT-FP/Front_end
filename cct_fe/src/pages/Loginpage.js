@@ -21,7 +21,7 @@ export default function Loginpage() {
 
     const Signin = e => {
         e.preventDefault()
-        
+        console.log(1)
         const UserInfo = {}
         UserInfo['userId'] = userId
         UserInfo['password'] = userPw
