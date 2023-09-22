@@ -112,7 +112,7 @@ export default function WriteResume(){
             }
                 <div className="WriteResume-projectbox">
                     <div className="WriteReume-projectbox__box">
-                        <button type="button" className="addprojectbtn" disabled={disabled} onClick={Addproject}>+</button>
+                        <button className="addprojectbtn" disabled={disabled} onClick={Addproject}>+</button>
                         <div className="WriteResume-introbox__inputbox">
                             <input type="text" className="WriteResume-projectbox__inputproject" placeholder="[언어/프로젝트기간(개월수)/간단한 내역]으로 적어주세요" onChange={Inputproject} value={project}/>
                         </div>
