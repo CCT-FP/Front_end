@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import '../css/Freelancerpage.css';
-import Modal from 'react-modal';
 import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
 import ResumePopup from "../components/ResumePopup";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import filterIcon from "../img/filterIcon.png";
 
 export default function Freelancerpage (){

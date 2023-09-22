@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import '../css/Mainpage.css';
-import Modal from 'react-modal';
 import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
 import ResumePopup from "../components/ResumePopup";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import filterIcon from "../img/filterIcon.png";
 
 export default function Mainpage (){
@@ -20,9 +19,8 @@ export default function Mainpage (){
         //리스트 불러오기
         const companyList = async () => {
             try { 
-//localhost:8080/listPost
-                const response = await axios.get(`//localhost:8080/resumes
-                `)
+
+                const response = await axios.get(`//localhost:8080/listPost`)
                 const data = response.data;   
                 console.log(data)
                 setList(data)

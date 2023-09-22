@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import CompanyUser from "../components/CompanyUser";
 import FreelancerUser from "../components/FreelancerUser"
