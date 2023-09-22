@@ -5,7 +5,8 @@
 .company-content-body {
     display: flex;
     flex-direction: column;
-    margin-top: 5rem; 
+    margin-top: 5rem;
+    
 }
 
 .company-top-content {
@@ -18,6 +19,7 @@
 .company-top-content-top {
     display: inline-block;
     justify-content: space-around;
+    
 }
 
 .content-margin {

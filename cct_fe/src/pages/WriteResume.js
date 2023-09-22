@@ -86,7 +86,7 @@ export default function WriteResume(){
     }
 
     return(
-        <div className="WriteResume">
+        <div className="WriteResume top_margin">
             <div className="WriteResume-titlebox">
                 <h1 className="WriteResume-titlebox__title">이력서</h1>
             </div>

@@ -116,25 +116,25 @@ export default function FilterPopup({setFilter, filter, applyFilters}) {
             </div>
             
             <div className='filter-popup-spec'>         {/* 스펙 부분 */}
-                <div className='filter-popup-spec-title'>기술</div> {/* 스펙 제목 */}
+            <p><div className='filter-popup-spec-title'>기술</div> {/* 스펙 제목 */}
                    <Select
                         isMulti
                         options={specData}
                         onChange={handleChangeSpec}
                         placeholder="주력 언어 선택"  
-                    />
+                    /></p>
                 
                 </div>
             </div>
 
             <div className='filter-popup-location'>    {/* 지역 선택 */}
-                <div className='filter-popup-location-title'>지역</div>    {/* 지역 선택 제목 */}
+                <p><div className='filter-popup-location-title'>지역</div>    {/* 지역 선택 제목 */}
                 <Select
                     isMulti
                     options={locationData}
                     onChange={handleChangeLocation}
                     placeholder="근로 위치 선택"
-                />
+                /></p>
                 
             </div>
             <button className='filter-popup-apply' onClick={handleClickApply}>적용하기</button>

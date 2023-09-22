@@ -85,7 +85,7 @@ export default function Mainpage (){
     }
     return (
         <div>
-            <div className="header">
+            <div className="header margin_top">
             </div>
 
              <div className="company-content-body">  {/* 회사 공고 페이지 컨텐츠 구역 */}

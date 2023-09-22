@@ -1,5 +1,7 @@
-.WriteResume{
+.top_margin{
     margin-top: 10vw;
+}
+.WriteResume{
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,3 +1,7 @@
+.top_margin{
+    margin-top: 10vh;
+}
+
 .freelancer-content-body {
     display: flex;
     flex-direction: column;
@@ -36,6 +40,12 @@
     border-radius: 0.4rem;
     color: white;
     margin: 0 1rem;
+}
+.freelancer-top-content-bottom-filter{
+   
+    border: 5px;
+    border-color: black;
+
 }
 .freelancer-bottom-content-resume {
     width: 70vw;

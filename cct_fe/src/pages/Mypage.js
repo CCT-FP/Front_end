@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Cookies } from "react-cookie";
+import "../css/Mypage.css";
 
 export default function Mypage(){
     const cookies = new Cookies();
@@ -46,7 +47,7 @@ export default function Mypage(){
     }, []);
 
     return (
-        <div className="content">   
+        <div className="content margin_top">   
             <div className="mypage-top">    {/* 마이페이지 상단부분 */}
                 <div className="mypage-icon"></div>     {/* 마이페이지 아이콘 */}
                 <div className="name-email-number">     {/* 이름, 이메일, 번호 */}

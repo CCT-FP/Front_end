@@ -101,8 +101,9 @@ function App() {
             <Route path='/resume/writeresume' element={<WriteResume/>}/>  {/* 이력서 작성 페이지 */}
             <Route path='/notice/writenotice' element={<WriteNotice/>}/>    {/* 공고 작성 페이지 */}
             <Route path='/resume/freelancerdetails' element={<FreelancerDetail/>}/>  {/* 이력서 자세히 보기 페이지 */}
+            <Route path='/notice/noticedetail' element={<NoticeDetail/>}/>    {/* 공고 자세히 보기 페이지 */}
             <Route path='/writenote' element={<Note/>}/>        {/* 쪽지 페이지 */}
-            <Route path='/notice/noticedetail' element={<NoticeDetail/>}/>
+            
           </Routes>
       </CookiesProvider>
     </BrowserRouter>

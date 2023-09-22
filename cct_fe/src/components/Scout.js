@@ -227,22 +227,24 @@ export default function Scout ({isOpen, setIsopen}) {
           <div className='scoutlistbox'>
             {
               isreceive ?
-                receivelist?.map(item =>
+                receivelist?.map(item => {
                   <>
                     <h3 className="scoutlisttitle" onClick={openScoutDetail}>{item.title}</h3>
                     <div className="scoutsenderid">
                       <div>{item.sender}</div>
                     </div>
                   </>
-                ) :
-                sendlist?.map(item =>
-                  <>
-                    <h3 className="scoutlisttitle" title={item} onClick={MoveToScoutDetail}>{item.title}</h3>
-                    <div className="scoutsenderid">
-                      <div>{item.receiver}</div>
-                    </div>
-                  </>
-                )
+                }) :
+                sendlist?.map(item =>{
+                  return(  
+                    <>        
+                      <h3 className="scoutlisttitle" title={item} onClick={MoveToScoutDetail}>{item.title}</h3>
+                      <div className="scoutsenderid">
+                        <div>{item.receiver}</div>
+                      </div>
+                    </>
+                  )
+                })
             }
           </div>
         </div>

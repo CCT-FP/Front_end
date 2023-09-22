@@ -26,7 +26,7 @@ export default function FreelancerDetail(){
    
 
     return(
-        <div className="Freelancerdetail">
+        <div className="Freelancerdetail top_margin">
             <button className="MovetoNotebtn" onClick={() => {
                 setOpenpop(true)
             }}></button>
