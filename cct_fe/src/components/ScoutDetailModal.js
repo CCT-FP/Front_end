@@ -4,13 +4,14 @@ import axios from "axios";
 
 export default function ScoutDetailModal({ isOpen, closeModal, item }) {
   // Modal 내용 정의
-
   useEffect(()=> {
     axios({
         method: 'get',
         url : '//localhost:8080/scout/read',
         data : item
     })
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err))
   },[])
   const customModalStyles = {     // 모달창 디자인
               overlay: {

@@ -13,40 +13,96 @@
     justify-content: center;
     align-items: center;
 }
-.WriteResume-introbox{
-    margin: 5vh;
+.WriteResumebox{
     display: flex;
-    align-items: center;
-    font-size: 1.2rem;
+    flex-direction: column;
     width: 50vw;
-    justify-content: space-around;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+}
+.WriteResume-introbox{
+    display: flex;
+    width: 40vw;
+    justify-content: space-between;
+    align-items: center;
 }
 .WriteResume-introbox__inputbox{
-    width: 30vw;
+    display: flex;
     height: auto;
+    width: auto;
     border-bottom: 3px solid #03580B;
 }
 .WriteResume-introbox__inputintro{
-    font-size: 1.3rem;
-    width: 30vw;
+    font-size: 1.2rem;
     border: none;
+    width: 30vw;
     &:focus{
         outline: none;
     }
 }
+.deletebtn{
+    border: 2px solid #03580B;
+    background-color: white;
+    color: #bcd3be;
+    border-radius: 50%;
+    padding: 0 8px 0 8px;
+    cursor: pointer;
+}
+.WriteResume-projectlabel{
+    margin-bottom: 2vw;
+}
+.allprojectlist{
+    display: flex;
+    width: 40vw;
+    justify-content: end;
+    margin-bottom: 2.5vw;
+}
+.allprojectlist-listbox{
+    font-size: 1.2rem;
+    border: none;
+    width: 30vw;
+    border-bottom: 3px solid #bcd3be;
+    text-align: center;
+}
 .WriteResume-project{
-    width: 50vw;
+    display: flex;
+    width: 40vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
 }
 .WriteResume-projectbox{
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 1vw;
 }
 .WriteReume-projectbox__box{
     display: flex;
+    width: 40vw;
+    justify-content: end;
+    margin-bottom: 2.5vw;
 }
-.WriteResume-introbox__inputbox{
-    height: auto;
+.addprojectbtn{
+    border: 2px solid #03580B;
+    background-color: white;
+    color: #03580B;
+    border-radius: 50%;
+    padding: 0 7px 0 7px;
+    cursor: pointer;
+}
+.WriteResume-projectbox__inputbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.WriteResume-projectbox__inputproject{
+    font-size: 1.2rem;
+    border: none;
     width: 30vw;
+    border-bottom: 3px solid #03580B;
+    padding-bottom: 0 0 0 3px;
+    text-align: center;
+    &:focus{
+        outline: none;
+        border-bottom:3px solid black;
+    }
 }

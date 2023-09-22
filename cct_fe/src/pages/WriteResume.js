@@ -74,7 +74,7 @@ export default function WriteResume(){
             method : 'post',                                                    // 호출 형식
             url : '//localhost:8080/resume', 
             headers : {
-                "AAuthorization": `${window.localStorage.getItem('token')}`,
+                "Authorization": `${window.localStorage.getItem('token')}`,
             },                                   // url api명세서에 있음
             data : Resume                                                       // 이력서 내용이 담긴 Resume을 data에 담아 보냄
         }).then(res => {                                                        // 통신에 성공했을 때
@@ -90,42 +90,44 @@ export default function WriteResume(){
             <div className="WriteResume-titlebox">
                 <h1 className="WriteResume-titlebox__title">이력서</h1>
             </div>
-            <div className="WriteResume-introbox">
-                <h3 className="WriteResume-introbox__introlabel">한줄 소개 : </h3>
-                <div className="WriteResume-introbox__inputbox">
-                    <input type="text" className="WriteResume-introbox__inputintro" placeholder="안녕하세요. 저는 (이름)입니다." onChange={Inputintro} maxLength={24}/>
+            <div className="WriteResumebox">
+                <div className="WriteResume-introbox">
+                    <h3 className="WriteResume-introbox__introlabel">한줄 소개 : </h3>
+                    <div className="WriteResume-introbox__inputbox">
+                        <input type="text" className="WriteResume-introbox__inputintro" placeholder="안녕하세요. 저는 (이름)입니다." onChange={Inputintro} maxLength={30}/>
+                    </div>
                 </div>
-            </div>
-            <div className="WriteResume-project">
-            <h3 className="WriteResume-projectlabel">프로젝트 입력</h3>
-            {
-                Allproject?.map((item, index) => {
-                    return(
-                        <div className="allprojectlist">
-                            <button key={index} className="deletebtn" onClick={e=>DeleteProject(e, index)}>x</button>
-                            <div className="allprojectlist-listbox" key = {index}>
-                                {item}
+                <div className="WriteResume-project">
+                <h3 className="WriteResume-projectlabel">프로젝트 입력</h3>
+                {
+                    Allproject?.map((item, index) => {
+                        return(
+                            <div className="allprojectlist">
+                                <button key={index} className="deletebtn" onClick={e=>DeleteProject(e, index)}>x</button>
+                                <div className="allprojectlist-listbox" key = {index}>
+                                    {item}
+                                </div>
                             </div>
-                        </div>
-                    )
-                })
-            }
-                <div className="WriteResume-projectbox">
-                    <div className="WriteReume-projectbox__box">
-                        <button type="button" className="addprojectbtn" disabled={disabled} onClick={Addproject}>+</button>
-                        <div className="WriteResume-introbox__inputbox">
-                            <input type="text" className="WriteResume-projectbox__inputproject" placeholder="[언어/프로젝트기간(개월수)/간단한 내역]으로 적어주세요" onChange={Inputproject} value={project}/>
+                        )
+                    })
+                }
+                    <div className="WriteResume-projectbox">
+                        <div className="WriteReume-projectbox__box">
+                            <button type="button" className="addprojectbtn" disabled={disabled} onClick={Addproject}>+</button>
+                            <div className="WriteResume-projectbox__inputbox">
+                                <input type="text" className="WriteResume-projectbox__inputproject" placeholder="언어/기간(개월수)/간단한 내역" onChange={Inputproject} value={project}/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="WriteResume-projectdetailbox">
-                <h3 className="WriteResume-projectdetilbox__projectdetaillabel">상세내역</h3>
-                <div className="WriteResume-introbox__inputbox">
-                    <textarea className="WriteResume-projectdetilbox__projectdetaillcontents" onChange={Inputcontents} rows={30} cols={80}></textarea>
+                <div className="WriteResume-projectdetailbox">
+                    <h3 className="WriteResume-projectdetilbox__projectdetaillabel">상세내역</h3>
+                    <div className="WriteResume-introbox__inputbox">
+                        <textarea className="WriteResume-projectdetilbox__projectdetaillcontents" onChange={Inputcontents} rows={30} cols={100} maxLength={200}></textarea>
+                    </div>
                 </div>
-            </div>
-            <button disabled={issave} className="WriteResume-saveresume" onClick={SaveResume}>이력서 저장</button>
+                <button disabled={issave} className="WriteResume-saveresume" onClick={SaveResume}>이력서 저장</button>
         </div>
+    </div>
     )
 }
