@@ -23,7 +23,7 @@ export default function FreelancerUser(){
     const [CheckJoin, setCheckJoin] = useState(false)
 
     useEffect(()=>{
-        setRoles("USER")
+        setRoles([...roles, "USER"])
     },[])
 
     const UserInfo = {}

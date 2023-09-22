@@ -24,7 +24,7 @@ export default function CompanyUser(){
     const navigate = useNavigate()
 
     useEffect(()=>{
-        setRoles("ADMIN")
+        setRoles([...roles, "ADMIN"])
     },[])
 
     const InputCompany = e => {

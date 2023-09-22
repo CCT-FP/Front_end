@@ -63,7 +63,7 @@ export default function WriteResume(){
     },[intro, project, projectDetail])                                          // 여기있는 값들 변할때마다
 
     const SaveResume = e => {                                                   // 이력서 저장 버튼을 눌렀을때
-        Resume['userId'] = window.localStorage.getItem('userid')                                              // 이건 걍 두셈 userId
+        Resume['str_id'] = window.localStorage.getItem('userid')                                              // 이건 걍 두셈 userId
         Resume['title'] = intro                                                 // key = title, value = intro
         Resume['projectList'] = Allproject                                      // 72라인 까지 그런형태  
         Resume['detail'] = projectDetail                                        // Resume안의 key value 들임
