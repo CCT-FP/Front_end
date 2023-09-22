@@ -12,7 +12,7 @@ export default function CompanyUser(){
     const [userPhone, setUserPhone] = useState('')
     const [userDamdang, setUserDamdang] = useState('')
     const [userAddress, setUserAddress] = useState('')
-    const [roles, setRoles] = useState('')
+    const [roles, setRoles] = useState([])
     const [btnBackcolor, setBtnBackcolor] = useState('gray')
     const UserInfo = {}
     const userCheck = {}
