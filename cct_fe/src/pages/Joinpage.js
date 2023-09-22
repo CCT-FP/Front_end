@@ -11,7 +11,7 @@ export default function Joinpage () {
     }
 
     return(
-        <div className="joinbox">
+        <div className="joinbox margin_top">
             <div className="joinbox-titlebox">
                 <h1 className="joinbox-titlebox__title">회원가입</h1>
             </div>

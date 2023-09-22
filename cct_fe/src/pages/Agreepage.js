@@ -61,7 +61,7 @@ export default function Agreepage(){
     }
 
     return(
-        <div className="agreepage margin-top">
+        <div className="agreepage margin_top">
             <div className="joinbox-titlebox">
                 <h1 className="joinbox-titlebox__title">약관동의</h1>
             </div>

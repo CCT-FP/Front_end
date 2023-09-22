@@ -11,7 +11,7 @@ export default function Mypage(){
     const name = cookies.get("name");       // 쿠키에서 이름 가져오기
     const email = cookies.get("email");     // 쿠키에서 이메일 가져오기
     const phone = cookies.get("phone");     // 쿠키에서 폰번호 가져오기
-    
+    // const id = window.localStorage.getItem('id')
     const writeResume = e => {      // 이력서 작성으로 이동
         navigate('/resume/writeresume')
     }
