@@ -12,7 +12,8 @@ export default function WriteResume(){
     const [stack, setStack] = useState([])              // stack(기술스택) 배열 상태 저장
     const [period, setPeriod] = useState([])            // period(기간) 배열 상태 저장
     const [disabled, setDisabled] = useState(true)      // 프로젝트 경험을 작성했을 때만 활성화 하기위한 상태   <Boolean>
-    const [issave, setIssave] = useState(true)          // 이력서 저장 버튼 상태저장 <Boolean> (이력서 내용에 비어있는 부분에 따른 버튼 활성/비활성화)
+    const [issave, setIssave] = useState(true) 
+    const [btnBackground, setBtnbackground] = useState('gray')         // 이력서 저장 버튼 상태저장 <Boolean> (이력서 내용에 비어있는 부분에 따른 버튼 활성/비활성화)
     const navigate = useNavigate()                      // 마이페이지로의 전환을 위한 useNavigate Hooks
     const Resume = {}                                   // 백엔드에 전달하는 데이터들을 저장하는 Resume 객체
 
@@ -56,9 +57,11 @@ export default function WriteResume(){
 
     useEffect(()=>{                                                            // Allproject, intro, projectDetail이 변할때마다 호출
         if(Allproject.length > 0 && intro && projectDetail){                   // 공백이 아니면
-            setIssave(false)                                                   // 이력서 저장버튼 활성화
+            setIssave(false)   
+            setBtnbackground('#077912')                                                // 이력서 저장버튼 활성화
         } else{                                                                // 공백이면
-            setIssave(true)                                                    // 비활성화
+            setIssave(true)  
+            setBtnbackground('gray')                                                  // 비활성화
         }
     },[intro, project, projectDetail])                                          // 여기있는 값들 변할때마다
 
@@ -74,7 +77,7 @@ export default function WriteResume(){
             method : 'post',                                                    // 호출 형식
             url : '//localhost:8080/resume', 
             headers : {
-                "Authorization": `${window.localStorage.getItem('token')}`,
+                "Authorization": `Bearer ${window.localStorage.getItem('token')}`,
             },                                   // url api명세서에 있음
             data : Resume                                                       // 이력서 내용이 담긴 Resume을 data에 담아 보냄
         }).then(res => {                                                        // 통신에 성공했을 때
@@ -121,12 +124,14 @@ export default function WriteResume(){
                     </div>
                 </div>
                 <div className="WriteResume-projectdetailbox">
-                    <h3 className="WriteResume-projectdetilbox__projectdetaillabel">상세내역</h3>
-                    <div className="WriteResume-introbox__inputbox">
+                    <div className="WriteResume-detailtitlebox">
+                        <h3 className="WriteResume-projectdetilbox__projectdetaillabel">상세내역</h3>
+                    </div>
+                    <div className="WriteResume-detailbox__inputbox">
                         <textarea className="WriteResume-projectdetilbox__projectdetaillcontents" onChange={Inputcontents} rows={30} cols={100} maxLength={200}></textarea>
                     </div>
                 </div>
-                <button disabled={issave} className="WriteResume-saveresume" onClick={SaveResume}>이력서 저장</button>
+                <button disabled={issave} style={{backgroundColor : btnBackground}} className="WriteResume-saveresume" onClick={SaveResume}>이력서 저장</button>
         </div>
     </div>
     )

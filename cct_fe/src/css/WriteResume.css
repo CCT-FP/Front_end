@@ -108,3 +108,35 @@
         border-bottom:3px solid black;
     }
 }
+.WriteResume-projectdetailbox{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+.WriteResume-detailtitlebox{
+    width: 40vw;
+    display: flex;
+    justify-content: start;
+}
+.WriteResume-projectdetilbox__projectdetaillcontents{
+    border-top: 5px solid #03580B;
+    border-bottom: 5px solid #03580B;
+    font-size: 1.2rem;
+    width: 40vw;
+    margin-bottom: 2vw;
+    &:focus{
+        outline: none;
+    }
+}
+
+.WriteResume-saveresume{
+    background-color: #077912;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
