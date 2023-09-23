@@ -21,7 +21,7 @@ export default function FreelancerUser(){
     const [userPwchk, setUserPwchk] = useState()
     const [pwchkchk, setPwchkchk] = useState()
     const [EmailCheck, setEmailCheck] = useState()
-    const [PhoneCheck, setPhoneCheeck] = useState()
+    const [PhoneCheck, setPhoneCheck] = useState()
     const [CheckJoin, setCheckJoin] = useState(false)
 
 
@@ -57,20 +57,22 @@ export default function FreelancerUser(){
         if(e.target.value === userPw){
             setPwchkmsg('설정하신 비밀번호와 같습니다.')
             setPwchkmsgcolor('#077912')
+            setPwchkchk(true)
         }else{
             setPwchkmsg('설정하신 비밀번호와 다릅니다.')
             setPwchkmsgcolor('red')
+            setPwchkchk(false)
         }
     }
     useEffect(()=> {
-        if(userId && userEmail && userBirth && userPhone && userPw && userPwchk){
+        if(userId && userEmail && userBirth && userPhone && userPw && userPwchk, IdCheck && pwchkchk && EmailCheck && PhoneCheck){
             setCheckJoin(true)
             setBtnBackcolor('#077912')
         } else{
             setCheckJoin(false)
             setBtnBackcolor('gray')
         }
-    }, [userId, userEmail, userBirth, userName, userPhone, userPw, userPwchk])
+    }, [userId, userEmail, userBirth, userName, userPhone, userPw, userPwchk, IdCheck, pwchkchk, EmailCheck, PhoneCheck])
     const InputEmail = e => {
         setUserEamil(e.target.value)
     }
@@ -90,6 +92,7 @@ export default function FreelancerUser(){
         .then(res => {
             console.log(res.data)
             setIderrmsg('사용 가능한 아이디입니다.')
+            setIdCheck(true)
             setIdMsgcolor('#077912')
             // setIdCheck(res.data.idcheck)
         })
@@ -97,16 +100,19 @@ export default function FreelancerUser(){
             console.log(err)
             setIderrmsg('이미 사용 중인 아이디입니다.')
             setIdMsgcolor('red')
+            setIdCheck(false)
             // setIdCheck()
         })
     }
     const CheckPw = e => {
         if(e.target.value.length > 4 && e.target.value.length < 16){
             setPwerrmsg('올바른 비밀번호 형식입니다.')
+            setUserPwchk(true)
             setPwmsgcolor('#077912')
         } else{
             setPwerrmsg('5자리 이상 15자리 이하로 입력해주세요')
             setPwmsgcolor('red')
+            setUserPwchk(false)
         }
     }
     const CheckEmail = e => {
@@ -120,12 +126,14 @@ export default function FreelancerUser(){
             console.log(res.data)
             setEmailmsg('사용 가능한 이메일입니다.')
             setEmailmsgColor('#077912')
+            setEmailCheck(true)
             // setEmailCheck(res.data.idcheck)
         })
         .catch(err => {
             console.log(err)
             setEmailmsg('이미 사용중인 이메일입니다.')
             setEmailmsgColor('red')
+            setEmailCheck(false)
             // setEmailCheck()
         })
     }
@@ -140,11 +148,13 @@ export default function FreelancerUser(){
             console.log(res.data)
             setPhonemsg('사용 가능한 번호입니다.')
             setPhonemsgColor('#077912')
+            setPhoneCheck(true)
         })
         .catch(err => {
             console.log(err)
             setPhonemsg('이미 사용중인 번호입니다.')
             setPhonemsgColor('red')
+            setPhoneCheck(false)
         })
     }
     const JoinComplete = e => {
