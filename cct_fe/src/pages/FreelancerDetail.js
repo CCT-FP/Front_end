@@ -16,7 +16,7 @@ export default function FreelancerDetail(){
             method : 'get',
             url : `//localhost:8080/resume/${userId}`,
         })
-        .then(res => console.log(res))
+        .then(res => console.log(res.data))
         .catch(err => console.log(err))
         if(userId === id){      // 로그인된 id와 같다면, 쪽지 생성 안하기
             setIsSameid(true)

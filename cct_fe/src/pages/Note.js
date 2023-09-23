@@ -32,7 +32,7 @@ export default function Note ({isOpen, setOpenpop, receiver}) {
             headers : {
                 'Authorization' : `Bearer ${window.localStorage.getItem('token')}`
             },
-            url : '//localhost:8080/scout',
+            url : '//localhost:8080/scout/save',
             data : NoteInfo
         }).then(res => {                //응답 받고 상태값들 초기화
             console.log(res.data.success)
