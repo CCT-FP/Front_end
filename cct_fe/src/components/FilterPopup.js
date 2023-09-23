@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Select from 'react-select';
 import Modal from 'react-modal';
+import "../css/FilterPopup.css";
 
 export default function FilterPopup({setFilter, filter, applyFilters}) {
     const [filterOption, setFilterOption] = useState({
@@ -91,7 +92,7 @@ export default function FilterPopup({setFilter, filter, applyFilters}) {
           justifyContent: "center",
           overflow: "auto",
           padding: "0",
-        },
+        }
       };
 
     return(
@@ -100,8 +101,11 @@ export default function FilterPopup({setFilter, filter, applyFilters}) {
         
         style={customModalStyles}>
         <div className="filter-popup"> {/* 필터링 팝업 */}
-        <button className="close-btn" onClick={()=> {setFilter(false)}}>창 닫기</button> {/* 닫기버튼 */} 
-            <div className='filter-popup-title'>필터 추가하기</div>     {/* 필터 제목*/}
+        <div className='right'>
+            <button className="close-btn small-btn" onClick={()=> {setFilter(false)}}>X</button> {/* 닫기버튼 */} 
+        </div>
+            <div className='filter-popup-title'><h2 className='color'>필터 추가하기</h2></div>     {/* 필터 제목*/}
+            <div className='mgt'>
             <div className='filter-popup-career'>                    {/* 경력 파트 */}
                 <div className='filter-popup-career-text'>경력</div>    {/* 경력 파트 제목*/}
                 <div className='filter-popup-career-select'>            {/*경력 선택 버튼*/}
@@ -121,11 +125,12 @@ export default function FilterPopup({setFilter, filter, applyFilters}) {
                         isMulti
                         options={specData}
                         onChange={handleChangeSpec}
-                        placeholder="주력 언어 선택"  
+                        placeholder="주력 언어 선택" 
+                        className='filter-popup-spec-title-option' 
                     /></p>
                 
                 </div>
-            </div>
+            
 
             <div className='filter-popup-location'>    {/* 지역 선택 */}
                 <p><div className='filter-popup-location-title'>지역</div>    {/* 지역 선택 제목 */}
@@ -137,8 +142,11 @@ export default function FilterPopup({setFilter, filter, applyFilters}) {
                 /></p>
                 
             </div>
-            <button className='filter-popup-apply' onClick={handleClickApply}>적용하기</button>
-        
+                <div className='center'>
+                    <button className='filter-popup-apply' onClick={handleClickApply}>적용하기</button>
+                </div>
+                </div>
+            </div>
         </Modal>
     )
 }

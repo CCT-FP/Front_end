@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import '../css/Mainpage.css';
-import Modal from 'react-modal';
 import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
 import ResumePopup from "../components/ResumePopup";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import filterIcon from "../img/filterIcon.png";
 
 export default function Mainpage (){
     const [popup, setPopup] = useState(false);  // 팝업창 오픈 여부
@@ -92,10 +92,10 @@ export default function Mainpage (){
                 <div className="company-top-content"> {/* 회사 공고 페이지 컨텐츠 상단(필터, 내공고보기 등) */}
                     <div className="company-top-content-top">
                         <span className="company-top-content-explanation content-margin">
-                            <span className="margin-right">프로젝트를 등록하면</span> <br></br>프리랜서가 지원 할 수 있어요.
+                            <span className="margin-right"><span className="color-text">프로젝트</span>를 등록하면</span> <br></br>프리랜서가 지원 할 수 있어요.
                         </span>
                         <span className="company-top-content-seenotice content-margin margin">
-                            <button className="seeresume" onClick={showCompanyPopup}>내 공고 보기</button>
+                            <button className="seenotice" onClick={showCompanyPopup}>내 공고 보기</button>
                             <ResumePopup    // 내 공고 보기 팝업
                                 setPopup={setPopup}
                                 popup={popup}
@@ -103,8 +103,10 @@ export default function Mainpage (){
                         </span>
                         </div> {/* 상단 컨텐츠: 설명, 내이력보기 구역 */}
                     <div className="company-top-content-bottom"> {/* 상단 컨텐츠: 필터링 버튼 구역 */}
-                       <button className="company-top-content-bottom-filter" onClick={showFilterPopup}>필터 버튼</button>
-           
+                       <button className="company-top-content-bottom-filter" onClick={showFilterPopup}>
+                                <img src={filterIcon} alt="필터"></img>
+                       </button>
+                       
                     <FilterPopup            // 필터 팝업
                         setFilter={setFilter}   // setfilter 받아오기
                         filter={filter}         // filter 받아오기
@@ -116,7 +118,7 @@ export default function Mainpage (){
                 
                 <div className="company-bottom-content"> {/* 회사 공고 페이지 하단 컨텐츠 구역 */}
                     <div className="company-bottom-content-notice"> {/* 회사 공고 페이지 하단 컨텐츠 이력서 구역 */}
-                        {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
+                        {filterList ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
                         <div key={item.Id} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}
                             <div className="company-bottom-content-notice-title">{item.title}</div> {/* 공고 작성자 */} 
                             

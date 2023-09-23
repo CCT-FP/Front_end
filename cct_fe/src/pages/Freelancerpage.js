@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import '../css/Freelancerpage.css';
-import Modal from 'react-modal';
 import axios from 'axios';
 import FilterPopup from "../components/FilterPopup";
 import ResumePopup from "../components/ResumePopup";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import filterIcon from "../img/filterIcon.png";
 
 export default function Freelancerpage (){
@@ -77,10 +76,17 @@ export default function Freelancerpage (){
         }
         setFilterList(filterList);                  // setFilterList에 filterList를 넣음
     }
-
     const MovetoDetail = e => { // 상세페이지 이동
         console.log(e.target.title)
         navigate('/resume/freelancerdetails', {state : {userid : e.target.title}})
+    }
+    const nofilter = () => {    // 필터가 존재하지 않는다면,
+        if(!filterList.length){ // 필터리스트의 길이가 0일 경우 아래 실행
+            return (
+            <div className="nonefilter">
+                <button>필터없음</button>   
+            </div>)
+        }
     } 
     
 
@@ -92,8 +98,8 @@ export default function Freelancerpage (){
              <div className="freelancer-content-body">  {/* 프리랜서 페이지 컨텐츠 구역 */}
                 <div className="freelancer-top-content"> {/* 프리랜서 페이지 컨텐츠 상단(필터, 내이력보기 등) */}
                     <div className="freelancer-top-content-top">
-                        <span className="freelancer-top-content-explanation content-margin">
-                            <span className="margin-right">이력서를 등록하면</span> <br></br>기업의 컨텍이 들어올 수 있어요
+                        <span className="freelancer-top-content-explanation content-margin inlineblock">
+                            <span className="margin-right"><span className="color-text">이력서</span>를 등록하면</span> <br></br>기업의 컨텍이 들어올 수 있어요
                         </span>
                         <span className="freelancer-top-content-seeresume content-margin margin">
                             <button className="seeresume" onClick={showResumePopup}>내 이력서 보기</button>
@@ -107,6 +113,7 @@ export default function Freelancerpage (){
                        <button className="freelancer-top-content-bottom-filter" onClick={showFilterPopup}>
                             <img src={filterIcon} alt="필터"></img>
                        </button>
+                       {nofilter}
            
                     <FilterPopup            // 필터 팝업
                     setFilter={setFilter}   // setfilter 받아오기
@@ -119,7 +126,7 @@ export default function Freelancerpage (){
 
                 <div className="freelancer-bottom-content"> {/* 프리랜서 페이지 하단 컨텐츠 구역 */}
                     <div className="freelancer-bottom-content-resume"> {/* 프리랜서 페이지 하단 컨텐츠 이력서 구역 */}
-                    {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
+                    {filterList ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
                    <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
                         <div className="freelancer-bottom-content-resume-title" title={item.userId} onClick={MovetoDetail}>안녕하세요. {item.userId}입니다.</div> {/* 이력서 작성자 */} 
                          
@@ -139,11 +146,6 @@ export default function Freelancerpage (){
                          
                         <p className="freelancer-bottom-content-resume-spec">{item.stack}</p>   {/* 작성자의 기술 */}
                         <p className="freelancer-bottom-content-resume-detail">{item.period}</p>    {/* 작성자의 경력 */}
-
-                        
-                        <button className="move-to-detail">상세보기</button>
-
-                        <button className="move-to-detail"title={item.userId} onClick={MovetoDetail}>상세보기</button>
 
                         <button className="move-to-detail"title={item.userId} onClick={MovetoDetail}>상세보기</button>
 
