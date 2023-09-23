@@ -6,13 +6,13 @@ import axios from 'axios';
 
 export default function ResumePopup ({setPopup, popup}) {
     const [myList, setMyList] = useState([]);
-
+    const Id = window.localStorage.getItem('userid');
     useEffect(() => {
 
         //리스트 불러오기
         const myResumeList = async () => {
             try { 
-                const response = await axios.get(`//localhost:8080/resume/{userid}`)
+                const response = await axios.get(`//localhost:8080/resume/${Id}`)
                 const data = response.data;	
                 console.log(data); // 데이터에서 필요한 값 추출
                 setMyList(data);
