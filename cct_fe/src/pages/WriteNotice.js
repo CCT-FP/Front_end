@@ -78,7 +78,7 @@ export default function WriteNotice(){
     },[intro, project, projectDetail])
 
     const SaveNotice = e => {
-        // Notice['userId'] = 'hana'
+        Notice['userId'] = 'hana'
         Notice['title'] = intro
         // Notice['projectList'] = Allproject
         Notice['description'] = projectDetail

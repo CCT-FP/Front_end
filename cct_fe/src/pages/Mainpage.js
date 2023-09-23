@@ -118,7 +118,7 @@ export default function Mainpage (){
                 
                 <div className="company-bottom-content"> {/* 회사 공고 페이지 하단 컨텐츠 구역 */}
                     <div className="company-bottom-content-notice"> {/* 회사 공고 페이지 하단 컨텐츠 이력서 구역 */}
-                        {filterList ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
+                        {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
                         <div key={item.Id} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}
                             <div className="company-bottom-content-notice-title">{item.title}</div> {/* 공고 작성자 */} 
                             
