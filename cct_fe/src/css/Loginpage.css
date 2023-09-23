@@ -1,5 +1,14 @@
+.top_margin{
+    margin-top: 10vh;
+}
+
+.Loginpage{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .Loginpage-loginbox{
-    margin-top: 10vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,4 +17,66 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.Loginpage-loginform{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    align-items: center;
+    height: 70vh;
+    width: 40vw;
+    justify-content: space-around;
+    background-color: #d6e4d8;
+    border-radius: 20px;
+}
+.Loginpage-loginform__logotitleimg{
+    width: 18vw;
+    height: 8vh;
+}
+.Loginpage-loginform__body{
+    display: flex;
+    width: 30vw;
+    height: 30vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.Loginpage-loginform__body--box{
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
+}
+.logininfobox{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+    width: 13vw;
+    height: 3vh;
+    border-radius: 10px;
+}
+.loginuserinfo{
+    border: none;
+    width: 10vw;
+    height: 2vh;
+    margin-left: 1vw;
+    &:focus{
+        outline: none;
+    }
+}
+.signinbtn{
+    background-color: #077912;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    &:hover{
+        transform: scale(105%);
+    }
+    &:active{
+        transform: scale(95%);
+    }
 }

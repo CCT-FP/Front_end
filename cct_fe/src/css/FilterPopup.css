@@ -1,0 +1,46 @@
+.filter-popup{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    
+}
+.filter-popup button{
+    background-color: #077912;
+    border: 2px solid black;
+    color: white;
+}
+.filter-popup-title{
+    margin-top: 15px;
+    border-bottom: 2px solid #077912;
+}
+.mgt{
+    margin-top: 10px;
+}
+.filter-popup-career{
+    margin-top: 25px;
+}
+.filter-popup-career-option{
+    width: 50%;
+}
+.filter-popup-career-select {
+    margin-top: 2px;
+}
+.filter-popup-location{
+    text-align: center;
+}
+.filter-popup-apply{
+    margin-top: 15px;
+}
+.color{
+    color: #077912;
+}
+.right{
+    float: right;
+}
+.center{
+    align-items: center;
+}
+.small-btn{
+    margin-left: 90%;
+}

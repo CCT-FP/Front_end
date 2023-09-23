@@ -1,34 +1,32 @@
 import React, { useEffect, useState } from "react";
-import '../css/CompanyUser.css'
+import '../css/FreelancerUser.css'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
-export default function CompanyUser(){
 
-    const [userCompany, setUserCompany] = useState('')
+export default function FreelancerUser(){
+
     const [userId, setUserId] = useState('')
     const [userPw, setUserPw] = useState('')
+    const [userName, setUserName] = useState('')
     const [userEmail, setUserEamil] = useState('')
     const [userPhone, setUserPhone] = useState('')
-    const [userDamdang, setUserDamdang] = useState('')
-    const [userAddress, setUserAddress] = useState('')
-    const [roles, setRoles] = useState([])
-    const [btnBackcolor, setBtnBackcolor] = useState('gray')
-    const UserInfo = {}
-    const userCheck = {}
+    const [userBirth, setUserBirth] = useState('')
+
     //유효성 검사
-    const [userPwchk, setUserPwchk] = useState('')
     const [IdCheck, setIdCheck] = useState()
+    const [userPwchk, setUserPwchk] = useState()
     const [EmailCheck, setEmailCheck] = useState()
-    const [CheckJoin, setCheckJoin] = useState(false)
+
+
+    const UserInfo = {}
     const navigate = useNavigate()
 
     useEffect(()=>{
-        setRoles([...roles, "ADMIN"])
+        console.log('컴퍼니')
     },[])
-
-    const InputCompany = e => {
-        setUserCompany(e.target.value)
+    const InputName = e => {
+        setUserName(e.target.value)
     }
     const InputId = e => {
         setUserId(e.target.value)
@@ -49,28 +47,14 @@ export default function CompanyUser(){
     const InputPhonenum = e => {
         setUserPhone(e.target.value)
     }
-    const InputDamdang = e => {
-        setUserDamdang(e.target.value)
+    const InputBirth = e => {
+        setUserBirth(e.target.value)
     }
-    const InputAddress = e => {
-        setUserAddress(e.target.value)
-    }
-    useEffect(()=> {
-        if(userId && userEmail && userPhone && userPw && userPwchk && userAddress && userCompany && userDamdang){
-            setCheckJoin(true)
-            setBtnBackcolor('#077912')
-        } else{
-            setCheckJoin(false)
-            setBtnBackcolor('gray')
-        }
-    }, [userId, userEmail, userPhone, userPw, userPwchk, userAddress, userCompany, userDamdang])
-    
     const CheckId = e => {
-        userCheck["userCheck"] = userId
         axios({
             method : 'post',
-            url : '//localhost:8080/user/idCheck',
-            data: userCheck
+            url : '//localhost:8080/user/idcheck',
+            data: userId
         })
         .then(res => {
             console.log(res.data)
@@ -82,11 +66,10 @@ export default function CompanyUser(){
         })
     }
     const CheckEmail = e => {
-        userCheck["userCheck"] = userEmail
         axios({
             method : 'post',
-            url : '//localhost:8080/user/emailCheck',
-            data: userCheck
+            url : '//localhost:8080/user/idcheck',
+            data: userEmail
         })
         .then(res => {
             console.log(res.data)
@@ -99,14 +82,13 @@ export default function CompanyUser(){
     }
     const JoinComplete = e => {
         e.preventDefault()
-        UserInfo['name'] = userCompany
-        UserInfo['cname'] = userDamdang
         UserInfo['userId'] = userId
+        UserInfo['name'] = userName
         UserInfo['password'] = userPw
         UserInfo['email'] = userEmail
         UserInfo['phone'] = userPhone
-        UserInfo['address'] = userAddress
-        UserInfo['roles'] = roles
+        UserInfo['birth'] = userBirth
+        UserInfo['roles'] = 'USER'
         console.log(UserInfo)
 
         axios({
@@ -115,30 +97,35 @@ export default function CompanyUser(){
             data : UserInfo
         }).then(res => {
             console.log(res.data)
-            alert('회원가입 완료!')
+            alert('회원정보 수정 완료!')
             navigate('/loginpage')
         })
           .catch(err => {console.log(err.data)})
+        
+        
     }
     return(
-        <div className="CompanyUser">
-            <div className="CompanyUserinfobox">
-                <div className="CompanyUserinfobox-titlebox">
-                    <h1 className="CompanyUserinfobox-titlebox__title">기본정보</h1>
+        <div className="FreelancerUser">
+            <div className="FreelancerUserinfobox">
+                <div className="FreelancerUserinfobox-titlebox">
+                    <h1 className="FreelancerUserinfobox-titlebox__title">기본정보</h1>
                 </div>
                 <div className="joinbox-countbox">
                     <h3 className="joinbox-countbox__countpage">3 / 3</h3>
                 </div>
-                <form className="CompanyUserinfobox-joinform">
+                <form className="FreelancerUserinfobox-joinform">
                     <div className="joinform-joinbody">
                         <div className="joinform-joinbody__joinbox">
-                            <label className="joinform-joinbody__joinbox--label">회사명</label>
+                            <div>
+                                <span className="starimg"></span>
+                                <label className="joinform-joinbody__joinbox--label">성명</label>
+                            </div>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoCompany" placeholder="회사 명을 입력하세요." onChange={InputCompany}/>
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoFreelancer" placeholder="성함을 입력해주세요." onChange={InputName}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
-                            <label className="joinform-joinbody__joinbox--label">회원 아이디</label>
+                                <label className="joinform-joinbody__joinbox--label">회원 아이디</label>
                             <div className="joinform-joinbody__joinbox--box">
                                 <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoId" placeholder="아이디를 입력하세요." onChange={InputId} onBlur={CheckId}/>
                             </div>
@@ -152,7 +139,7 @@ export default function CompanyUser(){
                         <div className="joinform-joinbody__joinbox">
                             <label className="joinform-joinbody__joinbox--label">비밀번호 확인</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoPwchk" placeholder="비밀번호를 다시 입력해주세요." onChange={InputPwchk}/>
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoPwchk" placeholder="비밀번호를 다시 입력해주세요." onBlur={InputPwchk}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
@@ -162,25 +149,19 @@ export default function CompanyUser(){
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
-                            <label className="joinform-joinbody__joinbox--label">전화번호</label>
+                            <label className="joinform-joinbody__joinbox--label">휴대폰</label>
                             <div className="joinform-joinbody__joinbox--box">
                                 <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum}/>
                             </div>
                         </div>
                         <div className="joinform-joinbody__joinbox">
-                            <label className="joinform-joinbody__joinbox--label">담당자 명</label>
+                            <label className="joinform-joinbody__joinbox--label">생년월일</label>
                             <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoDamdang" placeholder="이름 / 직책" onChange={InputDamdang}/>
+                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoDamdang" placeholder="생년월일 6자리를 입력해주세요(yymmdd)" onChange={InputBirth}/>  
                             </div>
                         </div>
-                        <div className="joinform-joinbody__joinbox">
-                            <label className="joinform-joinbody__joinbox--label">주소</label>
-                            <div className="joinform-joinbody__joinbox--box">
-                                <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoAddress" placeholder="상세 주소까지 입력해 주세요.(상세주소까지 입력)" onChange={InputAddress}/>
-                            </div>
-                        </div>
-                    </div>
-                    <input className="singupcompletebtn" type="submit" value={'회원가입'} style={{backgroundColor : btnBackcolor}} disabled={!CheckJoin} onClick={JoinComplete}/>
+                    </div>   
+                    <input className="singupcompletebtn" type="submit" value={'정보수정'} onClick={JoinComplete}/>
                 </form>
             </div>
         </div>

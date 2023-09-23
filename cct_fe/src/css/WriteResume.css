@@ -1,8 +1,12 @@
-.WriteResume{
+.top_margin{
     margin-top: 10vw;
+}
+.WriteResume{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 120vh;
+    justify-content: space-around;
 }
 .WriteResume-titlebox{
     width: 60vw;
@@ -10,4 +14,129 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.WriteResumebox{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+}
+.WriteResume-introbox{
+    display: flex;
+    width: 40vw;
+    justify-content: space-between;
+    align-items: center;
+}
+.WriteResume-introbox__inputbox{
+    display: flex;
+    height: auto;
+    width: auto;
+    border-bottom: 3px solid #03580B;
+}
+.WriteResume-introbox__inputintro{
+    font-size: 1.2rem;
+    border: none;
+    width: 30vw;
+    &:focus{
+        outline: none;
+    }
+}
+.deletebtn{
+    border: 2px solid #03580B;
+    background-color: white;
+    color: #bcd3be;
+    border-radius: 50%;
+    padding: 0 8px 0 8px;
+    cursor: pointer;
+}
+.WriteResume-projectlabel{
+    margin-bottom: 2vw;
+}
+.allprojectlist{
+    display: flex;
+    width: 40vw;
+    justify-content: end;
+    margin-bottom: 2.5vw;
+}
+.allprojectlist-listbox{
+    font-size: 1.2rem;
+    border: none;
+    width: 30vw;
+    border-bottom: 3px solid #bcd3be;
+    text-align: center;
+}
+.WriteResume-project{
+    display: flex;
+    width: 40vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+}
+.WriteResume-projectbox{
+    margin-top: 1vw;
+}
+.WriteReume-projectbox__box{
+    display: flex;
+    width: 40vw;
+    justify-content: end;
+    margin-bottom: 2.5vw;
+}
+.addprojectbtn{
+    border: 2px solid #03580B;
+    background-color: white;
+    color: #03580B;
+    border-radius: 50%;
+    padding: 0 7px 0 7px;
+    cursor: pointer;
+}
+.WriteResume-projectbox__inputbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.WriteResume-projectbox__inputproject{
+    font-size: 1.2rem;
+    border: none;
+    width: 30vw;
+    border-bottom: 3px solid #03580B;
+    padding-bottom: 0 0 0 3px;
+    text-align: center;
+    &:focus{
+        outline: none;
+        border-bottom:3px solid black;
+    }
+}
+.WriteResume-projectdetailbox{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+.WriteResume-detailtitlebox{
+    width: 40vw;
+    display: flex;
+    justify-content: start;
+}
+.WriteResume-projectdetilbox__projectdetaillcontents{
+    border-top: 5px solid #03580B;
+    border-bottom: 5px solid #03580B;
+    font-size: 1.2rem;
+    width: 40vw;
+    margin-bottom: 2vw;
+    &:focus{
+        outline: none;
+    }
+}
+
+.WriteResume-saveresume{
+    background-color: #077912;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
 }
