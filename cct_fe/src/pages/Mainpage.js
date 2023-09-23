@@ -6,6 +6,7 @@ import FilterPopup from "../components/FilterPopup";
 import ResumePopup from "../components/ResumePopup";
 import { useNavigate } from "react-router-dom";
 import filterIcon from "../img/filterIcon.png";
+import Modal from "react-modal";
 
 export default function Mainpage (){
     const [popup, setPopup] = useState(false);  // 팝업창 오픈 여부
@@ -50,6 +51,7 @@ export default function Mainpage (){
     };
 
     const showFilterPopup = () => {   // 필터창 오픈
+        console.log("필터팝업열림");
         setFilter(true);
     };
 
@@ -101,10 +103,14 @@ export default function Mainpage (){
                                 popup={popup}
                             />
                         </span>
-                        </div> {/* 상단 컨텐츠: 설명, 내이력보기 구역 */}
+                    </div> {/* 상단 컨텐츠: 설명, 내이력보기 구역 */}
                     <div className="company-top-content-bottom"> {/* 상단 컨텐츠: 필터링 버튼 구역 */}
                        <button className="company-top-content-bottom-filter" onClick={showFilterPopup}>
-                                <img src={filterIcon} alt="필터"></img>
+                                <img src={filterIcon} 
+                                    alt="필터"
+                                    onClick={e => e.stopPropagation()} 
+                                    style={{zIndex: -1}}>
+                                    </img>
                        </button>
                        
                     <FilterPopup            // 필터 팝업
@@ -116,7 +122,7 @@ export default function Mainpage (){
                         </div> 
                 </div>
                 
-                <div className="company-bottom-content"> {/* 회사 공고 페이지 하단 컨텐츠 구역 */}
+                <div className="company-bottom-content" style={{zIndex: -1}}> {/* 회사 공고 페이지 하단 컨텐츠 구역 */}
                     <div className="company-bottom-content-notice"> {/* 회사 공고 페이지 하단 컨텐츠 이력서 구역 */}
                         {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
                         <div key={item.Id} className= "company-bottom-content-notice" >  {/* 리스트 목록 */}

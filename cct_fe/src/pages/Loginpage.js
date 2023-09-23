@@ -43,7 +43,7 @@ export default function Loginpage() {
         })
     }
     return (
-        <div className="Loginpage margin_top">
+        <div className="Loginpage">
              <div className="Loginpage-loginbox">
                 <h1 className="Loginpage-loginbox__title">login</h1>
             </div>

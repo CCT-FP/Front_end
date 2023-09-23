@@ -3,7 +3,6 @@
     flex-direction: column;
     text-align: center;
     font-weight: bold;
-    
 }
 .filter-popup button{
     background-color: #077912;
@@ -44,3 +43,8 @@
 .small-btn{
     margin-left: 90%;
 }
+input.img-button {
+    background: url("https://i.ibb.co/3493r17/cat.jpg") no-repeat;
+    width: 180px;
+    height: 180px;
+  }
