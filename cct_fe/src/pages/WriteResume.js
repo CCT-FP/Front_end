@@ -85,7 +85,10 @@ export default function WriteResume(){
             alert('저장되었습니다.')                                            // 저장 알림
             navigate('/mypage')                                                 // mypage로 이동
         })
-          .catch(err => console.log(err))                                       // 에러있을 때
+          .catch(err => {
+            console.log(err)
+            alert('이미 작성한 이력서가 있습니다.')
+        })                                       // 에러있을 때
     }
 
     return(
@@ -118,7 +121,7 @@ export default function WriteResume(){
                         <div className="WriteReume-projectbox__box">
                             <button type="button" className="addprojectbtn" disabled={disabled} onClick={Addproject}>+</button>
                             <div className="WriteResume-projectbox__inputbox">
-                                <input type="text" className="WriteResume-projectbox__inputproject" placeholder="언어/기간(개월수)/간단한 내역" onChange={Inputproject} value={project}/>
+                                <input type="text" className="WriteResume-projectbox__inputproject" placeholder="언어/기간(숫자만, 개월수)/간단한 내역" onChange={Inputproject} value={project}/>
                             </div>
                         </div>
                     </div>
