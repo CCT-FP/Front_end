@@ -1,9 +1,7 @@
-.top_margin{
-    margin-top: 10vh;
-}
+
 
 .Loginpage{
-
+    margin-top: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
