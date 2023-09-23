@@ -96,16 +96,16 @@ export default function WriteNotice(){
     return(
         <div className="WriteNotice top_margin">
             <div className="WriteNotice-titlebox">
-                <h1 className="WriteNotice-titlebox__title">이력서</h1>
+                <h1 className="WriteNotice-titlebox__title">공고 작성</h1>
             </div>
             <div className="WriteNotice-introbox">
                 <h3 className="WriteNotice-introbox__introlabel">한줄 소개 : </h3>
                 <div className="WriteNotice-introbox__inputbox">
-                    <input type="text" className="WriteNotice-introbox__inputintro" placeholder="[사용언어/기간/지역/간단한 소개]로 적어주세요." onChange={Inputintro}/>
+                    <input type="text" className="WriteNotice-introbox__inputintro" placeholder="[사용언어/기간/지역/간단한 소개]" onChange={Inputintro}/>
                 </div>
             </div>
             <div className="WriteNotice-project">
-            <button className="WriteNotice-projectlabel" onClick={showFilterPopup}>키워드 입력</button> {/* filter팝업 오픈 */}
+            <button className="WriteNotice-projectlabel" onClick={showFilterPopup}>키워드 선택</button> : {/* filter팝업 오픈 */}
             <div>
             {/* <Calendar onChange={onChange} value={value} />
          <div className="text-gray-500 mt-4">

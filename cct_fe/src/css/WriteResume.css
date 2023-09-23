@@ -10,7 +10,7 @@
 }
 .WriteResume-titlebox{
     width: 60vw;
-    border-bottom: 3px solid #03580B;
+    border-bottom: 3px solid #00C49A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
     display: flex;
     height: auto;
     width: auto;
-    border-bottom: 3px solid #03580B;
+    border-bottom: 3px solid #00C49A;
 }
 .WriteResume-introbox__inputintro{
     font-size: 1.2rem;
@@ -44,7 +44,7 @@
     }
 }
 .deletebtn{
-    border: 2px solid #03580B;
+    border: 2px solid #00C49A;
     background-color: white;
     color: #bcd3be;
     border-radius: 50%;
@@ -84,9 +84,9 @@
     margin-bottom: 2.5vw;
 }
 .addprojectbtn{
-    border: 2px solid #03580B;
+    border: 2px solid #00C49A;
     background-color: white;
-    color: #03580B;
+    color: #00C49A;
     border-radius: 50%;
     padding: 0 7px 0 7px;
     cursor: pointer;
@@ -100,7 +100,7 @@
     font-size: 1.2rem;
     border: none;
     width: 30vw;
-    border-bottom: 3px solid #03580B;
+    border-bottom: 3px solid #00C49A;
     padding-bottom: 0 0 0 3px;
     text-align: center;
     &:focus{
@@ -121,8 +121,8 @@
     justify-content: start;
 }
 .WriteResume-projectdetilbox__projectdetaillcontents{
-    border-top: 5px solid #03580B;
-    border-bottom: 5px solid #03580B;
+    border-top: 5px solid #00C49A;
+    border-bottom: 5px solid #00C49A;
     font-size: 1.2rem;
     width: 40vw;
     margin-bottom: 2vw;
@@ -132,7 +132,7 @@
 }
 
 .WriteResume-saveresume{
-    background-color: #077912;
+    background-color: #00C49A;
     padding: 10px 40px;
     border: none;
     border-radius: 15px;
