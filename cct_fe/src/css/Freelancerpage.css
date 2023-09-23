@@ -46,7 +46,10 @@
     color: white;
     margin: 0 1rem;
     
+<<<<<<< HEAD
+=======
     right: -25%;
+>>>>>>> 76403b1df1189169ad2a8a056f5231ec15f71a69
 }
 .freelancer-top-content-bottom{
     border-bottom: 1px solid #00C49A; /* 상단 테두리 스타일 */

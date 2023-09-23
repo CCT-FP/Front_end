@@ -91,17 +91,20 @@ export default function CompanyUser(){
             data: userCheck
         })
         .then(res => {
-            console.log(res.data)
-            setIderrmsg('사용 가능한 아이디입니다.')
-            setIdCheck(true)
-            setIdMsgcolor('#077912')
+            console.log(res.data.message)
+            if(res.data.message !== 'FAIL'){
+                setIderrmsg('사용 가능한 아이디입니다.')
+                setIdCheck(true)
+                setIdMsgcolor('#077912')
+            } else{
+                setIderrmsg('이미 사용중인 아이디입니다.')
+                setIdMsgcolor('red')
+                setIdCheck(false)   
+            }
             // setIdCheck(res.data.idcheck)
         })
         .catch(err => {
             console.log(err)
-            setIderrmsg('이미 사용 중인 아이디입니다.')
-            setIdMsgcolor('red')
-            setIdCheck(false)
             // setIdCheck()
         })
     }
@@ -114,16 +117,19 @@ export default function CompanyUser(){
         })
         .then(res => {
             console.log(res.data)
-            setEmailmsg('사용 가능한 이메일입니다.')
-            setEmailmsgColor('#077912')
-            setEmailCheck(true)
+            if(res.data.message !== 'FAIL'){
+                setEmailmsg('사용 가능한 이메일입니다.')
+                setEmailmsgColor('#077912')
+                setEmailCheck(true)
+            }else{
+                setEmailmsg('이미 사용중인 이메일입니다.')
+                setEmailmsgColor('red')
+                setEmailCheck(false)
+            }
             // setEmailCheck(res.data.idcheck)
         })
         .catch(err => {
             console.log(err)
-            setEmailmsg('이미 사용중인 이메일입니다.')
-            setEmailmsgColor('red')
-            setEmailCheck(false)
             // setEmailCheck()
         })
     }
@@ -165,20 +171,23 @@ export default function CompanyUser(){
         userCheck["userCheck"] = userPhone
         axios({
             method : 'post',
-            url : '//localhost:8080/user/phoneCheck',
+            url : '//3.37.93.210:8080/user/phoneCheck',
             data : userCheck
         })
         .then(res => {
             console.log(res.data)
-            setPhonemsg('사용 가능한 번호입니다.')
-            setPhonemsgColor('#077912')
-            setPhoneCheck(true)
+            if(res.data.message !== 'FAIL'){
+                setPhonemsg('사용 가능한 번호입니다.')
+                setPhonemsgColor('#077912')
+                setPhoneCheck(true)
+            } else{
+                setPhonemsg('이미 사용중인 번호입니다.')
+                setPhonemsgColor('red')
+                setPhoneCheck(false)
+            }
         })
         .catch(err => {
-            console.log(err)
-            setPhonemsg('이미 사용중인 번호입니다.')
-            setPhonemsgColor('red')
-            setPhoneCheck(false)
+            console.log(err)    
         })
     }
     return(
@@ -246,7 +255,7 @@ export default function CompanyUser(){
                             <div className="joinform-joinbody__joinbox">
                                 <label className="joinform-joinbody__joinbox--label">휴대폰</label>
                                 <div className="joinform-joinbody__joinbox--box">
-                                    <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum} onBlur={CheckPhone}/>
+                                    <input type='text' className="inputuserinfo joinform-joinbody__joinbox--userinfoTel" placeholder="전화번호를 입력하세요." onChange={InputPhonenum} onBlur={CheckPhone} maxLength={11} minLength={11}/>
                                 </div>
                             </div>
                             <small className="errmsg" style={{color : phonemsgcolor}}>

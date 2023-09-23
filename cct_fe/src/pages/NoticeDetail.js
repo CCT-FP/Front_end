@@ -21,7 +21,7 @@ export default function NoticeDetail () {
         const companyList = async () => {
             try { 
 
-                const response = await axios.get(`//localhost:8080/listPost`)
+                const response = await axios.get(`//3.37.93.210:8080/listPost`)
                 const data = response.data;   
                 console.log(data)
                 setList(data)

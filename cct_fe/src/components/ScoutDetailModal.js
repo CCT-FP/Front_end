@@ -7,7 +7,7 @@ export default function ScoutDetailModal({ isOpen, closeModal, item }) {
   useEffect(()=> {
     axios({
         method: 'get',
-        url : '//localhost:8080/scout/read',
+        url : '//3.37.93.210:8080/scout/read',
         data : item
     })
     .then(res => console.log(res.data))

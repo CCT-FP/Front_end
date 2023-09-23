@@ -181,7 +181,7 @@ export default function Scout ({isOpen, setIsopen}) {
     if (isreceive) {
       axios({
         method: 'get',
-        url: `//localhost:8080/scout/receiver/${window.localStorage.getItem('userid')}`
+        url: `//3.37.93.210:8080/scout/receiver/${window.localStorage.getItem('userid')}`
       })
         .then(res => {
           setReceivelist(res.data)
@@ -190,7 +190,7 @@ export default function Scout ({isOpen, setIsopen}) {
     } else {
       axios({
         method: 'get',
-        url: `//localhost:8080/scout/sender/${window.localStorage.getItem('userid')}`
+        url: `//3.37.93.210:8080/scout/sender/${window.localStorage.getItem('userid')}`
       })
         .then(res => {
           setSenderlist(res.data)
