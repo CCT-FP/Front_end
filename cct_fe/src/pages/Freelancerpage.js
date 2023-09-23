@@ -21,9 +21,9 @@ export default function Freelancerpage (){
         const resumeList = async () => {
             try { 
 
-                const response = await axios.get(`//localhost:8080/resumes`,{
+                const response = await axios.get(`//3.37.93.210:8080/resumes`,{
                     headers: {
-                    'AAuthorization': window.localStorage.getItem('token')
+                    'Authorization': window.localStorage.getItem('token')
                     }
                   })
                 const data = response.data;   

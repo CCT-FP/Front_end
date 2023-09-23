@@ -37,18 +37,20 @@ export default function Headerbar(){
         setIslogined(false)
         axios({
         method : "put",
-        url : "//localhost:8080/user/logout"
+        url : "//3.37.93.210/user/logout"
         })
         .then(res => {
         })
         .catch(err => console.log(err))
     }
+    const MovetoMain = e => {
+        navigate('/')
+    }
     return(
         <>
             <div className="headerbar">
                 <header className="headerbar-header">
-                    <div className="headerbar-logo">
-                        로고
+                    <div className="headerbar-logo" onClick={MovetoMain}>
                         {/*로고이미지 backgrondimg로 할듯 아니면 그냥 글씨*/}
                     </div>
                     <div className="headerbar-mypage" onClick={MovetoMypage} title="마이페이지"><BsPersonCircle size={40} /></div>

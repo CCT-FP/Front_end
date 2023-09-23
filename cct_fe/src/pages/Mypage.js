@@ -25,7 +25,7 @@ export default function Mypage(){
         const companyList = async () => {
             try { 
                 
-                const response = await axios.get(`//localhost:8080/checkPost`)
+                const response = await axios.get(`//3.37.93.210:8080/checkPost`)
                 const data = response.data;   
                 console.log(data)
                 setNoticeList(data)

@@ -48,8 +48,7 @@
     border-radius: 0.4rem;
     color: white;
     margin: 0 1rem;
-    position: relative;
-    right: -25%;
+    
 }
 .freelancer-top-content-bottom{
     border-bottom: 1px solid #077912; /* 상단 테두리 스타일 */

@@ -16,7 +16,7 @@ export default function FreelancerDetail(){
     useEffect(() => {   
         axios({
             method : 'get',
-            url : `//localhost:8080/resume/${userId}`,
+            url : `//3.37.93.210:8080/resume/${userId}`,
         })
         .then(res => {
             setDetaillist(res.data)

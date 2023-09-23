@@ -23,7 +23,7 @@ export default function MypageCompany(){
         const companyList = async () => {
             try { 
                 
-                const response = await axios.get(`//localhost:8080/post/{userId}`)
+                const response = await axios.get(`//3.37.93.210:8080/post/{userId}`)
                 const data = response.data;   
                 console.log(data)
                 setNoticeList(data)
@@ -49,7 +49,7 @@ export default function MypageCompany(){
         const resumeList = async () => {
             try { 
 
-                const response = await axios.get(`//localhost:8080/checkResume`)
+                const response = await axios.get(`//3.37.93.210:8080/checkResume`)
                 const data = response.data;   
                 console.log(data)
                 setResumeList(data)

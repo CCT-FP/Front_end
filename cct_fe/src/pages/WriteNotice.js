@@ -87,7 +87,10 @@ export default function WriteNotice(){
         e.preventDefault()
         axios({
             method : 'post',
-            url : '//localhost:8080/jobPost',
+            url : '//3.37.93.210:8080/jobPost',
+            headers : {
+                "Authorization": `Bearer ${window.localStorage.getItem('token')}`,
+            }, 
             data : Notice
         }).then(res => console.log(res))
           .catch(err => console.log(err))

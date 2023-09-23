@@ -53,7 +53,7 @@ export default function FreelancerUser(){
     const CheckId = e => {
         axios({
             method : 'post',
-            url : '//localhost:8080/user/idcheck',
+            url : '//3.37.93.210:8080/user/idcheck',
             data: userId
         })
         .then(res => {
@@ -68,7 +68,7 @@ export default function FreelancerUser(){
     const CheckEmail = e => {
         axios({
             method : 'post',
-            url : '//localhost:8080/user/idcheck',
+            url : '//3.37.93.210:8080/user/idcheck',
             data: userEmail
         })
         .then(res => {
@@ -93,7 +93,7 @@ export default function FreelancerUser(){
 
         axios({
             method : 'post',
-            url : '//localhost:8080/user/join',
+            url : '//3.37.93.210:8080/user/join',
             data : UserInfo
         }).then(res => {
             console.log(res.data)

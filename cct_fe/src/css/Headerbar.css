@@ -53,3 +53,12 @@
 .MoveToScoutbtn{
     cursor: pointer;
 }
+.headerbar-logo{
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 8vw;
+    height: 2vw;
+    background-size: 8vw 2vw;
+    cursor: pointer;
+}
