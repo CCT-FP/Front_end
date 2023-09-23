@@ -1,3 +1,75 @@
 .top_margin{
     margin-top: 10vh;
 }
+.Freelancerdetail{
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10vh 0 10vh 0;
+}
+.freelancerdetail-titlebox{
+    width: 50vw;
+    height: 20vw;
+    background-color: #c6d9c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+}
+.freelancerdetail-title{
+    color: rgb(255, 255, 255);
+}
+.MovetoNote-box{
+    width: 50vw;
+    display: flex;
+    justify-content: end;
+    background-color: #c6d9c8;
+    border-radius: 0 0 20px 20px;
+}
+.MovetoNotebtn{
+    border: none;
+    background-color: #c6d9c8;
+    cursor: pointer;
+    border-radius: 0 0 20px 0;
+}
+.project-recordbox{
+    margin-top: 2vw;
+    width: 50vw;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 2vh;
+}
+.project-recordlist{
+    width: 50vw;
+    display: flex;
+    justify-content: start;
+}
+.leftside-img{
+    width: 10vw;
+    margin-right: 2vw;
+}
+.rightside-projectlist{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30vw;
+}
+.project-detailtitle{
+    display: flex;
+    width: 50vw;
+    justify-content: start;
+}
+.project-detailbox{
+    width: 50vw;
+    height: 30vh;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    border: 5px solid #03580B;
+}
+.project-detailbox__text{
+    font-size: 1.2rem;
+}
