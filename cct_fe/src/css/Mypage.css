@@ -1,14 +1,11 @@
-.top_margin{
+/* .top_margin{
     margin-top: 10vh;
 }
-
 .company-content-body {
     display: flex;
     flex-direction: column;
     margin-top: 5rem;
-    
 }
-
 .company-top-content {
     display: flex;
     flex-direction: column;
@@ -24,7 +21,7 @@
 
 .content-margin {
     margin: 5rem 0; /* 왼쪽과 오른쪽의 마진을 0으로 설정 */
-    margin-top: 5rem;
+    /*margin-top: 5rem;
 }
 
 .margin {
@@ -45,9 +42,9 @@
     width: 70vw;
     height: 30vh;
     border-top: 1px solid #077912; /* 상단 테두리 스타일 */
-  }
+  /*}
 
 li{
     list-style: none;
 }
-  
+   */

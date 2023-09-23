@@ -52,6 +52,7 @@ export default function Freelancerpage (){
     };
 
     const showFilterPopup = () => {   // 필터창 오픈
+        console.log("필터 팝업 열림");
         setFilter(true);
     };
 
@@ -111,7 +112,9 @@ export default function Freelancerpage (){
                         </div> {/* 상단 컨텐츠: 설명, 내이력보기 구역 */}
                     <div className="freelancer-top-content-bottom"> {/* 상단 컨텐츠: 필터링 버튼 구역 */}
                        <button className="freelancer-top-content-bottom-filter" onClick={showFilterPopup}>
-                            <img src={filterIcon} alt="필터"></img>
+                            <img src={filterIcon} 
+                                alt="필터"
+                                onClick={e => e.stopPropagation()} style={{zIndex: -2}}></img>
                        </button>
                        {nofilter}
            
@@ -124,7 +127,7 @@ export default function Freelancerpage (){
                         </div> 
                 </div>
 
-                <div className="freelancer-bottom-content"> {/* 프리랜서 페이지 하단 컨텐츠 구역 */}
+                <div className="freelancer-bottom-content" style={{zIndex: -1}}> {/* 프리랜서 페이지 하단 컨텐츠 구역 */}
                     <div className="freelancer-bottom-content-resume"> {/* 프리랜서 페이지 하단 컨텐츠 이력서 구역 */}
                     {filter ? (filterList.map((item) => (   // 필터링 조건이 있다면 filterList 출력 (필터링된 리스트 출력)
                    <div key={item.userId} className= "freelancer-bottom-content-resume" >  {/* 리스트 목록 */}
