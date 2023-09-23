@@ -24,13 +24,13 @@
     margin-bottom: 10vh;
 }
 .Checkedbox-agreebox{
-    border: 3px solid #03580b;
+    border: 3px solid #00C49A;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #03580b;
+    border-bottom: 1px solid #00C49A;
 }
 .Checkedbox-checkbox{
-    border-top: 3px solid #03580b;
+    border-top: 3px solid #00C49A;
     padding: 0.3rem 2rem 0.3rem 2rem;
     display: flex;
     background-color: #a2c2a5;
@@ -50,14 +50,14 @@
         width: 12px;
     }
     &::-webkit-scrollbar-thumb{
-        background-color: #03580b;
+        background-color: #00C49A;
         height: 5vh;
         border-radius: 50px;
         
     }
 }
 .MovetoInputUserInfo{
-    background-color: #077912;
+    background-color: #00C49A;
     padding: 10px 40px;
     border: none;
     border-radius: 15px;

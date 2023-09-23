@@ -24,13 +24,10 @@
     justify-content: space-between;
     margin-left: 10px;
 }
-/* 포지션을 상대적으로 변경 */
-.company-top-content-explanation{
-    margin-top: 50px;
-}
+
 /* 부분강조 텍스트 */
 .color-text{
-    color: #077912;
+    color: #00C49A;
     font-size: 20px;
     font-weight: bold;
 }
@@ -43,16 +40,16 @@
 .seenotice {
     width: 13vw;
     height: 7vh;
-    background-color: #077912;
+    background-color: #00C49A;
     border: none;
     border-radius: 0.4rem;
     color: white;
-    margin: 0 5rem;
-    position: relative;
-    right: -30%;
+    margin: 0 1rem;
+    right: -25%;
+   
 }
 .company-top-content-bottom{
-    border-bottom: 1px solid #077912; /* 상단 테두리 스타일 */
+    border-bottom: 1px solid #00C49A; /* 상단 테두리 스타일 */
 }
 .company-top-content-bottom button{
     border-color: black;
@@ -72,7 +69,7 @@
     width: 70vw;
     height: 20vh;
     margin-top: 5rem;
-    border-bottom: 1px solid #077912; /* 상단 테두리 스타일 */
+    border-bottom: 1px solid #00C49A; /* 상단 테두리 스타일 */
   }
 /* 리스트 스타일 없애기기 */
 li{

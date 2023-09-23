@@ -10,7 +10,7 @@
 }
 .joinbox-titlebox{
     width: 60vw;
-    border-bottom: 3px solid #03580B;
+    border-bottom: 3px solid #00C49A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@
     align-items: center;
     width: 25vw;
     height: 35vh;
-    border: 5px solid #03580B;
+    border: 5px solid #00C49A;
     border-radius: 50px;
     cursor: pointer;
     &:hover{
@@ -59,9 +59,9 @@
     align-items: center;
     width: 25vw;
     height: 35vh;
-    border: 5px solid #03580B; 
+    border: 5px solid #00C49A; 
     border-radius: 50px;
-    background-color: #03580B;
+    background-color: #00C49A;
     cursor: pointer;
     &:hover{
         transform: scale(105%);

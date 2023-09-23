@@ -1,0 +1,33 @@
+.popup{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    
+}
+.close-btn{
+    background-color: #00C49A;
+    border: 2px solid black;
+    color: white;
+    float: right;
+    width: 25px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.resume-popup-list{
+    height: 80vh;
+}
+.resume-list-box{
+    border-top: 1px solid #00C49A;
+    display: flex;
+    flex-direction: column;
+}
+.resume-list-box li{
+    list-style: none;
+}
+.popup button{
+    background-color: #00C49A;
+    border: 2px solid black;
+    color: white;
+    height: 30px;
+}
