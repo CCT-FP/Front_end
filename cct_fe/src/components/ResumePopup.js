@@ -8,6 +8,7 @@ import '../css/ResumePopup.css';
 export default function ResumePopup ({setPopup, popup}) {
     const [myList, setMyList] = useState([]);
     const Id = window.localStorage.getItem('userid');
+    const role = window.localStorage.getItem('role');
     useEffect(() => {
 
         //리스트 불러오기
@@ -93,9 +94,13 @@ export default function ResumePopup ({setPopup, popup}) {
                 </div>
             ))}
             </div>
-            <Link to = "/resume/writeresume">      {/* 이력서 작성 페이지로 이동 */}
+            {role ? <Link to = "/notice/writenotice">
                 <button className='get-write-resume'>수정하러 가기</button>
-            </Link> 
+                </Link> : 
+                <Link to = "/resume/writeresume">      {/* 이력서 작성 페이지로 이동 */}
+                <button className='get-write-resume'>수정하러 가기</button>
+            </Link> }
+             
         </div>
         </Modal>
     )

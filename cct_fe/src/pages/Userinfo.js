@@ -4,8 +4,10 @@ import CompanyUser from "../components/CompanyUser";
 import FreelancerUser from "../components/FreelancerUser"
 
 export default function Userinfo(){
-    const location = useLocation()
-    const selected = location.state.selected
+    const location = useLocation();
+    const selected = location.state.selected;
+    window.localStorage.setItem("role", selected);
+    
     useEffect(()=>{
         console.log(selected)
     },[])
